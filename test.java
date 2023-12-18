@@ -34,6 +34,7 @@ public class test implements ActionListener{
 		
 		thescroll.setSize(238,524);
 		thescroll.setLocation(1010,66);
+		textarea.setEnabled(false);
 		mainpanel.add(thescroll);
 		
 		sendfield.setSize(238,48);
@@ -46,12 +47,12 @@ public class test implements ActionListener{
 		firebutton.addActionListener(this);
 		mainpanel.add(firebutton);
 		
-		rowlist.setSize(163,47);
+		rowlist.setSize(163,30);
 		rowlist.setLocation(570,83);
 		rowlist.addActionListener(this);
 		mainpanel.add(rowlist);
 		
-		collist.setSize(163,47);
+		collist.setSize(163,30);
 		collist.setLocation(759,83);
 		collist.addActionListener(this);
 		mainpanel.add(collist);
