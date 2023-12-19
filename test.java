@@ -6,9 +6,10 @@ import java.io.*;
 
 public class test implements ActionListener{
 	//Properties
-	
+	//Font
+	Font text = null;
 	//Frame and Panels
-	JFrame theframe = new JFrame("Battleships");
+	JFrame theframe = new JFrame("Battleship");
 	apanel mainpanel = new apanel(); 
 	JPanel homepanel = new JPanel();
 	
@@ -45,6 +46,7 @@ public class test implements ActionListener{
 	}
 	
 	public test(){
+		text = new Font("arial", Font.BOLD, 20);
 		mainpanel.setLayout(null);
 		mainpanel.setPreferredSize(new Dimension(1280,780));
 		
@@ -60,6 +62,7 @@ public class test implements ActionListener{
 		
 		firebutton.setSize(163,47);
 		firebutton.setLocation(678,607);
+		firebutton.setFont(text);
 		firebutton.addActionListener(this);
 		mainpanel.add(firebutton);
 		
@@ -78,21 +81,26 @@ public class test implements ActionListener{
 
 		playbutton.setSize(497,80);
 		playbutton.setLocation(390, 287);
+		playbutton.setFont(text);
 		playbutton.addActionListener(this);
 		homepanel.add(playbutton);
 
 		helpbutton.setSize(497,80);
 		helpbutton.setLocation(390, 427);
+		helpbutton.setFont(text);
 		helpbutton.addActionListener(this);
 		homepanel.add(helpbutton);
 
 		quitbutton.setSize(497,80);
 		quitbutton.setLocation(390, 567);
+		quitbutton.setFont(text);
 		quitbutton.addActionListener(this);
 		homepanel.add(quitbutton);
 
+		text = new Font("arial", Font.BOLD, 60);
 		battleship.setSize(435, 95);
-		battleship.setLocation(421,124);
+		battleship.setLocation(447,154);
+		battleship.setFont(text);
 		homepanel.add(battleship);
 
 		theframe.setContentPane(homepanel);
