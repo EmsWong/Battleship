@@ -10,6 +10,7 @@ public class test implements ActionListener{
 	//Frame and Panels
 	JFrame theframe = new JFrame("Battleships");
 	apanel mainpanel = new apanel(); 
+	JPanel homepanel = new JPanel();
 	
 	//Text area
 	JTextArea textarea = new JTextArea();
@@ -23,9 +24,24 @@ public class test implements ActionListener{
 	JComboBox collist = new JComboBox(strCol);
 	JButton firebutton = new JButton("FIRE");
 	
-	
+	//Home screen
+	JButton playbutton = new JButton("Play");
+	JButton helpbutton = new JButton("Help");
+	JButton quitbutton = new JButton("Quit");
+	JLabel battleship = new JLabel("BATTLESHIP");
+
 	public void actionPerformed(ActionEvent evt){
-		
+		if(evt.getSource() == playbutton){
+			theframe.setContentPane(mainpanel);
+			theframe.pack();
+			theframe.repaint();
+			
+		}
+		if(evt.getSource() == firebutton){
+			String strRow = (String)rowlist.getSelectedItem();
+			String strCol = (String)collist.getSelectedItem();
+			System.out.println(strRow+strCol);
+		}
 	}
 	
 	public test(){
@@ -56,8 +72,30 @@ public class test implements ActionListener{
 		collist.setLocation(759,83);
 		collist.addActionListener(this);
 		mainpanel.add(collist);
-		
-		theframe.setContentPane(mainpanel);
+
+		homepanel.setLayout(null);
+		homepanel.setPreferredSize(new Dimension(1280,780));
+
+		playbutton.setSize(497,80);
+		playbutton.setLocation(390, 287);
+		playbutton.addActionListener(this);
+		homepanel.add(playbutton);
+
+		helpbutton.setSize(497,80);
+		helpbutton.setLocation(390, 427);
+		helpbutton.addActionListener(this);
+		homepanel.add(helpbutton);
+
+		quitbutton.setSize(497,80);
+		quitbutton.setLocation(390, 567);
+		quitbutton.addActionListener(this);
+		homepanel.add(quitbutton);
+
+		battleship.setSize(435, 95);
+		battleship.setLocation(421,124);
+		homepanel.add(battleship);
+
+		theframe.setContentPane(homepanel);
 		theframe.pack();
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		theframe.setResizable(false);
