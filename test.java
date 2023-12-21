@@ -13,6 +13,7 @@ public class test implements ActionListener{
 	JFrame theframe = new JFrame("Battleship");
 	apanel mainpanel = new apanel(); 
 	JPanel homepanel = new JPanel();
+	JPanel joinpanel = new JPanel();
 	
 	//Text area
 	JTextArea textarea = new JTextArea();
@@ -32,9 +33,21 @@ public class test implements ActionListener{
 	JButton quitbutton = new JButton("Quit");
 	JLabel battleship = new JLabel("BATTLESHIP");
 
+	//Join screen
+	JTextField username = new JTextField();
+	JTextField ip = new JTextField();
+	JTextField port = new JTextField();
+	JButton host = new JButton("Host");
+	JButton join = new JButton("Join");
+	JLabel userlabel = new JLabel("Username");
+	JLabel iplabel = new JLabel("IP");
+	JLabel portlabel = new JLabel("Port");
+	JLabel title = new JLabel("BATTLESHIP");
+
+
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource() == playbutton){
-			theframe.setContentPane(mainpanel);
+			theframe.setContentPane(joinpanel);
 			theframe.pack();
 			theframe.repaint();
 		}
@@ -106,6 +119,60 @@ public class test implements ActionListener{
 		battleship.setLocation(447,154);
 		battleship.setFont(text);
 		homepanel.add(battleship);
+
+		joinpanel.setLayout(null);
+		joinpanel.setPreferredSize(new Dimension(1280,780));
+
+		title.setSize(435, 95);
+		title.setLocation(450,124);
+		title.setFont(text);
+		joinpanel.add(title);
+
+		text = new Font("arial", Font.BOLD, 32);
+		userlabel.setSize(310, 51);
+		userlabel.setLocation(602, 236);
+		userlabel.setFont(text);
+		joinpanel.add(userlabel);
+
+		iplabel.setSize(289, 40);
+		iplabel.setLocation(470, 410);
+		iplabel.setFont(text);
+		joinpanel.add(iplabel);
+
+		portlabel.setSize(289, 40);
+		portlabel.setLocation(758, 410);
+		portlabel.setFont(text);
+		joinpanel.add(portlabel);
+
+		host.setSize(251, 80);
+		host.setLocation(387, 558);
+		host.setFont(text);
+		host.addActionListener(this);
+		joinpanel.add(host);
+
+		join.setSize(251, 80);
+		join.setLocation(677, 558);
+		join.setFont(text);
+		join.addActionListener(this);
+		joinpanel.add(join);
+
+		username.setSize(542, 80);
+		username.setLocation(386, 280);
+		username.setFont(text);
+		username.addActionListener(this);
+		joinpanel.add(username);
+
+		ip.setSize(251, 80);
+		ip.setLocation(389, 450);
+		ip.setFont(text);
+		ip.addActionListener(this);
+		joinpanel.add(ip);
+
+		port.setSize(251, 80);
+		port.setLocation(677, 450);
+		port.setFont(text);
+		port.addActionListener(this);
+		joinpanel.add(port);
 
 		theframe.setContentPane(homepanel);
 		theframe.pack();
