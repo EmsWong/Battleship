@@ -45,6 +45,12 @@ public class test implements ActionListener, KeyListener{
 	JLabel title = new JLabel("BATTLESHIP");
 	SuperSocketMaster ssm = null;
 
+	//Waiting Panel
+	JPanel waitingpanel = new JPanel();
+
+	//Theme Panel 
+	JPanel themepanel = new JPanel();
+
 
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource() == playbutton){
@@ -66,11 +72,13 @@ public class test implements ActionListener, KeyListener{
 			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
 			ssm.connect();
 			ip.setText(ssm.getMyAddress());
+			theframe.setContentPane(themepanel);
 		}
 
 		if(evt.getSource() == join){
 			ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
 			ssm.connect();
+			theframe.setContentPane(waitingpanel);
 		}
 	}
 
