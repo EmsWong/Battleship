@@ -43,6 +43,7 @@ public class test implements ActionListener, KeyListener{
 	JLabel iplabel = new JLabel("IP");
 	JLabel portlabel = new JLabel("Port");
 	JLabel title = new JLabel("BATTLESHIP");
+	SuperSocketMaster ssm = null;
 
 
 	public void actionPerformed(ActionEvent evt){
@@ -59,6 +60,17 @@ public class test implements ActionListener, KeyListener{
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
 			System.out.println(strRow+strCol);
+		}
+
+		if(evt.getSource() == host){
+			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
+			ssm.connect();
+			ip.setText(ssm.getMyAddress());
+		}
+
+		if(evt.getSource() == join){
+			ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
+			ssm.connect();
 		}
 	}
 
