@@ -72,6 +72,7 @@ public class test implements ActionListener, KeyListener{
 			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
 			ssm.connect();
 			ip.setText(ssm.getMyAddress());
+			//wait until response from client needed
 			theframe.setContentPane(themepanel);
 		}
 
