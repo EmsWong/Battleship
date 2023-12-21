@@ -14,8 +14,10 @@ public class test implements ActionListener, KeyListener{
 	apanel mainpanel = new apanel(); 
 	JPanel homepanel = new JPanel();
 	JPanel joinpanel = new JPanel();
+	JPanel waitingpanel = new JPanel();
+	JPanel themepanel = new JPanel();
 	
-	//Text area
+	//Chat Area
 	JTextArea textarea = new JTextArea();
 	JScrollPane thescroll = new JScrollPane(textarea);
 	JTextField sendfield = new JTextField();
@@ -45,11 +47,10 @@ public class test implements ActionListener, KeyListener{
 	JLabel title = new JLabel("BATTLESHIP");
 	SuperSocketMaster ssm = null;
 
-	//Waiting Panel
-	JPanel waitingpanel = new JPanel();
-
-	//Theme Panel 
-	JPanel themepanel = new JPanel();
+	//Themes
+	JButton standardbutton = new JButton("Standard");
+	JButton carsbutton = new JButton("Cars");
+	JButton spacebutton = new JButton("Space");
 
 
 	public void actionPerformed(ActionEvent evt){
@@ -74,12 +75,16 @@ public class test implements ActionListener, KeyListener{
 			ip.setText(ssm.getMyAddress());
 			//wait until response from client needed
 			theframe.setContentPane(themepanel);
+			theframe.pack();
+			theframe.repaint();
 		}
 
 		if(evt.getSource() == join){
 			ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
 			ssm.connect();
 			theframe.setContentPane(waitingpanel);
+			theframe.pack();
+			theframe.repaint();
 		}
 	}
 
@@ -110,9 +115,12 @@ public class test implements ActionListener, KeyListener{
 	
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
+		
+		//Main Panel
 		mainpanel.setLayout(null);
 		mainpanel.setPreferredSize(new Dimension(1280,780));
 		
+		//Chat Area
 		thescroll.setSize(238,524);
 		thescroll.setLocation(1010,66);
 		textarea.setEnabled(false);
@@ -123,12 +131,14 @@ public class test implements ActionListener, KeyListener{
 		sendfield.addActionListener(this);
 		mainpanel.add(sendfield);
 		
+		//Fire button
 		firebutton.setSize(163,47);
 		firebutton.setLocation(678,607);
 		firebutton.setFont(text);
 		firebutton.addActionListener(this);
 		mainpanel.add(firebutton);
 		
+		//Row and Column Drop down lists
 		rowlist.setSize(163,30);
 		rowlist.setLocation(570,83);
 		rowlist.addActionListener(this);
@@ -139,9 +149,11 @@ public class test implements ActionListener, KeyListener{
 		collist.addActionListener(this);
 		mainpanel.add(collist);
 
+		//Home Panel
 		homepanel.setLayout(null);
 		homepanel.setPreferredSize(new Dimension(1280,780));
 
+		//Play, Help, and Quit Button
 		playbutton.setSize(497,80);
 		playbutton.setLocation(390, 287);
 		playbutton.setFont(text);
@@ -160,20 +172,24 @@ public class test implements ActionListener, KeyListener{
 		quitbutton.addActionListener(this);
 		homepanel.add(quitbutton);
 
+		//Battleship Title
 		text = new Font("arial", Font.BOLD, 60);
 		battleship.setSize(435, 95);
 		battleship.setLocation(447,154);
 		battleship.setFont(text);
 		homepanel.add(battleship);
 
+		//Join Panel
 		joinpanel.setLayout(null);
 		joinpanel.setPreferredSize(new Dimension(1280,780));
 
+		//Battleship Title
 		title.setSize(435, 95);
 		title.setLocation(470,124);
 		title.setFont(text);
 		joinpanel.add(title);
 
+		//User, IP, Port Labels
 		text = new Font("arial", Font.BOLD, 32);
 		userlabel.setSize(310, 51);
 		userlabel.setLocation(581, 236);
@@ -190,6 +206,7 @@ public class test implements ActionListener, KeyListener{
 		portlabel.setFont(text);
 		joinpanel.add(portlabel);
 
+		//Host and Join Buttons
 		host.setSize(251, 80);
 		host.setLocation(387, 558);
 		host.setFont(text);
@@ -202,6 +219,7 @@ public class test implements ActionListener, KeyListener{
 		join.addActionListener(this);
 		joinpanel.add(join);
 
+		//Username, IP, and Port Text Fields
 		username.setSize(542, 80);
 		username.setLocation(386, 280);
 		username.setFont(text);
@@ -218,6 +236,26 @@ public class test implements ActionListener, KeyListener{
 		port.setFont(text);
 		joinpanel.add(port);
 
+		//Theme Panel and Buttons
+		themepanel.setLayout(null);
+		themepanel.setPreferredSize(new Dimension(1280,780));
+		
+		standardbutton.setSize(331,106);
+		standardbutton.setLocation(582,174);
+		standardbutton.addActionListener(this);
+		themepanel.add(standardbutton);
+		
+		carsbutton.setSize(331,106);
+		carsbutton.setLocation(582,364);
+		carsbutton.addActionListener(this);
+		themepanel.add(carsbutton);
+		
+		spacebutton.setSize(331,106);
+		spacebutton.setLocation(582,553);
+		spacebutton.addActionListener(this);
+		themepanel.add(spacebutton);
+		
+		//The Frame
 		theframe.setContentPane(homepanel);
 		theframe.pack();
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
