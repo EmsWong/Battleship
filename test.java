@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.io.*;
 
-public class test implements ActionListener{
+public class test implements ActionListener, KeyListener{
 	//Properties
 	//Font
 	Font text = null;
@@ -59,6 +59,31 @@ public class test implements ActionListener{
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
 			System.out.println(strRow+strCol);
+		}
+	}
+
+	public void keyPressed(KeyEvent evt){
+
+	}
+
+	public void keyTyped(KeyEvent evt){
+		if(username.getText().length() > 10 && !(evt.getKeyChar() == KeyEvent.VK_DELETE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+			String strusername = username.getText().substring(0, 9);
+			username.setText(strusername);
+			userlabel.setText("Too Long");
+		}else{
+			userlabel.setText("Username");
+		}
+		
+	}
+
+	public void keyReleased(KeyEvent evt){
+		if(username.getText().length() > 10 && !(evt.getKeyChar() == KeyEvent.VK_DELETE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+			String strusername = username.getText().substring(0, 10);
+			username.setText(strusername);
+			userlabel.setText("Too Long");
+		}else{
+			userlabel.setText("Username");
 		}
 	}
 	
@@ -159,19 +184,17 @@ public class test implements ActionListener{
 		username.setSize(542, 80);
 		username.setLocation(386, 280);
 		username.setFont(text);
-		username.addActionListener(this);
+		username.addKeyListener(this);
 		joinpanel.add(username);
 
 		ip.setSize(251, 80);
 		ip.setLocation(389, 450);
 		ip.setFont(text);
-		ip.addActionListener(this);
 		joinpanel.add(ip);
 
 		port.setSize(251, 80);
 		port.setLocation(677, 450);
 		port.setFont(text);
-		port.addActionListener(this);
 		joinpanel.add(port);
 
 		theframe.setContentPane(homepanel);
