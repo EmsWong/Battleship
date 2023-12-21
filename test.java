@@ -8,6 +8,7 @@ public class test implements ActionListener{
 	//Properties
 	//Font
 	Font text = null;
+	
 	//Frame and Panels
 	JFrame theframe = new JFrame("Battleship");
 	apanel mainpanel = new apanel(); 
@@ -36,8 +37,11 @@ public class test implements ActionListener{
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
-			
 		}
+		if(evt.getSource() == quitbutton){
+			System.exit(0);
+		}
+
 		if(evt.getSource() == firebutton){
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
