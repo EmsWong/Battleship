@@ -124,23 +124,23 @@ public class test implements ActionListener{
 		joinpanel.setPreferredSize(new Dimension(1280,780));
 
 		title.setSize(435, 95);
-		title.setLocation(450,124);
+		title.setLocation(470,124);
 		title.setFont(text);
 		joinpanel.add(title);
 
 		text = new Font("arial", Font.BOLD, 32);
 		userlabel.setSize(310, 51);
-		userlabel.setLocation(602, 236);
+		userlabel.setLocation(581, 236);
 		userlabel.setFont(text);
 		joinpanel.add(userlabel);
 
 		iplabel.setSize(289, 40);
-		iplabel.setLocation(470, 410);
+		iplabel.setLocation(500, 410);
 		iplabel.setFont(text);
 		joinpanel.add(iplabel);
 
 		portlabel.setSize(289, 40);
-		portlabel.setLocation(758, 410);
+		portlabel.setLocation(768, 410);
 		portlabel.setFont(text);
 		joinpanel.add(portlabel);
 
