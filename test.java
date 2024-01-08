@@ -11,11 +11,14 @@ public class test implements ActionListener, KeyListener{
 	
 	//Frame and Panels
 	JFrame theframe = new JFrame("Battleship");
-	apanel mainpanel = new apanel(); 
+	JPanel mainpanel = new JPanel(); 
+	apanel gamepanel = new apanel();
 	JPanel homepanel = new JPanel();
 	JPanel joinpanel = new JPanel();
 	JPanel waitingpanel = new JPanel();
 	JPanel themepanel = new JPanel();
+	JPanel chatpanel = new JPanel();
+	
 	
 	//Chat Area
 	JTextArea textarea = new JTextArea();
@@ -76,7 +79,7 @@ public class test implements ActionListener, KeyListener{
 			ssm.connect();
 			ip.setText(ssm.getMyAddress());
 			//wait until response from client needed
-			theframe.setContentPane(themepanel);
+			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
 		}
@@ -122,34 +125,43 @@ public class test implements ActionListener, KeyListener{
 		mainpanel.setLayout(null);
 		mainpanel.setPreferredSize(new Dimension(1280,780));
 		
+		//Chat Panel
+		chatpanel.setLayout(null);
+		chatpanel.setPreferredSize(new Dimension(314,780));
+
+		//Game Panel
+		gamepanel.setLayout(null);
+		gamepanel.setPreferredSize(new Dimension(1280,780));
+
 		//Chat Area
 		thescroll.setSize(238,524);
 		thescroll.setLocation(1010,66);
 		textarea.setEnabled(false);
-		mainpanel.add(thescroll);
+		chatpanel.add(thescroll);
 		
 		sendfield.setSize(238,48);
 		sendfield.setLocation(1010,607);
 		sendfield.addActionListener(this);
-		mainpanel.add(sendfield);
+		chatpanel.add(sendfield);
+		mainpanel.add(chatpanel);
 		
 		//Fire button
 		firebutton.setSize(163,47);
 		firebutton.setLocation(678,607);
 		firebutton.setFont(text);
 		firebutton.addActionListener(this);
-		mainpanel.add(firebutton);
+		gamepanel.add(firebutton);
 		
 		//Row and Column Drop down lists
 		rowlist.setSize(163,30);
 		rowlist.setLocation(570,83);
 		rowlist.addActionListener(this);
-		mainpanel.add(rowlist);
+		gamepanel.add(rowlist);
 		
 		collist.setSize(163,30);
 		collist.setLocation(759,83);
 		collist.addActionListener(this);
-		mainpanel.add(collist);
+		gamepanel.add(collist);
 
 		//Home Panel
 		homepanel.setLayout(null);
@@ -240,7 +252,7 @@ public class test implements ActionListener, KeyListener{
 
 		//Theme Panel and Buttons
 		themepanel.setLayout(null);
-		themepanel.setPreferredSize(new Dimension(1280,780));
+		themepanel.setPreferredSize(new Dimension(966,780));
 		
 		standardbutton.setSize(331,106);
 		standardbutton.setLocation(582,174);
@@ -256,16 +268,18 @@ public class test implements ActionListener, KeyListener{
 		spacebutton.setLocation(582,553);
 		spacebutton.addActionListener(this);
 		themepanel.add(spacebutton);
+		mainpanel.add(themepanel);
 		
 		//Waiting Panel
 		waitingpanel.setLayout(null);
-		waitingpanel.setPreferredSize(new Dimension(1280,780));
+		waitingpanel.setPreferredSize(new Dimension(966,780));
 		
 		text = new Font("arial", Font.BOLD, 60);
 		waitinglabel.setSize(650,100);
 		waitinglabel.setLocation(330,320);
 		waitinglabel.setFont(text);
 		waitingpanel.add(waitinglabel);
+		
 		
 		
 		//The Frame
