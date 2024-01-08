@@ -182,6 +182,10 @@ public class test implements ActionListener, KeyListener{
 		//Join Panel
 		joinpanel.setLayout(null);
 		joinpanel.setPreferredSize(new Dimension(1280,780));
+		
+		//Waiting Panel
+		waitingpanel.setLayout(null);
+		waitingpanel.setPreferredSize(new Dimension(1280,780));
 
 		//Battleship Title
 		title.setSize(435, 95);
