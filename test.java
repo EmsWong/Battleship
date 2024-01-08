@@ -51,7 +51,9 @@ public class test implements ActionListener, KeyListener{
 	JButton standardbutton = new JButton("Standard");
 	JButton carsbutton = new JButton("Cars");
 	JButton spacebutton = new JButton("Space");
-
+	
+	//Waiting 
+	JLabel waitinglabel = new JLabel("Waiting for Host...");
 
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource() == playbutton){
@@ -182,10 +184,6 @@ public class test implements ActionListener, KeyListener{
 		//Join Panel
 		joinpanel.setLayout(null);
 		joinpanel.setPreferredSize(new Dimension(1280,780));
-		
-		//Waiting Panel
-		waitingpanel.setLayout(null);
-		waitingpanel.setPreferredSize(new Dimension(1280,780));
 
 		//Battleship Title
 		title.setSize(435, 95);
@@ -258,6 +256,17 @@ public class test implements ActionListener, KeyListener{
 		spacebutton.setLocation(582,553);
 		spacebutton.addActionListener(this);
 		themepanel.add(spacebutton);
+		
+		//Waiting Panel
+		waitingpanel.setLayout(null);
+		waitingpanel.setPreferredSize(new Dimension(1280,780));
+		
+		text = new Font("arial", Font.BOLD, 60);
+		waitinglabel.setSize(650,100);
+		waitinglabel.setLocation(330,320);
+		waitinglabel.setFont(text);
+		waitingpanel.add(waitinglabel);
+		
 		
 		//The Frame
 		theframe.setContentPane(homepanel);
