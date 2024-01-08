@@ -121,9 +121,6 @@ public class test implements ActionListener, KeyListener{
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
 		
-		//Main Panel
-		mainpanel.setLayout(null);
-		mainpanel.setPreferredSize(new Dimension(1280,780));
 		
 		//Chat Panel
 		chatpanel.setLayout(null);
@@ -135,15 +132,15 @@ public class test implements ActionListener, KeyListener{
 
 		//Chat Area
 		thescroll.setSize(238,524);
-		thescroll.setLocation(1010,66);
+		thescroll.setLocation(39,66);
 		textarea.setEnabled(false);
 		chatpanel.add(thescroll);
 		
 		sendfield.setSize(238,48);
-		sendfield.setLocation(1010,607);
+		sendfield.setLocation(39,607);
 		sendfield.addActionListener(this);
 		chatpanel.add(sendfield);
-		mainpanel.add(chatpanel);
+		
 		
 		//Fire button
 		firebutton.setSize(163,47);
@@ -269,6 +266,7 @@ public class test implements ActionListener, KeyListener{
 		spacebutton.addActionListener(this);
 		themepanel.add(spacebutton);
 		mainpanel.add(themepanel);
+		mainpanel.add(chatpanel);
 		
 		//Waiting Panel
 		waitingpanel.setLayout(null);
