@@ -22,6 +22,7 @@ public class apanel extends JPanel{
 		g.setColor(Color.BLUE);
 		//g.fillRect(0,0,50,50);
 		
+		/*
 		public void drawMap(int intMapChoice){
 			//LOADS MAP INTO 2D ARRAY
 			String strMap[][];
@@ -72,6 +73,7 @@ public class apanel extends JPanel{
 				}
 			}
 		}
+		*/
 
 	}
 	//constructor
