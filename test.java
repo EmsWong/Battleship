@@ -59,31 +59,45 @@ public class test implements ActionListener, KeyListener{
 	JLabel waitinglabel = new JLabel("Waiting for Host...");
 
 	public void actionPerformed(ActionEvent evt){
+		//clicking play button on home screen
 		if(evt.getSource() == playbutton){
 			theframe.setContentPane(joinpanel);
 			theframe.pack();
 			theframe.repaint();
 		}
+
+		//clicking quit button on home screen
 		if(evt.getSource() == quitbutton){
 			System.exit(0);
 		}
 
+		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
 			System.out.println(strRow+strCol);
 		}
 
+		//clicking the host button on join screen
 		if(evt.getSource() == host){
 			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
 			ssm.connect();
+			System.out.println(ssm.getMyAddress());
 			ip.setText(ssm.getMyAddress());
-			//wait until response from client needed
+			
+			try{
+				Thread.sleep(6000);
+			}
+			catch (InterruptedException e){
+
+			}
+
 			theframe.setContentPane(themepanel);
 			theframe.pack();
 			theframe.repaint();
 		}
 
+		//clicking the join button on the join screen
 		if(evt.getSource() == join){
 			ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
 			ssm.connect();
@@ -91,6 +105,8 @@ public class test implements ActionListener, KeyListener{
 			theframe.pack();
 			theframe.repaint();
 		}
+
+		//clicking the standard theme button
 		if(evt.getSource() == standardbutton){
 			theframe.setContentPane(gamepanel);
 			theframe.pack();
@@ -98,14 +114,17 @@ public class test implements ActionListener, KeyListener{
 			ssm.sendText("playstandard");
 		}
 
+		//clicking the cars theme button
 		if(evt.getSource() == carsbutton){
 
 		}
 
+		//clicking the space theme button
 		if(evt.getSource() == spacebutton){
 
 		}
 
+		//ssm message for clinet to switch to gameplay screen
 		if(evt.getSource() == ssm){
 			if(ssm.readText().equals("playstandard")){
 				theframe.setContentPane(gamepanel);
