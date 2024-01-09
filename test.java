@@ -83,19 +83,20 @@ public class test implements ActionListener, KeyListener{
 			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
 			ssm.connect();
 			System.out.println(ssm.getMyAddress());
-			ip.setText(ssm.getMyAddress());
-			
+			theframe.setTitle(ssm.getMyAddress());
+
 			try{
-				Thread.sleep(6000);
+				Thread.sleep(3500);
 			}
 			catch (InterruptedException e){
-
+				
 			}
 
 			theframe.setContentPane(themepanel);
 			theframe.pack();
 			theframe.repaint();
 		}
+		
 
 		//clicking the join button on the join screen
 		if(evt.getSource() == join){
