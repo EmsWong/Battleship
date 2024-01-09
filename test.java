@@ -82,8 +82,16 @@ public class test implements ActionListener, KeyListener{
 		if(evt.getSource() == host){
 			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
 			ssm.connect();
+			System.out.println(ssm.getMyAddress());
 			ip.setText(ssm.getMyAddress());
-			//wait until response from client needed
+			
+			try{
+				Thread.sleep(6000);
+			}
+			catch (InterruptedException e){
+
+			}
+
 			theframe.setContentPane(themepanel);
 			theframe.pack();
 			theframe.repaint();
