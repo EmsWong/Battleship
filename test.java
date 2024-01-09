@@ -79,7 +79,7 @@ public class test implements ActionListener, KeyListener{
 			ssm.connect();
 			ip.setText(ssm.getMyAddress());
 			//wait until response from client needed
-			theframe.setContentPane(mainpanel);
+			theframe.setContentPane(themepanel);
 			theframe.pack();
 			theframe.repaint();
 		}
@@ -90,6 +90,28 @@ public class test implements ActionListener, KeyListener{
 			theframe.setContentPane(waitingpanel);
 			theframe.pack();
 			theframe.repaint();
+		}
+		if(evt.getSource() == standardbutton){
+			theframe.setContentPane(gamepanel);
+			theframe.pack();
+			theframe.repaint();
+			ssm.sendText("playstandard");
+		}
+
+		if(evt.getSource() == carsbutton){
+
+		}
+
+		if(evt.getSource() == spacebutton){
+
+		}
+
+		if(evt.getSource() == ssm){
+			if(ssm.readText().equals("playstandard")){
+				theframe.setContentPane(gamepanel);
+				theframe.pack();
+				theframe.repaint();
+			}
 		}
 	}
 
@@ -249,7 +271,7 @@ public class test implements ActionListener, KeyListener{
 
 		//Theme Panel and Buttons
 		themepanel.setLayout(null);
-		themepanel.setPreferredSize(new Dimension(966,780));
+		themepanel.setPreferredSize(new Dimension(1280,780));
 		
 		standardbutton.setSize(331,106);
 		standardbutton.setLocation(582,174);
@@ -265,12 +287,10 @@ public class test implements ActionListener, KeyListener{
 		spacebutton.setLocation(582,553);
 		spacebutton.addActionListener(this);
 		themepanel.add(spacebutton);
-		mainpanel.add(themepanel);
-		mainpanel.add(chatpanel);
 		
 		//Waiting Panel
 		waitingpanel.setLayout(null);
-		waitingpanel.setPreferredSize(new Dimension(966,780));
+		waitingpanel.setPreferredSize(new Dimension(1280,780));
 		
 		text = new Font("arial", Font.BOLD, 60);
 		waitinglabel.setSize(650,100);
