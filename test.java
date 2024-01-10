@@ -73,9 +73,13 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
-			String strRow = (String)rowlist.getSelectedItem();
-			String strCol = (String)collist.getSelectedItem();
-			System.out.println(strRow+strCol);
+			if(firebutton.getText().equals("START")){
+				firebutton.setText("FIRE");
+			}else if(firebutton.getText().equals("FIRE")){
+				String strRow = (String)rowlist.getSelectedItem();
+				String strCol = (String)collist.getSelectedItem();
+				System.out.println(strRow+strCol);
+			}
 		}
 
 		//clicking the host button on join screen
