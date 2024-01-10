@@ -24,8 +24,10 @@ public class apanel extends JPanel{
 	BufferedImage img5carv = null;
 	BufferedImage img2rocketh = null;
 	BufferedImage imgwatertile = null;
-	int intX = 100;
-	int intY = 100;
+	int intX = 32;
+	int intY = 135;
+	String strImage = "";
+	int intMapChoice;
 
 
 
@@ -41,29 +43,28 @@ public class apanel extends JPanel{
 		g.drawImage(img2boath, 0, 0, null);
 		//g.fillRect(0,0,50,50);
 		
-		/*
-		public void drawMap(int intMapChoice){
-			//LOADS MAP INTO 2D ARRAY
-			String strMap[][];
-			strMap = new String[10][10];
-			String strMapChoice = "";
-			String strLine;
-			String strSplit[];
+		
+		//LOADS MAP INTO 2D ARRAY
+		String strMap[][];
+		strMap = new String[10][10];
+		String strMapChoice = "";
+		String strLine = "";
+		String strSplit[];
 			
-			int intMapCol = 0;
-			int intMapRow = 0;
+		int intMapCol = 0;
+		int intMapRow = 0;
 			
-			// CHOOSES THE CORRECT CSV FILE TO LOAD INTO ARRAY
-			if (intMapChoice == 1){
-				strMapChoice = "map.csv";
-			} else if (intMapChoice == 2){
-				strMapChoice = "map2.csv";
-			}
+		// CHOOSES THE CORRECT CSV FILE TO LOAD INTO ARRAY
 			
-			TextInputFile mapFile = new TextInputFile(strMapChoice);
+		try{
+			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
 			
-			while (intMapRow <= 9){
-				strLine = mapFile.readLine();
+			while(intMapRow <= 9 && strLine != null){
+				try{
+					strLine = mapFile.readLine();
+				}catch(IOException e){
+					
+				}
 				strSplit = strLine.split(",");
 				strMap[intMapRow][0] = strSplit[0];
 				strMap[intMapRow][1] = strSplit[1];
@@ -76,23 +77,37 @@ public class apanel extends JPanel{
 				strMap[intMapRow][8] = strSplit[8];
 				strMap[intMapRow][9] = strSplit[9];
 				intMapRow += 1;
-	
 			}
 			
 			mapFile.close();
+		}catch(FileNotFoundException e){
+			System.out.println("Can't load file");
+		}catch(IOException e){
+			System.out.println("Can't load file");
+
+		}
 			
-			int intCount1 = 0;
-			int intCount2 = 0;
-			while (intCount1 < 20){
-				while (intCount2 < 20){
-					if (strMap[intCount1][intCount2].equals("w")){
+		
+			
+		if (intMapChoice == 1){
+			int intCount1;
+			int intCount2;
+			
+			for(intCount1 = 0; intCount1 < 10; intCount1++){
+				for(intCount2 = 0; intCount2 <10; intCount2++){
+					if(strMap[intCount1][intCount2].equals("w")){
 						//System.out.println(strMap[intCount1][intCount2]);
-						g.drawImage(imgWater, intCount2 * 45, intCount1 * 45);
+						g.drawImage(imgwatertile, intX + intCount2 *45, intY + intCount1 + 45, null);
 					}
 				}
 			}
+		}else if (intMapChoice == 2){
+			strImage = "map2.csv";
+		}else if(intMapChoice ==3){
+			strImage = "";
 		}
-		*/
+			
+
 
 	}
 	//constructor

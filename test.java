@@ -109,7 +109,7 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the standard theme button
 		if(evt.getSource() == standardbutton){
-			//gamepanel.intMap = 1;
+			gamepanel.intMapChoice = 1;
 			theframe.setContentPane(gamepanel);
 			theframe.pack();
 			theframe.repaint();
