@@ -5,7 +5,25 @@ import java.io.*;
 import javax.imageio.*;
 
 public class apanel extends JPanel{
-	//properties
+	// Properties
+	BufferedImage img2boath = null;
+	BufferedImage img2boatv = null;
+	BufferedImage img3boath = null;
+	BufferedImage img3boatv = null;
+	BufferedImage img4boath = null;
+	BufferedImage img4boatv = null;
+	BufferedImage img5boath = null;
+	BufferedImage img5boatv = null;
+	BufferedImage img2carh = null;
+	BufferedImage img2carv = null;
+	BufferedImage img3carh = null;
+	BufferedImage img3carv = null;
+	BufferedImage img4carh = null;
+	BufferedImage img4carv = null;
+	BufferedImage img5carh = null;
+	BufferedImage img5carv = null;
+	BufferedImage img2rocketh = null;
+	BufferedImage imgwatertile = null;
 	int intX = 100;
 	int intY = 100;
 
@@ -20,6 +38,7 @@ public class apanel extends JPanel{
 		g.fillRect(522,135,450,450);
 		
 		g.setColor(Color.BLUE);
+		g.drawImage(img2boath, 0, 0, null);
 		//g.fillRect(0,0,50,50);
 		
 		/*
@@ -79,5 +98,12 @@ public class apanel extends JPanel{
 	//constructor
 	public apanel(){
 
+		if(img2boath == null){
+			try{
+				img2boath = ImageIO.read(new File("2boath.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+			}
+		}
 	}
 }
