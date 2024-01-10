@@ -26,6 +26,8 @@ public class apanel extends JPanel{
 	BufferedImage imgwatertile = null;
 	int intX = 32;
 	int intY = 135;
+	int intX1 = 522;
+	int intY1 = 135;
 	String strImage = "";
 	int intMapChoice;
 
@@ -92,14 +94,27 @@ public class apanel extends JPanel{
 		if (intMapChoice == 1){
 			int intCount1;
 			int intCount2;
+			int intCount3;
+			int intCount4;
 			
 			for(intCount1 = 0; intCount1 < 10; intCount1++){
 				for(intCount2 = 0; intCount2 <10; intCount2++){
 					if(strMap[intCount1][intCount2].equals("w")){
 						//System.out.println(strMap[intCount1][intCount2]);
-						g.drawImage(imgwatertile, intX + intCount2 *45, intY + intCount1 + 45, null);
+						g.drawImage(imgwatertile, intX + intCount2 *45, intY + intCount1 * 45, null);
 					}
 				}
+	
+			}
+
+			for(intCount3 = 0; intCount3 < 10; intCount3++){
+				for(intCount4 = 0; intCount4 <10; intCount4++){
+					if(strMap[intCount3][intCount4].equals("w")){
+						//System.out.println(strMap[intCount1][intCount2]);
+						g.drawImage(imgwatertile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+					}
+				}
+	
 			}
 		}else if (intMapChoice == 2){
 			strImage = "map2.csv";
@@ -113,9 +128,10 @@ public class apanel extends JPanel{
 	//constructor
 	public apanel(){
 
-		if(img2boath == null){
+		if(imgwatertile == null){
 			try{
-				img2boath = ImageIO.read(new File("2boath.png"));
+				//img2boath = ImageIO.read(new File("2boath.png"));
+				imgwatertile = ImageIO.read(new File("watertile.png"));
 			}catch(IOException e){
 				System.out.println("Could not open image");
 			}
