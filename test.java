@@ -207,6 +207,7 @@ public class test implements ActionListener, KeyListener{
 		firebutton.setSize(163,47);
 		firebutton.setLocation(678,607);
 		firebutton.setFont(text);
+		firebutton.setText("START");
 		firebutton.addActionListener(this);
 		gamepanel.add(firebutton);
 		
@@ -214,11 +215,13 @@ public class test implements ActionListener, KeyListener{
 		rowlist.setSize(163,30);
 		rowlist.setLocation(570,83);
 		rowlist.addActionListener(this);
+		rowlist.setEnabled(false);
 		gamepanel.add(rowlist);
 		
 		collist.setSize(163,30);
 		collist.setLocation(759,83);
 		collist.addActionListener(this);
+		collist.setEnabled(false);
 		gamepanel.add(collist);
 
 		//Home Panel
