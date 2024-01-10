@@ -109,6 +109,7 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the standard theme button
 		if(evt.getSource() == standardbutton){
+			//gamepanel.intMap = 1;
 			theframe.setContentPane(gamepanel);
 			theframe.pack();
 			theframe.repaint();
@@ -117,17 +118,35 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the cars theme button
 		if(evt.getSource() == carsbutton){
-
+			//gamepanel.intMap = 2;
+			theframe.setContentPane(gamepanel);
+			theframe.pack();
+			theframe.repaint();
+			ssm.sendText("playcars");
 		}
 
 		//clicking the space theme button
 		if(evt.getSource() == spacebutton){
-
+			//gamepanel.intMap = 3;
+			theframe.setContentPane(gamepanel);
+			theframe.pack();
+			theframe.repaint();
+			ssm.sendText("playspace");
 		}
 
 		//ssm message for clinet to switch to gameplay screen
 		if(evt.getSource() == ssm){
 			if(ssm.readText().equals("playstandard")){
+				theframe.setContentPane(gamepanel);
+				theframe.pack();
+				theframe.repaint();
+			}
+			if(ssm.readText().equals("playcars")){
+				theframe.setContentPane(gamepanel);
+				theframe.pack();
+				theframe.repaint();
+			}
+			if(ssm.readText().equals("playspace")){
 				theframe.setContentPane(gamepanel);
 				theframe.pack();
 				theframe.repaint();
