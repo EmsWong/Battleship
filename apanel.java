@@ -29,7 +29,7 @@ public class apanel extends JPanel{
 	BufferedImage imgstars = null;
 	int intX = 32;
 	int intY = 135;
-	int intX1 = 522;
+	int intX1 = 502;
 	int intY1 = 135;
 	String strImage = "";
 	int intMapChoice =1;
@@ -40,11 +40,11 @@ public class apanel extends JPanel{
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		g.setColor(Color.BLACK);
-		g.fillRect(32,135,450,450);
+		//g.fillRect(32,135,450,450);
 
-		g.fillRect(522,135,450,450);
+		//g.fillRect(522,135,450,450);
 		
-		g.setColor(Color.BLUE);
+		//g.setColor(Color.BLUE);
 		g.drawImage(img2boath, 0, 0, null);
 		//g.fillRect(0,0,50,50);
 		
@@ -153,7 +153,7 @@ public class apanel extends JPanel{
 				}
 			}
 			g.drawImage(imgstars, 32,135,null);
-			g.drawImage(imgstars, 522,135,null);
+			g.drawImage(imgstars, 502,135,null);
 
 		}
 			
