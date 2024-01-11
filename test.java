@@ -147,16 +147,19 @@ public class test implements ActionListener, KeyListener{
 		//ssm message for clinet to switch to gameplay screen
 		if(evt.getSource() == ssm){
 			if(ssm.readText().equals("playstandard")){
+				gamepanel.intMapChoice = 1;
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
 			}
 			if(ssm.readText().equals("playcars")){
+				gamepanel.intMapChoice = 2;
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
 			}
 			if(ssm.readText().equals("playspace")){
+				gamepanel.intMapChoice = 3;
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
