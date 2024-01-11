@@ -88,19 +88,20 @@ public class test implements ActionListener, KeyListener{
 			ssm.connect();
 			System.out.println(ssm.getMyAddress());
 			theframe.setTitle(ssm.getMyAddress());
-
+/*
 			try{
 				Thread.sleep(3500);
 			}
 			catch (InterruptedException e){
 				
 			}
-
+*/
 			theframe.setContentPane(themepanel);
 			theframe.pack();
 			theframe.repaint();
+			
 		}
-		
+	
 
 		//clicking the join button on the join screen
 		if(evt.getSource() == join){
@@ -122,7 +123,7 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the cars theme button
 		if(evt.getSource() == carsbutton){
-			//gamepanel.intMap = 2;
+			gamepanel.intMapChoice = 2;
 			theframe.setContentPane(gamepanel);
 			theframe.pack();
 			theframe.repaint();
@@ -131,7 +132,7 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the space theme button
 		if(evt.getSource() == spacebutton){
-			//gamepanel.intMap = 3;
+			gamepanel.intMapChoice = 3;
 			theframe.setContentPane(gamepanel);
 			theframe.pack();
 			theframe.repaint();
