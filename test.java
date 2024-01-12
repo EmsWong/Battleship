@@ -146,7 +146,7 @@ public class test implements ActionListener, KeyListener{
 
 		if(evt.getSource() == sendfield){
 			ssm.sendText(strUsername + "‰" + sendfield.getText());
-			textarea.append(strUsername + ":" + sendfield.getText() + "\n");
+			textarea.append(strUsername + ": " + sendfield.getText() + "\n");
 			sendfield.setText("");
 		}
 
@@ -166,7 +166,7 @@ public class test implements ActionListener, KeyListener{
 				theframe.repaint();
 			}else{
 				try{
-					textarea.append(strChat[0] + ":" + strChat[1] + "\n");
+					textarea.append(strChat[0] + ": " + strChat[1] + "\n");
 				}catch(IndexOutOfBoundsException e){
 					System.out.println("Badly formatted message");
 				}
