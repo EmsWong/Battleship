@@ -123,7 +123,7 @@ public class test implements ActionListener, KeyListener{
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
-			ssm.sendText("playstandard");
+			ssm.sendText("play‰standard");
 		}
 
 		//clicking the cars theme button
@@ -132,7 +132,7 @@ public class test implements ActionListener, KeyListener{
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
-			ssm.sendText("playcars");
+			ssm.sendText("play‰cars");
 		}
 
 		//clicking the space theme button
@@ -141,28 +141,31 @@ public class test implements ActionListener, KeyListener{
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
-			ssm.sendText("playspace");
+			ssm.sendText("play‰space");
 		}
 
-		//ssm message for clinet to switch to gameplay screen
+		if(evt.getSource() == sendfield){
+			ssm.sendText(strUsername + "‰" + sendfield.getText());
+			textarea.append(strUsername + ":" + sendfield.getText() + "\n");
+			sendfield.setText("");
+		}
+
 		if(evt.getSource() == ssm){
-			if(ssm.readText().equals("playstandard")){
-				gamepanel.intMapChoice = 1;
+			//ssm message for clinet to switch to gameplay screen
+			String [] strChat = ssm.readText().split("‰");
+			if(strChat[0].equals("play")){
+				if(strChat[1].equals("standard")){
+					gamepanel.intMapChoice = 1;
+				}else if(strChat[1].equals("cars")){
+					gamepanel.intMapChoice = 2;
+				}else if(strChat[1].equals("space")){
+					gamepanel.intMapChoice = 3;
+				}
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
-			}
-			if(ssm.readText().equals("playcars")){
-				gamepanel.intMapChoice = 2;
-				theframe.setContentPane(mainpanel);
-				theframe.pack();
-				theframe.repaint();
-			}
-			if(ssm.readText().equals("playspace")){
-				gamepanel.intMapChoice = 3;
-				theframe.setContentPane(mainpanel);
-				theframe.pack();
-				theframe.repaint();
+			}else{
+				textarea.append(strChat[0] + ":" + strChat[1] + "\n");
 			}
 		}
 	}
