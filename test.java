@@ -165,7 +165,12 @@ public class test implements ActionListener, KeyListener{
 				theframe.pack();
 				theframe.repaint();
 			}else{
-				textarea.append(strChat[0] + ":" + strChat[1] + "\n");
+				try{
+					textarea.append(strChat[0] + ":" + strChat[1] + "\n");
+				}catch(IndexOutOfBoundsException e){
+					System.out.println("Badly formatted message");
+				}
+				
 			}
 		}
 	}
