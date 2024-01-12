@@ -61,8 +61,6 @@ public class test implements ActionListener, KeyListener{
 	//Username
 	String strUsername = "";
 
-	//Join
-	int intJoin = 0;
 
 	public void actionPerformed(ActionEvent evt){
 		//clicking play button on home screen
@@ -107,11 +105,6 @@ public class test implements ActionListener, KeyListener{
 			theframe.repaint();
 			strUsername = username.getText();
 
-			if(intJoin == 1){
-				standardbutton.setEnabled(true);
-				carsbutton.setEnabled(true);
-				spacebutton.setEnabled(true);
-			}
 		}
 	
 
@@ -123,7 +116,7 @@ public class test implements ActionListener, KeyListener{
 			theframe.pack();
 			theframe.repaint();
 			strUsername = username.getText();
-			intJoin = 1;
+			ssm.sendText("joined‰client");
 		}
 
 		//clicking the standard theme button
@@ -173,6 +166,12 @@ public class test implements ActionListener, KeyListener{
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
+			}else if(strChat[0].equals("joined")){
+				if(strChat[1].equals("client")){
+					standardbutton.setEnabled(true);
+					carsbutton.setEnabled(true);
+					spacebutton.setEnabled(true);
+				}
 			//chat messages
 			}else{
 				try{
