@@ -61,6 +61,9 @@ public class test implements ActionListener, KeyListener{
 	//Username
 	String strUsername = "";
 
+	//Join
+	int intJoin = 0;
+
 	public void actionPerformed(ActionEvent evt){
 		//clicking play button on home screen
 		if(evt.getSource() == playbutton){
@@ -103,7 +106,12 @@ public class test implements ActionListener, KeyListener{
 			theframe.pack();
 			theframe.repaint();
 			strUsername = username.getText();
-			
+
+			if(intJoin == 1){
+				standardbutton.setEnabled(true);
+				carsbutton.setEnabled(true);
+				spacebutton.setEnabled(true);
+			}
 		}
 	
 
@@ -115,6 +123,7 @@ public class test implements ActionListener, KeyListener{
 			theframe.pack();
 			theframe.repaint();
 			strUsername = username.getText();
+			intJoin = 1;
 		}
 
 		//clicking the standard theme button
@@ -151,7 +160,7 @@ public class test implements ActionListener, KeyListener{
 		}
 
 		if(evt.getSource() == ssm){
-			//ssm message for clinet to switch to gameplay screen
+			//ssm message for client to switch to gameplay screen
 			String [] strChat = ssm.readText().split("‰");
 			if(strChat[0].equals("play")){
 				if(strChat[1].equals("standard")){
@@ -164,6 +173,7 @@ public class test implements ActionListener, KeyListener{
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
+			//chat messages
 			}else{
 				try{
 					textarea.append(strChat[0] + ": " + strChat[1] + "\n");
@@ -345,16 +355,19 @@ public class test implements ActionListener, KeyListener{
 		standardbutton.setSize(331,106);
 		standardbutton.setLocation(582,174);
 		standardbutton.addActionListener(this);
+		standardbutton.setEnabled(false);
 		themepanel.add(standardbutton);
 		
 		carsbutton.setSize(331,106);
 		carsbutton.setLocation(582,364);
 		carsbutton.addActionListener(this);
+		carsbutton.setEnabled(false);
 		themepanel.add(carsbutton);
 		
 		spacebutton.setSize(331,106);
 		spacebutton.setLocation(582,553);
 		spacebutton.addActionListener(this);
+		spacebutton.setEnabled(false);
 		themepanel.add(spacebutton);
 		
 		//Waiting Panel
