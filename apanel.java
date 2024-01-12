@@ -24,12 +24,15 @@ public class apanel extends JPanel{
 	BufferedImage img5carv = null;
 	BufferedImage img2rocketh = null;
 	BufferedImage imgwatertile = null;
+	BufferedImage imgspacetile = null;
+	BufferedImage imgstreettile = null;
+	BufferedImage imgstars = null;
 	int intX = 32;
 	int intY = 135;
-	int intX1 = 522;
+	int intX1 = 502;
 	int intY1 = 135;
 	String strImage = "";
-	int intMapChoice;
+	int intMapChoice =1;
 
 
 
@@ -37,11 +40,11 @@ public class apanel extends JPanel{
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		g.setColor(Color.BLACK);
-		g.fillRect(32,135,450,450);
+		//g.fillRect(32,135,450,450);
 
-		g.fillRect(522,135,450,450);
+		//g.fillRect(522,135,450,450);
 		
-		g.setColor(Color.BLUE);
+		//g.setColor(Color.BLUE);
 		g.drawImage(img2boath, 0, 0, null);
 		//g.fillRect(0,0,50,50);
 		
@@ -55,6 +58,10 @@ public class apanel extends JPanel{
 			
 		int intMapCol = 0;
 		int intMapRow = 0;
+		int intCount1;
+		int intCount2;
+		int intCount3;
+		int intCount4;
 			
 		// CHOOSES THE CORRECT CSV FILE TO LOAD INTO ARRAY
 			
@@ -90,13 +97,8 @@ public class apanel extends JPanel{
 		}
 			
 		
-			
-		if (intMapChoice == 1){
-			int intCount1;
-			int intCount2;
-			int intCount3;
-			int intCount4;
-			
+		System.out.println(intMapChoice);
+		if(intMapChoice == 1){	
 			for(intCount1 = 0; intCount1 < 10; intCount1++){
 				for(intCount2 = 0; intCount2 <10; intCount2++){
 					if(strMap[intCount1][intCount2].equals("w")){
@@ -106,7 +108,6 @@ public class apanel extends JPanel{
 				}
 	
 			}
-
 			for(intCount3 = 0; intCount3 < 10; intCount3++){
 				for(intCount4 = 0; intCount4 <10; intCount4++){
 					if(strMap[intCount3][intCount4].equals("w")){
@@ -114,16 +115,48 @@ public class apanel extends JPanel{
 						g.drawImage(imgwatertile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
 					}
 				}
+			}
+		}else if(intMapChoice == 2){
+			for(intCount1 = 0; intCount1 < 10; intCount1++){
+				for(intCount2 = 0; intCount2 <10; intCount2++){
+					if(strMap[intCount1][intCount2].equals("w")){
+						//System.out.println(strMap[intCount1][intCount2]);
+						g.drawImage(imgstreettile, intX + intCount2 *45, intY + intCount1 * 45, null);
+					}
+				}
 	
 			}
-		}else if (intMapChoice == 2){
-			strImage = "map2.csv";
+			for(intCount3 = 0; intCount3 < 10; intCount3++){
+				for(intCount4 = 0; intCount4 <10; intCount4++){
+					if(strMap[intCount3][intCount4].equals("w")){
+						//System.out.println(strMap[intCount1][intCount2]);
+						g.drawImage(imgstreettile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+					}
+				}
+			}
 		}else if(intMapChoice ==3){
-			strImage = "";
+			for(intCount1 = 0; intCount1 < 10; intCount1++){
+				for(intCount2 = 0; intCount2 <10; intCount2++){
+					if(strMap[intCount1][intCount2].equals("w")){
+						//System.out.println(strMap[intCount1][intCount2]);
+						g.drawImage(imgspacetile, intX + intCount2 *45, intY + intCount1 * 45, null);
+					}
+				}
+	
+			}
+			for(intCount3 = 0; intCount3 < 10; intCount3++){
+				for(intCount4 = 0; intCount4 <10; intCount4++){
+					if(strMap[intCount3][intCount4].equals("w")){
+						//System.out.println(strMap[intCount1][intCount2]);
+						g.drawImage(imgspacetile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+					}
+				}
+			}
+			g.drawImage(imgstars, 32,135,null);
+			g.drawImage(imgstars, 502,135,null);
+
 		}
 			
-
-
 	}
 	//constructor
 	public apanel(){
@@ -132,6 +165,27 @@ public class apanel extends JPanel{
 			try{
 				//img2boath = ImageIO.read(new File("2boath.png"));
 				imgwatertile = ImageIO.read(new File("watertile.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+			}
+		}
+		if(imgstreettile == null){
+			try{
+				imgstreettile = ImageIO.read(new File("streettile.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+			}
+		}
+		if(imgspacetile == null){
+			try{
+				imgspacetile = ImageIO.read(new File("spacetile.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+			}
+		}
+		if(imgstars == null){
+			try{
+				imgstars = ImageIO.read(new File("stars.png"));
 			}catch(IOException e){
 				System.out.println("Could not open image");
 			}

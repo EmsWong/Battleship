@@ -11,7 +11,7 @@ public class test implements ActionListener, KeyListener{
 	
 	//Frame and Panels
 	JFrame theframe = new JFrame("Battleship");
-	JPanel mainpanel = new JPanel(); 
+	JPanel mainpanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0,0)); 
 	apanel gamepanel = new apanel();
 	JPanel homepanel = new JPanel();
 	JPanel joinpanel = new JPanel();
@@ -57,6 +57,9 @@ public class test implements ActionListener, KeyListener{
 	
 	//Waiting 
 	JLabel waitinglabel = new JLabel("Waiting for Host...");
+	
+	//Username
+	String strUsername = "";
 
 	public void actionPerformed(ActionEvent evt){
 		//clicking play button on home screen
@@ -73,9 +76,13 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
-			String strRow = (String)rowlist.getSelectedItem();
-			String strCol = (String)collist.getSelectedItem();
-			System.out.println(strRow+strCol);
+			if(firebutton.getText().equals("START")){
+				firebutton.setText("FIRE");
+			}else if(firebutton.getText().equals("FIRE")){
+				String strRow = (String)rowlist.getSelectedItem();
+				String strCol = (String)collist.getSelectedItem();
+				System.out.println(strRow+strCol);
+			}
 		}
 
 		//clicking the host button on join screen
@@ -84,19 +91,21 @@ public class test implements ActionListener, KeyListener{
 			ssm.connect();
 			System.out.println(ssm.getMyAddress());
 			theframe.setTitle(ssm.getMyAddress());
-
+/*
 			try{
 				Thread.sleep(3500);
 			}
 			catch (InterruptedException e){
 				
 			}
-
+*/
 			theframe.setContentPane(themepanel);
 			theframe.pack();
 			theframe.repaint();
+			strUsername = username.getText();
+			
 		}
-		
+	
 
 		//clicking the join button on the join screen
 		if(evt.getSource() == join){
@@ -105,12 +114,13 @@ public class test implements ActionListener, KeyListener{
 			theframe.setContentPane(waitingpanel);
 			theframe.pack();
 			theframe.repaint();
+			strUsername = username.getText();
 		}
 
 		//clicking the standard theme button
 		if(evt.getSource() == standardbutton){
 			gamepanel.intMapChoice = 1;
-			theframe.setContentPane(gamepanel);
+			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
 			ssm.sendText("playstandard");
@@ -118,8 +128,8 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the cars theme button
 		if(evt.getSource() == carsbutton){
-			//gamepanel.intMap = 2;
-			theframe.setContentPane(gamepanel);
+			gamepanel.intMapChoice = 2;
+			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
 			ssm.sendText("playcars");
@@ -127,8 +137,8 @@ public class test implements ActionListener, KeyListener{
 
 		//clicking the space theme button
 		if(evt.getSource() == spacebutton){
-			//gamepanel.intMap = 3;
-			theframe.setContentPane(gamepanel);
+			gamepanel.intMapChoice = 3;
+			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
 			ssm.sendText("playspace");
@@ -137,17 +147,20 @@ public class test implements ActionListener, KeyListener{
 		//ssm message for clinet to switch to gameplay screen
 		if(evt.getSource() == ssm){
 			if(ssm.readText().equals("playstandard")){
-				theframe.setContentPane(gamepanel);
+				gamepanel.intMapChoice = 1;
+				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
 			}
 			if(ssm.readText().equals("playcars")){
-				theframe.setContentPane(gamepanel);
+				gamepanel.intMapChoice = 2;
+				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
 			}
 			if(ssm.readText().equals("playspace")){
-				theframe.setContentPane(gamepanel);
+				gamepanel.intMapChoice = 3;
+				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
 			}
@@ -182,6 +195,8 @@ public class test implements ActionListener, KeyListener{
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
 		
+		//Main panel
+		mainpanel.setPreferredSize(new Dimension(1280, 780));
 		
 		//Chat Panel
 		chatpanel.setLayout(null);
@@ -189,7 +204,7 @@ public class test implements ActionListener, KeyListener{
 
 		//Game Panel
 		gamepanel.setLayout(null);
-		gamepanel.setPreferredSize(new Dimension(1280,780));
+		gamepanel.setPreferredSize(new Dimension(966,780));
 
 		//Chat Area
 		thescroll.setSize(238,524);
@@ -197,15 +212,15 @@ public class test implements ActionListener, KeyListener{
 		textarea.setEnabled(false);
 		chatpanel.add(thescroll);
 		
+		
 		sendfield.setSize(238,48);
 		sendfield.setLocation(39,607);
 		sendfield.addActionListener(this);
 		chatpanel.add(sendfield);
 		
-		
 		//Fire button
 		firebutton.setSize(163,47);
-		firebutton.setLocation(678,607);
+		firebutton.setLocation(646,607);
 		firebutton.setFont(text);
 		firebutton.setText("START");
 		firebutton.addActionListener(this);
@@ -213,16 +228,20 @@ public class test implements ActionListener, KeyListener{
 		
 		//Row and Column Drop down lists
 		rowlist.setSize(163,30);
-		rowlist.setLocation(570,83);
+		rowlist.setLocation(551,83);
 		rowlist.addActionListener(this);
 		rowlist.setEnabled(false);
 		gamepanel.add(rowlist);
 		
 		collist.setSize(163,30);
-		collist.setLocation(759,83);
+		collist.setLocation(740,83);
 		collist.addActionListener(this);
 		collist.setEnabled(false);
 		gamepanel.add(collist);
+		
+		//Adding game and chat
+		mainpanel.add(gamepanel);
+		mainpanel.add(chatpanel);
 
 		//Home Panel
 		homepanel.setLayout(null);
