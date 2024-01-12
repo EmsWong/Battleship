@@ -241,6 +241,7 @@ public class test implements ActionListener, KeyListener{
 		firebutton.setFont(text);
 		firebutton.setText("START");
 		firebutton.addActionListener(this);
+		firebutton.setEnabled(false);
 		gamepanel.add(firebutton);
 		
 		//Row and Column Drop down lists
