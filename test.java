@@ -217,7 +217,7 @@ public class test implements ActionListener, KeyListener{
 		//Chat Area
 		thescroll.setSize(238,524);
 		thescroll.setLocation(39,66);
-		textarea.setEnabled(false);
+		textarea.setEditable(false);
 		chatpanel.add(thescroll);
 		
 		
