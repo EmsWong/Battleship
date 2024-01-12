@@ -131,6 +131,11 @@ public class apanel extends JPanel{
 					}
 				}
 			}
+			g.drawImage(img2boath, 502, 135, null);
+			g.drawImage(img3boath, 502, 180, null);
+			g.drawImage(img3boath, 502, 225, null);
+			g.drawImage(img4boath, 502, 270, null);
+			g.drawImage(img5boath, 502, 315, null);
 		}else if(intMapChoice == 2){
 			for(intCount1 = 0; intCount1 < 10; intCount1++){
 				for(intCount2 = 0; intCount2 <10; intCount2++){
@@ -149,6 +154,11 @@ public class apanel extends JPanel{
 					}
 				}
 			}
+			g.drawImage(img2carh, 502, 135, null);
+			g.drawImage(img3carh, 502, 180, null);
+			g.drawImage(img3carh, 502, 225, null);
+			g.drawImage(img4carh, 502, 270, null);
+			g.drawImage(img5carh, 502, 315, null);
 		}else if(intMapChoice ==3){
 			for(intCount1 = 0; intCount1 < 10; intCount1++){
 				for(intCount2 = 0; intCount2 <10; intCount2++){
@@ -169,6 +179,11 @@ public class apanel extends JPanel{
 			}
 			g.drawImage(imgstars, 32,135,null);
 			g.drawImage(imgstars, 502,135,null);
+			g.drawImage(img2rocketh, 502, 135, null);
+			g.drawImage(img3rocketh, 502, 180, null);
+			g.drawImage(img3rocketh, 502, 225, null);
+			g.drawImage(img4rocketh, 502, 270, null);
+			g.drawImage(img5rocketh, 502, 315, null);
 
 		}
 			
