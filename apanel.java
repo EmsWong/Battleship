@@ -60,7 +60,7 @@ public class apanel extends JPanel{
 		//g.fillRect(522,135,450,450);
 		
 		//g.setColor(Color.BLUE);
-		g.drawImage(img2boath, 0, 0, null);
+		//g.drawImage(img2boath, 0, 0, null);
 		//g.fillRect(0,0,50,50);
 		
 		
