@@ -212,6 +212,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	public void mouseClicked(MouseEvent evt){
 
 	}
+
+	public void mousePressed(MouseEvent evt){
+		
+	}
 	
 	public void mouseEntered(MouseEvent evt){
 
@@ -230,7 +234,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public void mouseMoved(MouseEvent evt){
-		
+
 	}
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
