@@ -382,19 +382,19 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		standardbutton.setSize(331,106);
 		standardbutton.setLocation(582,174);
 		standardbutton.addActionListener(this);
-		standardbutton.setEnabled(false);
+		standardbutton.setEnabled(true);
 		themepanel.add(standardbutton);
 		
 		carsbutton.setSize(331,106);
 		carsbutton.setLocation(582,364);
 		carsbutton.addActionListener(this);
-		carsbutton.setEnabled(false);
+		carsbutton.setEnabled(true);
 		themepanel.add(carsbutton);
 		
 		spacebutton.setSize(331,106);
 		spacebutton.setLocation(582,553);
 		spacebutton.addActionListener(this);
-		spacebutton.setEnabled(false);
+		spacebutton.setEnabled(true);
 		themepanel.add(spacebutton);
 		
 		//Waiting Panel

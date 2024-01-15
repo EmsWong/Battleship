@@ -38,7 +38,7 @@ public class apanel extends JPanel{
 	BufferedImage img5rocketv = null;
 
 	//Maps
-	BufferedImage imgwatertile = null;
+	BufferedImage imgtile = null;
 	BufferedImage imgspacetile = null;
 	BufferedImage imgstreettile = null;
 	BufferedImage imgstars = null;
@@ -47,7 +47,7 @@ public class apanel extends JPanel{
 	int intX1 = 502;
 	int intY1 = 135;
 	String strImage = "";
-	int intMapChoice =1;
+	int intMapChoice = 0;
 
 
 
@@ -62,14 +62,116 @@ public class apanel extends JPanel{
 		//g.setColor(Color.BLUE);
 		//g.drawImage(img2boath, 0, 0, null);
 		//g.fillRect(0,0,50,50);
-		
+		String strTheme[][];
+		strTheme = new String[1][10];
+		String strLine = "";
+		String strSplit[];
+
+		if(intMapChoice == 1){
+			try{
+				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
+				try{
+					strLine = themeFile.readLine();
+				}catch(IOException e){
+					
+				}
+				strSplit = strLine.split(",");
+				strTheme[0][0] = strSplit[0];
+				strTheme[0][1] = strSplit[1];
+				strTheme[0][2] = strSplit[2];
+				strTheme[0][3] = strSplit[3];
+				strTheme[0][4] = strSplit[4];
+				strTheme[0][5] = strSplit[5];
+				strTheme[0][6] = strSplit[6];
+				strTheme[0][7] = strSplit[7];
+				strTheme[0][8] = strSplit[8];
+				strTheme[0][9] = strSplit[9];
+
+			}catch(FileNotFoundException e){
+				System.out.println("Can't load file");
+			}catch(IOException e){
+				System.out.println("Can't load file");
+			}
+
+			int intCount = 0;
+			while(intCount < 9){
+				String strImage = strTheme[0][intCount];
+				System.out.println(strImage);
+				intCount++;
+			}
+		}else if(intMapChoice == 2){
+			try{
+				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
+				try{
+					strLine = themeFile.readLine();
+					strLine = themeFile.readLine();
+				}catch(IOException e){
+					
+				}
+				strSplit = strLine.split(",");
+				strTheme[0][0] = strSplit[0];
+				strTheme[0][1] = strSplit[1];
+				strTheme[0][2] = strSplit[2];
+				strTheme[0][3] = strSplit[3];
+				strTheme[0][4] = strSplit[4];
+				strTheme[0][5] = strSplit[5];
+				strTheme[0][6] = strSplit[6];
+				strTheme[0][7] = strSplit[7];
+				strTheme[0][8] = strSplit[8];
+				strTheme[0][9] = strSplit[9];
+
+			}catch(FileNotFoundException e){
+				System.out.println("Can't load file");
+			}catch(IOException e){
+				System.out.println("Can't load file");
+			}
+
+			int intCount = 0;
+			while(intCount < 9){
+				String strImage = strTheme[0][intCount];
+				System.out.println(strImage);
+				intCount++;
+			}
+		}else if(intMapChoice == 3){
+			try{
+				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
+				try{
+					strLine = themeFile.readLine();
+					strLine = themeFile.readLine();
+					strLine = themeFile.readLine();
+				}catch(IOException e){
+					
+				}
+				strSplit = strLine.split(",");
+				strTheme[0][0] = strSplit[0];
+				strTheme[0][1] = strSplit[1];
+				strTheme[0][2] = strSplit[2];
+				strTheme[0][3] = strSplit[3];
+				strTheme[0][4] = strSplit[4];
+				strTheme[0][5] = strSplit[5];
+				strTheme[0][6] = strSplit[6];
+				strTheme[0][7] = strSplit[7];
+				strTheme[0][8] = strSplit[8];
+				strTheme[0][9] = strSplit[9];
+
+			}catch(FileNotFoundException e){
+				System.out.println("Can't load file");
+			}catch(IOException e){
+				System.out.println("Can't load file");
+			}
+
+			int intCount = 0;
+			while(intCount < 9){
+				String strImage = strTheme[0][intCount];
+				System.out.println(strImage);
+				intCount++;
+			}
+		}
 		
 		//LOADS MAP INTO 2D ARRAY
 		String strMap[][];
 		strMap = new String[10][10];
 		String strMapChoice = "";
-		String strLine = "";
-		String strSplit[];
 			
 		int intMapCol = 0;
 		int intMapRow = 0;
@@ -78,8 +180,7 @@ public class apanel extends JPanel{
 		int intCount3;
 		int intCount4;
 			
-		// CHOOSES THE CORRECT CSV FILE TO LOAD INTO ARRAY
-			
+		
 		try{
 			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
 			
@@ -118,7 +219,7 @@ public class apanel extends JPanel{
 				for(intCount2 = 0; intCount2 <10; intCount2++){
 					if(strMap[intCount1][intCount2].equals("w")){
 						//System.out.println(strMap[intCount1][intCount2]);
-						g.drawImage(imgwatertile, intX + intCount2 *45, intY + intCount1 * 45, null);
+						g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
 					}
 				}
 	
@@ -127,7 +228,7 @@ public class apanel extends JPanel{
 				for(intCount4 = 0; intCount4 <10; intCount4++){
 					if(strMap[intCount3][intCount4].equals("w")){
 						//System.out.println(strMap[intCount1][intCount2]);
-						g.drawImage(imgwatertile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+						g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
 					}
 				}
 			}
@@ -196,14 +297,14 @@ public class apanel extends JPanel{
 		imageclass = this.getClass().getResourceAsStream("watertile.png");
 		if(imageclass != null){
 			try{
-				imgwatertile = ImageIO.read(imageclass);
+				imgtile = ImageIO.read(imageclass);
 			}catch(IOException e){
 				System.out.println("Unable to load image from jar");
 			}
 		}
-		if(imgwatertile == null){
+		if(imgtile == null){
 			try{
-				imgwatertile = ImageIO.read(new File("watertile.png"));
+				imgtile = ImageIO.read(new File(strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
