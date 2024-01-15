@@ -223,27 +223,33 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public void mousePressed(MouseEvent evt){
-		
+		intMousex = evt.getX();
+		intMousey = evt.getY();
 	}
 	
 	public void mouseEntered(MouseEvent evt){
-
+		intMousex = evt.getX();
+		intMousey = evt.getY();
 	}
 
 	public void mouseExited(MouseEvent evt){
-
+		intMousex = evt.getX();
+		intMousey = evt.getY();
 	}
 
 	public void mouseReleased(MouseEvent evt){
-
+		intMousex = evt.getX();
+		intMousey = evt.getY();
 	}
 
 	public void mouseDragged(MouseEvent evt){
-
+		intMousex = evt.getX();
+		intMousey = evt.getY();
 	}
 
 	public void mouseMoved(MouseEvent evt){
-
+		intMousex = evt.getX();
+		intMousey = evt.getY();
 	}
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
