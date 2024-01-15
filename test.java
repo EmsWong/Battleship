@@ -60,6 +60,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	
 	//Username
 	String strUsername = "";
+	
+	//Mouse coordinates
+	int intMousex;
+	int intMousey;
 
 
 	public void actionPerformed(ActionEvent evt){
@@ -210,6 +214,11 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public void mouseClicked(MouseEvent evt){
+		intMousex = evt.getX();
+		intMousey = evt.getY();
+
+		System.out.println("X: "+intMousex);
+		System.out.println("Y: "+intMousey);
 
 	}
 
