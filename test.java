@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.io.*;
 
-public class test implements ActionListener, KeyListener{
+public class test implements ActionListener, KeyListener, MouseListener, MouseMotionListener{
 	//Properties
 	//Font
 	Font text = null;
@@ -208,7 +208,30 @@ public class test implements ActionListener, KeyListener{
 			userlabel.setText("Username");
 		}
 	}
+
+	public void mouseClicked(MouseEvent evt){
+
+	}
 	
+	public void mouseEntered(MouseEvent evt){
+
+	}
+
+	public void mouseExited(MouseEvent evt){
+
+	}
+
+	public void mouseReleased(MouseEvent evt){
+
+	}
+
+	public void mouseDragged(MouseEvent evt){
+
+	}
+
+	public void mouseMoved(MouseEvent evt){
+		
+	}
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
 		
