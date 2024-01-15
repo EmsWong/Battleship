@@ -241,6 +241,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		
 		//Main panel
 		mainpanel.setPreferredSize(new Dimension(1280, 780));
+		mainpanel.addMouseListener(this);
+		mainpanel.addMouseMotionListener(this);
+		mainpanel.addKeyListener(this);
+
 		
 		//Chat Panel
 		chatpanel.setLayout(null);
