@@ -32,7 +32,27 @@ public class apanel extends JPanel{
 	String strImage = "";
 	int intMapChoice = 0;
 
-
+	// game piece coordinates
+	int int2px1 = 502;
+	int int2py1 = 135;
+	int int2px2 = 592;
+	int int2py2 = 180;
+	int int3apx1 = 502;
+	int int3apy1 = 180;
+	int int3apx2 = 637;
+	int int3apy2 = 225;
+	int int3bpx1 = 502;
+	int int3bpy1 = 225;
+	int int3bpx2 = 637;
+	int int3bpy2 = 270;
+	int int4px1 = 502;
+	int int4py1 = 270;
+	int int4px2 = 682;
+	int int4py2 = 315;
+	int int5px1 = 502;
+	int int5py1 = 315;
+	int int5px2 = 727;
+	int int5py2 = 360;
 
 	//methods
 	//override how the JComponent is painted
@@ -713,11 +733,11 @@ public class apanel extends JPanel{
 		}
 		//g.drawImage(imgstars, 32,135,null);
 		//g.drawImage(imgstars, 502,135,null);
-		g.drawImage(img2h, 502, 135, null);
-		g.drawImage(img3h, 502, 180, null);
-		g.drawImage(img3h, 502, 225, null);
-		g.drawImage(img4h, 502, 270, null);
-		g.drawImage(img5h, 502, 315, null);
+		g.drawImage(img2h, int2px1, int2py1, null);
+		g.drawImage(img3h, int3apx1, int3apy1, null);
+		g.drawImage(img3h, int3bpx1, int3bpy1, null);
+		g.drawImage(img4h, int4px1, int4py1, null);
+		g.drawImage(img5h, int5px1, int5py1, null);
 	}
 
 	
