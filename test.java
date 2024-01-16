@@ -61,9 +61,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	//Username
 	String strUsername = "";
 	
-	//Mouse coordinates
+	//Mouse coordinates and variables 
 	int intMousex;
 	int intMousey;
+	//boolean blnBoatMoving = false;
 
 
 	public void actionPerformed(ActionEvent evt){
@@ -225,6 +226,41 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	public void mousePressed(MouseEvent evt){
 		intMousex = evt.getX();
 		intMousey = evt.getY();
+
+		if (intMousex >= mainpanel.2px1 and intMousex <= mainpanel.2px2 and intMousey >= mainpanel.2py1 and intMousex <= mainpanel.2py2){
+
+			mainpanel.2px1 = intMousex - (intMousex - mainpanel.2px1);
+			mainpanel.2py1 = intMousey - (intMousey - mainpanel.2py1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.3apx1 and intMousex <= mainpanel.3apx2 and intMousey >= mainpanel.3apy1 and intMousex <= mainpanel.3apy2){
+
+			mainpanel.3apx1 = intMousex - (intMousex - mainpanel.3apx1);
+			mainpanel.3apy1 = intMousey - (intMousex - mainpanel.3apy1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.3bpx1 and intMousex <= mainpanel.3bpx2 and intMousey >= mainpanel.3bpy1 and intMousex <= mainpanel.3bpy2){
+
+			mainpanel.3bpx1 = intMousex - (intMousex - mainpanel.3bpx1);
+			mainpanel.3bpy1 = intMousey - (intMousey - mainpanel.3bpy1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.4px1 and intMousex <= mainpanel.4px2 and intMousey >= mainpanel.4py1 and intMousex <= mainpanel.4py2){
+
+			mainpanel.4px1 = intMousex - (intMousex - mainpanel.4px1);
+			mainpanel.4py1 = intMousey - (intMousey - mainpanel.4py1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.5px1 and intMousex <= mainpanel.5px2 and intMousey >= mainpanel.5py1 and intMousex <= mainpanel.5py2){
+
+			mainpanel.5px1 = intMousex - (intMousex - mainpanel.5px1);
+			mainpanel.5py1 = intMousey - (intMousey - mainpanel.5py1);
+			mainpanel.repaint();
+		}
 	}
 	
 	public void mouseEntered(MouseEvent evt){
@@ -240,11 +276,81 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	public void mouseReleased(MouseEvent evt){
 		intMousex = evt.getX();
 		intMousey = evt.getY();
+
+		if (intMousex >= mainpanel.2px1 and intMousex <= mainpanel.2px2 and intMousey >= mainpanel.2py1 and intMousex <= mainpanel.2py2){
+
+			mainpanel.2px1 = intMousex - (intMousex - mainpanel.2px1);
+			mainpanel.2py1 = intMousey - (intMousey - mainpanel.2py1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.3apx1 and intMousex <= mainpanel.3apx2 and intMousey >= mainpanel.3apy1 and intMousex <= mainpanel.3apy2){
+
+			mainpanel.3apx1 = intMousex - (intMousex - mainpanel.3apx1);
+			mainpanel.3apy1 = intMousey - (intMousex - mainpanel.3apy1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.3bpx1 and intMousex <= mainpanel.3bpx2 and intMousey >= mainpanel.3bpy1 and intMousex <= mainpanel.3bpy2){
+
+			mainpanel.3bpx1 = intMousex - (intMousex - mainpanel.3bpx1);
+			mainpanel.3bpy1 = intMousey - (intMousey - mainpanel.3bpy1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.4px1 and intMousex <= mainpanel.4px2 and intMousey >= mainpanel.4py1 and intMousex <= mainpanel.4py2){
+
+			mainpanel.4px1 = intMousex - (intMousex - mainpanel.4px1);
+			mainpanel.4py1 = intMousey - (intMousey - mainpanel.4py1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.5px1 and intMousex <= mainpanel.5px2 and intMousey >= mainpanel.5py1 and intMousex <= mainpanel.5py2){
+
+			mainpanel.5px1 = intMousex - (intMousex - mainpanel.5px1);
+			mainpanel.5py1 = intMousey - (intMousey - mainpanel.5py1);
+			mainpanel.repaint();
+		}
 	}
 
 	public void mouseDragged(MouseEvent evt){
 		intMousex = evt.getX();
 		intMousey = evt.getY();
+
+		if (intMousex >= mainpanel.2px1 and intMousex <= mainpanel.2px2 and intMousey >= mainpanel.2py1 and intMousex <= mainpanel.2py2){
+
+			mainpanel.2px1 = intMousex - (intMousex - mainpanel.2px1);
+			mainpanel.2py1 = intMousey - (intMousey - mainpanel.2py1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.3apx1 and intMousex <= mainpanel.3apx2 and intMousey >= mainpanel.3apy1 and intMousex <= mainpanel.3apy2){
+
+			mainpanel.3apx1 = intMousex - (intMousex - mainpanel.3apx1);
+			mainpanel.3apy1 = intMousey - (intMousex - mainpanel.3apy1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.3bpx1 and intMousex <= mainpanel.3bpx2 and intMousey >= mainpanel.3bpy1 and intMousex <= mainpanel.3bpy2){
+
+			mainpanel.3bpx1 = intMousex - (intMousex - mainpanel.3bpx1);
+			mainpanel.3bpy1 = intMousey - (intMousey - mainpanel.3bpy1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.4px1 and intMousex <= mainpanel.4px2 and intMousey >= mainpanel.4py1 and intMousex <= mainpanel.4py2){
+
+			mainpanel.4px1 = intMousex - (intMousex - mainpanel.4px1);
+			mainpanel.4py1 = intMousey - (intMousey - mainpanel.4py1);
+			mainpanel.repaint();
+		}
+
+		if (intMousex >= mainpanel.5px1 and intMousex <= mainpanel.5px2 and intMousey >= mainpanel.5py1 and intMousex <= mainpanel.5py2){
+
+			mainpanel.5px1 = intMousex - (intMousex - mainpanel.5px1);
+			mainpanel.5py1 = intMousey - (intMousey - mainpanel.5py1);
+			mainpanel.repaint();
+		}
 	}
 
 	public void mouseMoved(MouseEvent evt){
