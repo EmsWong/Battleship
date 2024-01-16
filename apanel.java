@@ -38,10 +38,11 @@ public class apanel extends JPanel{
 	BufferedImage img5rocketv = null;
 
 	//Maps
-	BufferedImage imgtile = null;
+	BufferedImage imgwatertile = null;
 	BufferedImage imgspacetile = null;
 	BufferedImage imgstreettile = null;
 	BufferedImage imgstars = null;
+
 	int intX = 32;
 	int intY = 135;
 	int intX1 = 502;
@@ -87,6 +88,7 @@ public class apanel extends JPanel{
 				strTheme[0][8] = strSplit[8];
 				strTheme[0][9] = strSplit[9];
 
+				themeFile.close();
 			}catch(FileNotFoundException e){
 				System.out.println("Can't load file");
 			}catch(IOException e){
@@ -96,6 +98,7 @@ public class apanel extends JPanel{
 			int intCount = 0;
 			while(intCount < 9){
 				String strImage = strTheme[0][intCount];
+				g.drawImage(imgwatertile,0,0,null);
 				System.out.println(strImage);
 				intCount++;
 			}
@@ -120,6 +123,7 @@ public class apanel extends JPanel{
 				strTheme[0][8] = strSplit[8];
 				strTheme[0][9] = strSplit[9];
 
+				themeFile.close();
 			}catch(FileNotFoundException e){
 				System.out.println("Can't load file");
 			}catch(IOException e){
@@ -129,6 +133,7 @@ public class apanel extends JPanel{
 			int intCount = 0;
 			while(intCount < 9){
 				String strImage = strTheme[0][intCount];
+				g.drawImage(imgwatertile,0,0,null);
 				System.out.println(strImage);
 				intCount++;
 			}
@@ -154,25 +159,21 @@ public class apanel extends JPanel{
 				strTheme[0][8] = strSplit[8];
 				strTheme[0][9] = strSplit[9];
 
+				themeFile.close();
 			}catch(FileNotFoundException e){
 				System.out.println("Can't load file");
 			}catch(IOException e){
 				System.out.println("Can't load file");
 			}
-
-			int intCount = 0;
-			while(intCount < 9){
-				String strImage = strTheme[0][intCount];
-				System.out.println(strImage);
-				intCount++;
-			}
 		}
+		
+		
 		
 		//LOADS MAP INTO 2D ARRAY
 		String strMap[][];
 		strMap = new String[10][10];
-		String strMapChoice = "";
-			
+		String strLines = "";
+		String strSplits[];
 		int intMapCol = 0;
 		int intMapRow = 0;
 		int intCount1;
@@ -184,23 +185,23 @@ public class apanel extends JPanel{
 		try{
 			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
 			
-			while(intMapRow <= 9 && strLine != null){
+			while(intMapRow <= 9 && strLines != null){
 				try{
-					strLine = mapFile.readLine();
+					strLines = mapFile.readLine();
 				}catch(IOException e){
 					
 				}
-				strSplit = strLine.split(",");
-				strMap[intMapRow][0] = strSplit[0];
-				strMap[intMapRow][1] = strSplit[1];
-				strMap[intMapRow][2] = strSplit[2];
-				strMap[intMapRow][3] = strSplit[3];
-				strMap[intMapRow][4] = strSplit[4];
-				strMap[intMapRow][5] = strSplit[5];
-				strMap[intMapRow][6] = strSplit[6];
-				strMap[intMapRow][7] = strSplit[7];
-				strMap[intMapRow][8] = strSplit[8];
-				strMap[intMapRow][9] = strSplit[9];
+				strSplits = strLines.split(",");
+				strMap[intMapRow][0] = strSplits[0];
+				strMap[intMapRow][1] = strSplits[1];
+				strMap[intMapRow][2] = strSplits[2];
+				strMap[intMapRow][3] = strSplits[3];
+				strMap[intMapRow][4] = strSplits[4];
+				strMap[intMapRow][5] = strSplits[5];
+				strMap[intMapRow][6] = strSplits[6];
+				strMap[intMapRow][7] = strSplits[7];
+				strMap[intMapRow][8] = strSplits[8];
+				strMap[intMapRow][9] = strSplits[9];
 				intMapRow += 1;
 			}
 			
@@ -219,7 +220,7 @@ public class apanel extends JPanel{
 				for(intCount2 = 0; intCount2 <10; intCount2++){
 					if(strMap[intCount1][intCount2].equals("w")){
 						//System.out.println(strMap[intCount1][intCount2]);
-						g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
+						g.drawImage(imgwatertile, intX + intCount2 *45, intY + intCount1 * 45, null);
 					}
 				}
 	
@@ -228,7 +229,7 @@ public class apanel extends JPanel{
 				for(intCount4 = 0; intCount4 <10; intCount4++){
 					if(strMap[intCount3][intCount4].equals("w")){
 						//System.out.println(strMap[intCount1][intCount2]);
-						g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+						g.drawImage(imgwatertile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
 					}
 				}
 			}
@@ -285,10 +286,11 @@ public class apanel extends JPanel{
 			g.drawImage(img3rocketh, 502, 225, null);
 			g.drawImage(img4rocketh, 502, 270, null);
 			g.drawImage(img5rocketh, 502, 315, null);
-
 		}
-			
+
 	}
+		
+	
 	//constructor
 	public apanel(){
 		InputStream imageclass = null;
@@ -297,14 +299,14 @@ public class apanel extends JPanel{
 		imageclass = this.getClass().getResourceAsStream("watertile.png");
 		if(imageclass != null){
 			try{
-				imgtile = ImageIO.read(imageclass);
+				imgwatertile = ImageIO.read(imageclass);
 			}catch(IOException e){
 				System.out.println("Unable to load image from jar");
 			}
 		}
-		if(imgtile == null){
+		if(imgwatertile == null){
 			try{
-				imgtile = ImageIO.read(new File(strImage));
+				imgwatertile = ImageIO.read(new File("watertile.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
