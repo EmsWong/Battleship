@@ -293,16 +293,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	public void mousePressed(MouseEvent evt){
 		intMousex = evt.getX();
 		intMousey = evt.getY();
-<<<<<<< Updated upstream
 
 		System.out.println("Mouse was pressed");
 		System.out.println("X: "+intMousex);
 		System.out.println("Y: "+intMousey);
-=======
-/*
-		if(intMousex >= mainpanel.int2px1 && intMousex <= mainpanel.int2px2 && intMousey >= mainpanel.int2py1 && intMousex <= mainpanel.int2py2){
->>>>>>> Stashed changes
-
 
 		if(intMousex > gamepanel.int2px1 && intMousex < gamepanel.int2px2 && intMousey > gamepanel.int2py1 && intMousey < gamepanel.int2py2){
 			System.out.println("Boat 2 was pressed");
@@ -340,7 +334,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int5py1 = intMousey - (intMousey - gamepanel.int5py1);
 			gamepanel.repaint();
 		}
-		*/
+		
 	}
 	
 	public void mouseEntered(MouseEvent evt){
@@ -356,7 +350,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	public void mouseReleased(MouseEvent evt){
 		intMousex = evt.getX();
 		intMousey = evt.getY();
-<<<<<<< Updated upstream
 
 		if(intMousex >= gamepanel.int2px1 && intMousex <= gamepanel.int2px2 && intMousey >= gamepanel.int2py1 && intMousex <= gamepanel.int2py2){
 
@@ -394,13 +387,12 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int5py1 = intMousey - (intMousey - gamepanel.int5py1);
 			gamepanel.repaint();
 		}
-		*/
+		
 	}
 
 	public void mouseDragged(MouseEvent evt){
 		intMousex = evt.getX();
 		intMousey = evt.getY();
-<<<<<<< Updated upstream
 
 		System.out.println("Mouse was dragged");
 
@@ -442,7 +434,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int5py1 = intMousey - (intMousey - gamepanel.int5py1);
 			gamepanel.repaint();
 		}
-		*/
+		
 	}
 
 	public void mouseMoved(MouseEvent evt){
