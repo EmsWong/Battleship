@@ -62,8 +62,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	String strUsername = "";
 	
 	//Mouse coordinates and variables 
-	int intMousex;
-	int intMousey;
 	
 	// game piece coords
 	/*
@@ -282,165 +280,147 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public void mouseClicked(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
 
-		System.out.println("X: "+intMousex);
-		System.out.println("Y: "+intMousey);
+		System.out.println("X: "+gamepanel.intMousex);
+		System.out.println("Y: "+gamepanel.intMousey);
+		/*
+		if(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
+			System.out.println("Boat 2 was pressed");
+			gamepanel.int2px1 = gamepanel.intMousex;//- (gamepanel.intMousex - gamepanel.int2px1);
+			gamepanel.int2py1 = gamepanel.intMousey;//- (gamepanel.intMousey - gamepanel.int2py1);
+			gamepanel.repaint();
+
+			System.out.println("Pressed on boat 2");
+		}
+
+		if (gamepanel.intMousex >= gamepanel.int3apx1 && gamepanel.intMousex <= gamepanel.int3apx2 && gamepanel.intMousey >= gamepanel.int3apy1 && gamepanel.intMousey <= gamepanel.int3apy2){
+
+			gamepanel.int3apx1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int3apx1);
+			gamepanel.int3apy1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int3apy1);
+			gamepanel.repaint();
+		}
+
+		if (gamepanel.intMousex >= gamepanel.int3bpx1 && gamepanel.intMousex <= gamepanel.int3bpx2 && gamepanel.intMousey >= gamepanel.int3bpy1 && gamepanel.intMousey <= gamepanel.int3bpy2){
+
+			gamepanel.int3bpx1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int3bpx1);
+			gamepanel.int3bpy1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int3bpy1);
+			gamepanel.repaint();
+		}
+
+		if (gamepanel.intMousex >= gamepanel.int4px1 && gamepanel.intMousex <= gamepanel.int4px2 && gamepanel.intMousey >= gamepanel.int4py1 && gamepanel.intMousey <= gamepanel.int4py2){
+
+			gamepanel.int4px1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int4px1);
+			gamepanel.int4py1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int4py1);
+			gamepanel.repaint();
+		}
+
+		if (gamepanel.intMousex >= gamepanel.int5px1 && gamepanel.intMousex <= gamepanel.int5px2 && gamepanel.intMousey >= gamepanel.int5py1 && gamepanel.intMousey <= gamepanel.int5py2){
+
+			gamepanel.int5px1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int5px1);
+			gamepanel.int5py1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int5py1);
+			gamepanel.repaint();
+		}
+		*/
 
 	}
 
 	public void mousePressed(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
-
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
+		
+		/*
 		System.out.println("Mouse was pressed");
-		System.out.println("X: "+intMousex);
-		System.out.println("Y: "+intMousey);
+		System.out.println("X: "+gamepanel.intMousex);
+		System.out.println("Y: "+gamepanel.intMousey);
+		*/
 
-		if(intMousex > gamepanel.int2px1 && intMousex < gamepanel.int2px2 && intMousey > gamepanel.int2py1 && intMousey < gamepanel.int2py2){
-			System.out.println("Boat 2 was pressed");
-			gamepanel.int2px1 = intMousex - (intMousex - gamepanel.int2px1);
-			gamepanel.int2py1 = intMousey - (intMousey - gamepanel.int2py1);
-			gamepanel.repaint();
-
-			System.out.println("Pressed on boat 2");
-		}
-
-		if (intMousex >= gamepanel.int3apx1 && intMousex <= gamepanel.int3apx2 && intMousey >= gamepanel.int3apy1 && intMousey <= gamepanel.int3apy2){
-
-			gamepanel.int3apx1 = intMousex - (intMousex - gamepanel.int3apx1);
-			gamepanel.int3apy1 = intMousey - (intMousex - gamepanel.int3apy1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int3bpx1 && intMousex <= gamepanel.int3bpx2 && intMousey >= gamepanel.int3bpy1 && intMousey <= gamepanel.int3bpy2){
-
-			gamepanel.int3bpx1 = intMousex - (intMousex - gamepanel.int3bpx1);
-			gamepanel.int3bpy1 = intMousey - (intMousey - gamepanel.int3bpy1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int4px1 && intMousex <= gamepanel.int4px2 && intMousey >= gamepanel.int4py1 && intMousey <= gamepanel.int4py2){
-
-			gamepanel.int4px1 = intMousex - (intMousex - gamepanel.int4px1);
-			gamepanel.int4py1 = intMousey - (intMousey - gamepanel.int4py1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int5px1 && intMousex <= gamepanel.int5px2 && intMousey >= gamepanel.int5py1 && intMousey <= gamepanel.int5py2){
-
-			gamepanel.int5px1 = intMousex - (intMousex - gamepanel.int5px1);
-			gamepanel.int5py1 = intMousey - (intMousey - gamepanel.int5py1);
-			gamepanel.repaint();
-		}
 		
 	}
 	
 	public void mouseEntered(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
 	}
 
 	public void mouseExited(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
 	}
 
 	public void mouseReleased(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
 
-		if(intMousex >= gamepanel.int2px1 && intMousex <= gamepanel.int2px2 && intMousey >= gamepanel.int2py1 && intMousex <= gamepanel.int2py2){
+		gamepanel.int2px1 = gamepanel.intMousex;
+		gamepanel.int2py1 = gamepanel.intMousey;
+		System.out.println("x coord" + gamepanel.intMousex);
+		System.out.println("x coord" + gamepanel.int2px1);
 
-			gamepanel.int2px1 = intMousex - (intMousex - gamepanel.int2px1);
-			gamepanel.int2py1 = intMousey - (intMousey - gamepanel.int2py1);
-			gamepanel.repaint();
-
-			System.out.println("Pressed on boat 2");
-		}
-
-		if (intMousex >= gamepanel.int3apx1 && intMousex <= gamepanel.int3apx2 && intMousey >= gamepanel.int3apy1 && intMousey <= gamepanel.int3apy2){
-
-			gamepanel.int3apx1 = intMousex - (intMousex - gamepanel.int3apx1);
-			gamepanel.int3apy1 = intMousey - (intMousex - gamepanel.int3apy1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int3bpx1 && intMousex <= gamepanel.int3bpx2 && intMousey >= gamepanel.int3bpy1 && intMousey <= gamepanel.int3bpy2){
-
-			gamepanel.int3bpx1 = intMousex - (intMousex - gamepanel.int3bpx1);
-			gamepanel.int3bpy1 = intMousey - (intMousey - gamepanel.int3bpy1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int4px1 && intMousex <= gamepanel.int4px2 && intMousey >= gamepanel.int4py1 && intMousey <= gamepanel.int4py2){
-
-			gamepanel.int4px1 = intMousex - (intMousex - gamepanel.int4px1);
-			gamepanel.int4py1 = intMousey - (intMousey - gamepanel.int4py1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int5px1 && intMousex <= gamepanel.int5px2 && intMousey >= gamepanel.int5py1 && intMousey <= gamepanel.int5py2){
-
-			gamepanel.int5px1 = intMousex - (intMousex - gamepanel.int5px1);
-			gamepanel.int5py1 = intMousey - (intMousey - gamepanel.int5py1);
-			gamepanel.repaint();
-		}
 		
 	}
 
 	public void mouseDragged(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
+		/* 
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
 
-		System.out.println("Mouse was dragged");
-
-		if(intMousex >= gamepanel.int2px1 && intMousex <= gamepanel.int2px2 && intMousey >= gamepanel.int2py1 && intMousex <= gamepanel.int2py2){
-
-			gamepanel.int2px1 = intMousex - (intMousex - gamepanel.int2px1);
-			gamepanel.int2py1 = intMousey - (intMousey - gamepanel.int2py1);
+		
+		
+		while(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
+			System.out.println("Boat 2 was pressed");
+			gamepanel.intMousex = evt.getX();
+			gamepanel.intMousey = evt.getY();
+			gamepanel.int2px1 = gamepanel.intMousex; //- (gamepanel.intMousex - gamepanel.int2px1);
+			gamepanel.int2py1 = gamepanel.intMousey; //- (gamepanel.intMousey - gamepanel.int2py1);
 			gamepanel.repaint();
 
-			
-			System.out.println("New x coord: "+ gamepanel.int2px1);
-			System.out.println("New y coord: "+ gamepanel.int2py1);
+			System.out.println("Pressed on boat 2");
+			System.out.println("New mouse coord: "+gamepanel.intMousex);
+			System.out.println("New mouse coord: "+gamepanel.intMousey);
+			System.out.println("New x coord: "+gamepanel.int2px1);
+			System.out.println("New y coord: "+gamepanel.int2py1);
 		}
 
-		if (intMousex >= gamepanel.int3apx1 && intMousex <= gamepanel.int3apx2 && intMousey >= gamepanel.int3apy1 && intMousey <= gamepanel.int3apy2){
+		/*
+		if (gamepanel.intMousex >= gamepanel.int3apx1 && gamepanel.intMousex <= gamepanel.int3apx2 && gamepanel.intMousey >= gamepanel.int3apy1 && gamepanel.intMousey <= gamepanel.int3apy2){
 
-			gamepanel.int3apx1 = intMousex - (intMousex - gamepanel.int3apx1);
-			gamepanel.int3apy1 = intMousey - (intMousex - gamepanel.int3apy1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int3bpx1 && intMousex <= gamepanel.int3bpx2 && intMousey >= gamepanel.int3bpy1 && intMousey <= gamepanel.int3bpy2){
-
-			gamepanel.int3bpx1 = intMousex - (intMousex - gamepanel.int3bpx1);
-			gamepanel.int3bpy1 = intMousey - (intMousey - gamepanel.int3bpy1);
-			gamepanel.repaint();
-		}
-
-		if (intMousex >= gamepanel.int4px1 && intMousex <= gamepanel.int4px2 && intMousey >= gamepanel.int4py1 && intMousey <= gamepanel.int4py2){
-
-			gamepanel.int4px1 = intMousex - (intMousex - gamepanel.int4px1);
-			gamepanel.int4py1 = intMousey - (intMousey - gamepanel.int4py1);
+			gamepanel.int3apx1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int3apx1);
+			gamepanel.int3apy1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int3apy1);
 			gamepanel.repaint();
 		}
 
-		if (intMousex >= gamepanel.int5px1 && intMousex <= gamepanel.int5px2 && intMousey >= gamepanel.int5py1 && intMousey <= gamepanel.int5py2){
+		if (gamepanel.intMousex >= gamepanel.int3bpx1 && gamepanel.intMousex <= gamepanel.int3bpx2 && gamepanel.intMousey >= gamepanel.int3bpy1 && gamepanel.intMousey <= gamepanel.int3bpy2){
 
-			gamepanel.int5px1 = intMousex - (intMousex - gamepanel.int5px1);
-			gamepanel.int5py1 = intMousey - (intMousey - gamepanel.int5py1);
+			gamepanel.int3bpx1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int3bpx1);
+			gamepanel.int3bpy1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int3bpy1);
 			gamepanel.repaint();
 		}
+
+		if (gamepanel.intMousex >= gamepanel.int4px1 && gamepanel.intMousex <= gamepanel.int4px2 && gamepanel.intMousey >= gamepanel.int4py1 && gamepanel.intMousey <= gamepanel.int4py2){
+
+			gamepanel.int4px1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int4px1);
+			gamepanel.int4py1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int4py1);
+			gamepanel.repaint();
+		}
+
+		if (gamepanel.intMousex >= gamepanel.int5px1 && gamepanel.intMousex <= gamepanel.int5px2 && gamepanel.intMousey >= gamepanel.int5py1 && gamepanel.intMousey <= gamepanel.int5py2){
+
+			gamepanel.int5px1 = gamepanel.intMousex - (gamepanel.intMousex - gamepanel.int5px1);
+			gamepanel.int5py1 = gamepanel.intMousey - (gamepanel.intMousey - gamepanel.int5py1);
+			gamepanel.repaint();
+		}
+
+		*/
 		
 	}
 
 	public void mouseMoved(MouseEvent evt){
-		intMousex = evt.getX();
-		intMousey = evt.getY();
+		gamepanel.intMousex = evt.getX();
+		gamepanel.intMousey = evt.getY();
 	}
+
 	public test(){
 		text = new Font("arial", Font.BOLD, 20);
 		

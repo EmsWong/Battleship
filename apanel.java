@@ -54,6 +54,10 @@ public class apanel extends JPanel{
 	int int5px2 = 727;
 	int int5py2 = 360;
 
+	// mouse variables
+	int intMousex;
+	int intMousey;
+
 	//methods
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
@@ -386,13 +390,15 @@ public class apanel extends JPanel{
 
 		//g.drawImage(imgstars, 32,135,null);
 		//g.drawImage(imgstars, 502,135,null);
+		System.out.println("x coord" + intMousex);
+		System.out.println("xcoord "+ intMousey);
 		g.drawImage(img2h, int2px1, int2py1, null);
 		g.drawImage(img3h, int3apx1, int3apy1, null);
 		g.drawImage(img3h, int3bpx1, int3bpy1, null);
 		g.drawImage(img4h, int4px1, int4py1, null);
 		g.drawImage(img5h, int5px1, int5py1, null);
 
-	
+		
 		
 	}
 	//constructor
