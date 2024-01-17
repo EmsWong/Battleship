@@ -58,17 +58,15 @@ public class apanel extends JPanel{
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		g.setColor(Color.BLACK);
-		//g.fillRect(32,135,450,450);
-
-		//g.fillRect(522,135,450,450);
 		
-		//g.setColor(Color.BLUE);
-		//g.drawImage(img2boath, 0, 0, null);
-		//g.fillRect(0,0,50,50);
 		String strTheme[][];
 		strTheme = new String[1][10];
 		String strLine = "";
 		String strSplit[];
+		int intTemp;
+		int intCount;
+		
+		
 
 		if(intMapChoice == 1){
 			try{
@@ -95,177 +93,6 @@ public class apanel extends JPanel{
 				System.out.println("Can't load file");
 			}catch(IOException e){
 				System.out.println("Can't load file");
-			}
-
-			String strImage = strTheme[0][1];
-			InputStream imageclass = null;
-	
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					imgtile = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(imgtile == null){
-				try{
-					imgtile = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][2];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img2h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img2h == null){
-				try{
-					img2h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][3];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img2v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img2v == null){
-				try{
-					img2v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][4];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img3h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img3h == null){
-				try{
-					img3h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][5];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img3v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img3v == null){
-				try{
-					img3v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][6];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img4h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img4h == null){
-				try{
-					img4h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][7];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img4v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img4v == null){
-				try{
-					img4v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][8];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img5h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img5h == null){
-				try{
-					img5h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][9];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img5v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img5v == null){
-				try{
-					img5v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
 			}
 		}else if(intMapChoice == 2){
 			try{
@@ -295,176 +122,7 @@ public class apanel extends JPanel{
 				System.out.println("Can't load file");
 			}
 
-			String strImage = strTheme[0][1];
-			InputStream imageclass = null;
-	
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					imgtile = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(imgtile == null){
-				try{
-					imgtile = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
 			
-			strImage = strTheme[0][2];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img2h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img2h == null){
-				try{
-					img2h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][3];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img2v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img2v == null){
-				try{
-					img2v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][4];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img3h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img3h == null){
-				try{
-					img3h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][5];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img3v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img3v == null){
-				try{
-					img3v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][6];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img4h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img4h == null){
-				try{
-					img4h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][7];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img4v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img4v == null){
-				try{
-					img4v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][8];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img5h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img5h == null){
-				try{
-					img5h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][9];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img5v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img5v == null){
-				try{
-					img5v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
 		}else if(intMapChoice == 3){
 			try{
 				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
@@ -493,180 +151,178 @@ public class apanel extends JPanel{
 			}catch(IOException e){
 				System.out.println("Can't load file");
 			}
-			
-			String strImage = strTheme[0][1];
-			InputStream imageclass = null;
-	
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					imgtile = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(imgtile == null){
-				try{
-					imgtile = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][2];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img2h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img2h == null){
-				try{
-					img2h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][3];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img2v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img2v == null){
-				try{
-					img2v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-			
-			strImage = strTheme[0][4];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img3h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img3h == null){
-				try{
-					img3h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
+		}
+		
+		String strImage = strTheme[0][1];
+		InputStream imageclass = null;
 
-			strImage = strTheme[0][5];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img3v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				imgtile = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
 			}
-			if(img3v == null){
-				try{
-					img3v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][6];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img4h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img4h == null){
-				try{
-					img4h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][7];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img4v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img4v == null){
-				try{
-					img4v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][8];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img5h = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img5h == null){
-				try{
-					img5h = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
-			}
-
-			strImage = strTheme[0][9];
-			imageclass = null;
-			
-			imageclass = this.getClass().getResourceAsStream(strImage);
-			if(imageclass != null){
-				try{
-					img5v = ImageIO.read(imageclass);
-				}catch(IOException e){
-					System.out.println("Unable to load image from jar");
-				}
-			}
-			if(img5v == null){
-				try{
-					img5v = ImageIO.read(new File(strImage));
-				}catch(IOException e){
-					System.out.println("Unable to load images");
-				}
+		}
+		if(imgtile == null){
+			try{
+				imgtile = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
 			}
 		}
 		
+		strImage = strTheme[0][2];
+		imageclass = null;
 		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img2h = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2h == null){
+			try{
+				img2h = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+		
+		strImage = strTheme[0][3];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img2v = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2v == null){
+			try{
+				img2v = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+		
+		strImage = strTheme[0][4];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img3h = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3h == null){
+			try{
+				img3h = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		strImage = strTheme[0][5];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img3v = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3v == null){
+			try{
+				img3v = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		strImage = strTheme[0][6];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img4h = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4h == null){
+			try{
+				img4h = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		strImage = strTheme[0][7];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img4v = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4v == null){
+			try{
+				img4v = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		strImage = strTheme[0][8];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img5h = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5h == null){
+			try{
+				img5h = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		strImage = strTheme[0][9];
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream(strImage);
+		if(imageclass != null){
+			try{
+				img5v = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5v == null){
+			try{
+				img5v = ImageIO.read(new File(strImage));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
 		
 		//LOADS MAP INTO 2D ARRAY
 		String strMap[][];
@@ -711,13 +367,10 @@ public class apanel extends JPanel{
 			System.out.println("Can't load file");
 
 		}
-			
-		
 		
 		for(intCount1 = 0; intCount1 < 10; intCount1++){
 			for(intCount2 = 0; intCount2 <10; intCount2++){
 				if(strMap[intCount1][intCount2].equals("w")){
-					//System.out.println(strMap[intCount1][intCount2]);
 					g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
 				}
 			}
@@ -726,11 +379,11 @@ public class apanel extends JPanel{
 		for(intCount3 = 0; intCount3 < 10; intCount3++){
 			for(intCount4 = 0; intCount4 <10; intCount4++){
 				if(strMap[intCount3][intCount4].equals("w")){
-					//System.out.println(strMap[intCount1][intCount2]);
 					g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
 				}
 			}
 		}
+
 		//g.drawImage(imgstars, 32,135,null);
 		//g.drawImage(imgstars, 502,135,null);
 		g.drawImage(img2h, int2px1, int2py1, null);
@@ -738,32 +391,12 @@ public class apanel extends JPanel{
 		g.drawImage(img3h, int3bpx1, int3bpy1, null);
 		g.drawImage(img4h, int4px1, int4py1, null);
 		g.drawImage(img5h, int5px1, int5py1, null);
-	}
 
 	
 		
-	
+	}
 	//constructor
 	public apanel(){
-		/* 
-		InputStream imageclass = null;
-		
-		
-		imageclass = this.getClass().getResourceAsStream("stars.png");
-		if(imageclass != null){
-			try{
-				imgstars = ImageIO.read(imageclass);
-			}catch(IOException e){
-				System.out.println("Unable to load image from jar");
-			}
-		}
-		if(imgstars == null){
-			try{
-				imgstars = ImageIO.read(new File("stars.png"));
-			}catch(IOException e){
-				System.out.println("Unable to load images");
-			}
-		}
-		*/
+	
 	}
 }
