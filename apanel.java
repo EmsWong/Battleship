@@ -394,8 +394,8 @@ public class apanel extends JPanel{
 
 		int intcheck = 0;
 
-		System.out.println("check x coord" + int2px1);
-		System.out.println("check x coord "+ int2py1);
+		//System.out.println("check x coord" + int2px1);
+		//System.out.println("check x coord "+ int2py1);
 
 		g.drawImage(img2h, int2px1, int2py1, null);
 		g.drawImage(img3h, int3apx1, int3apy1, null);
