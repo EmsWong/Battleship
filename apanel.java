@@ -392,13 +392,22 @@ public class apanel extends JPanel{
 			g.drawImage(imgstars, 502,135,null);
 		}
 
-		System.out.println("x coord" + intMousex);
-		System.out.println("xcoord "+ intMousey);
+		int intcheck = 0;
+
+		System.out.println("check x coord" + int2px1);
+		System.out.println("check x coord "+ int2py1);
+
 		g.drawImage(img2h, int2px1, int2py1, null);
 		g.drawImage(img3h, int3apx1, int3apy1, null);
 		g.drawImage(img3h, int3bpx1, int3bpy1, null);
 		g.drawImage(img4h, int4px1, int4py1, null);
 		g.drawImage(img5h, int5px1, int5py1, null);
+
+		if(intcheck == 1){
+			intMousex = int2px1;
+			intMousey = int2py1;
+			g.drawImage(img2h, int2px1, int2py1, null);
+		}
 
 		
 		

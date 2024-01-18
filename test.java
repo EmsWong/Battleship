@@ -6,6 +6,9 @@ import java.io.*;
 
 public class test implements ActionListener, KeyListener, MouseListener, MouseMotionListener{
 	//Properties
+
+	Timer theTimer = new Timer(1000/60, this);
+
 	//Font
 	Font text = null;
 	
@@ -251,6 +254,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 				
 			}
+
+			if(evt.getSource() == theTimer){
+				gamepanel.repaint();
+			}
 		}
 	}
 
@@ -363,23 +370,24 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public void mouseDragged(MouseEvent evt){
-		/* 
+		
 		gamepanel.intMousex = evt.getX();
 		gamepanel.intMousey = evt.getY();
 
+		System.out.println("mouse coord: "+gamepanel.intMousex);
+		System.out.println("mouse coord: "+gamepanel.intMousey);
 		
-		
-		while(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
+		if(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
 			System.out.println("Boat 2 was pressed");
-			gamepanel.intMousex = evt.getX();
-			gamepanel.intMousey = evt.getY();
-			gamepanel.int2px1 = gamepanel.intMousex; //- (gamepanel.intMousex - gamepanel.int2px1);
-			gamepanel.int2py1 = gamepanel.intMousey; //- (gamepanel.intMousey - gamepanel.int2py1);
+			
+			gamepanel.int2px1 = gamepanel.intMousex; // - (gamepanel.intMousex - gamepanel.int2px1);
+			gamepanel.int2px2 = gamepanel.intMousex + 90;
+			gamepanel.int2py1 = gamepanel.intMousey; // - (gamepanel.intMousey - gamepanel.int2py1);
+			gamepanel.int2py2 = gamepanel.intMousey + 45;
 			gamepanel.repaint();
+			theframe.repaint();
 
-			System.out.println("Pressed on boat 2");
-			System.out.println("New mouse coord: "+gamepanel.intMousex);
-			System.out.println("New mouse coord: "+gamepanel.intMousey);
+			
 			System.out.println("New x coord: "+gamepanel.int2px1);
 			System.out.println("New y coord: "+gamepanel.int2py1);
 		}
@@ -423,6 +431,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public test(){
+
 		text = new Font("arial", Font.BOLD, 20);
 		
 		//Main panel
@@ -604,6 +613,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		theframe.setResizable(false);
 		theframe.setVisible(true);
+
+		//Timer
+		theTimer.start();
 	}
 	
 	public static void main(String[] args){
