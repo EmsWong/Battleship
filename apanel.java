@@ -387,9 +387,11 @@ public class apanel extends JPanel{
 				}
 			}
 		}
+		if(intMapChoice == 3){
+			g.drawImage(imgstars, 32,135,null);
+			g.drawImage(imgstars, 502,135,null);
+		}
 
-		//g.drawImage(imgstars, 32,135,null);
-		//g.drawImage(imgstars, 502,135,null);
 		System.out.println("x coord" + intMousex);
 		System.out.println("xcoord "+ intMousey);
 		g.drawImage(img2h, int2px1, int2py1, null);
@@ -403,6 +405,22 @@ public class apanel extends JPanel{
 	}
 	//constructor
 	public apanel(){
-	
+		InputStream imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream("stars.png");
+		if(imageclass != null){
+			try{
+				imgstars = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imgstars == null){
+			try{
+				imgstars = ImageIO.read(new File("stars.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
 	}
 }
