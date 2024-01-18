@@ -118,35 +118,44 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 		//clicking the host button on join screen
 		if(evt.getSource() == host){
-			ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
-			ssm.connect();
-			System.out.println(ssm.getMyAddress());
-			theframe.setTitle(ssm.getMyAddress());
-/*
-			try{
-				Thread.sleep(3500);
-			}
-			catch (InterruptedException e){
-				
-			}
-*/
-			theframe.setContentPane(themepanel);
-			theframe.pack();
-			theframe.repaint();
 			strUsername = username.getText();
-
+			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("attack") || strUsername.equals("label")){
+				userlabel.setText("Change name");
+				username.setText("");
+			}else{
+				ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
+				ssm.connect();
+				System.out.println(ssm.getMyAddress());
+				theframe.setTitle(ssm.getMyAddress());
+/*
+				try{
+					Thread.sleep(3500);
+				}
+					catch (InterruptedException e){
+				
+				}
+*/
+				theframe.setContentPane(themepanel);
+				theframe.pack();
+				theframe.repaint();
+				ssm.sendText("label‰"+strUsername);
+			}
 		}
-	
-
 		//clicking the join button on the join screen
 		if(evt.getSource() == join){
-			ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
-			ssm.connect();
-			theframe.setContentPane(waitingpanel);
-			theframe.pack();
-			theframe.repaint();
 			strUsername = username.getText();
-			ssm.sendText("joined‰client");
+			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("attack") || strUsername.equals("label")){
+				userlabel.setText("Change Name");
+				username.setText("");
+			}else{
+				ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
+				ssm.connect();
+				theframe.setContentPane(waitingpanel);
+				theframe.pack();				
+				theframe.repaint();
+				ssm.sendText("joined‰client");
+				ssm.sendText("label‰"+strUsername);
+			}
 		}
 
 		//clicking the standard theme button
