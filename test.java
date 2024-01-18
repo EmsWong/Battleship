@@ -285,6 +285,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 		System.out.println("X: "+gamepanel.intMousex);
 		System.out.println("Y: "+gamepanel.intMousey);
+		//
 		/*
 		if(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
 			System.out.println("Boat 2 was pressed");
