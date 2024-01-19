@@ -44,7 +44,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	//Join screen
 	JTextField username = new JTextField();
 	JTextField ip = new JTextField();
-	JTextField port = new JTextField();
+	JTextField port = new JTextField("8080");
 	JButton host = new JButton("Host");
 	JButton join = new JButton("Join");
 	JLabel userlabel = new JLabel("Username");
@@ -63,7 +63,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	
 	//Username
 	String strUsername = "";
-	JLabel user1label = new JLabel("");
+	JLabel user1label = new JLabel("", SwingConstants.CENTER);
 	JLabel user2label = new JLabel("");
 	
 	//Mouse coordinates and variables 
@@ -165,6 +165,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
+			user1label.setText(strUsername);
 			ssm.sendText("play‰standard");
 			ssm.sendText("label‰"+strUsername);
 		}
@@ -175,6 +176,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
+			user1label.setText(strUsername);
 			ssm.sendText("play‰cars");
 			ssm.sendText("label‰"+strUsername);
 		}
@@ -185,6 +187,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
+			user1label.setText(strUsername);
 			ssm.sendText("play‰space");
 			ssm.sendText("label‰"+strUsername);
 		}
@@ -216,7 +219,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					spacebutton.setEnabled(true);
 				}
 			}else if(strChat[0].equals("label")){
-				user1label.setText(strUsername);
 				user2label.setText(strChat[1]);
 			}else if(strChat[0].equals("attack")){
 				if(strChat[1].equals("1")){
@@ -547,6 +549,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		gamepanel.add(collist);
 		
 		//Username labels
+		user1label.setFont(text);
 		user1label.setSize(150,50);
 		user1label.setLocation(182,83);
 		gamepanel.add(user1label);
@@ -641,6 +644,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		port.setLocation(677, 450);
 		port.setFont(text);
 		joinpanel.add(port);
+		port.setEnabled(false);
+		
 
 		//Theme Panel and Buttons
 		themepanel.setLayout(null);
