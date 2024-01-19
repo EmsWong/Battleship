@@ -276,7 +276,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 		if(evt.getSource() == theTimer){
 			gamepanel.repaint();
-			System.out.println("repaint");
 			
 		}
 	}
