@@ -57,6 +57,11 @@ public class apanel extends JPanel{
 	// mouse variables
 	int intMousex;
 	int intMousey;
+	boolean blnMove2 = false;
+	boolean blnMove3a = false;
+	boolean blnMove3b = false;
+	boolean blnMove4 = false;
+	boolean blnMove5 = false;
 
 	//methods
 	//override how the JComponent is painted
@@ -403,10 +408,16 @@ public class apanel extends JPanel{
 		g.drawImage(img4h, int4px1, int4py1, null);
 		g.drawImage(img5h, int5px1, int5py1, null);
 
-		if(intcheck == 1){
+		
+
+		if(blnMove2 == true){
 			intMousex = int2px1;
 			intMousey = int2py1;
 			g.drawImage(img2h, int2px1, int2py1, null);
+		}else if(blnMove3a == true){
+			intMousex = int3apx1;
+			intMousey = int3apy1;
+			g.drawImage(img3h, int3apx1, int3apy1, null);
 		}
 
 		
