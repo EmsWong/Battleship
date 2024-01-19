@@ -63,6 +63,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	
 	//Username
 	String strUsername = "";
+	JLabel user1label = new JLabel("");
+	JLabel user2label = new JLabel("");
 	
 	//Mouse coordinates and variables 
 	
@@ -138,7 +140,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				theframe.setContentPane(themepanel);
 				theframe.pack();
 				theframe.repaint();
-				ssm.sendText("label‰"+strUsername);
 			}
 		}
 		//clicking the join button on the join screen
@@ -165,6 +166,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.pack();
 			theframe.repaint();
 			ssm.sendText("play‰standard");
+			ssm.sendText("label‰"+strUsername);
 		}
 
 		//clicking the cars theme button
@@ -174,6 +176,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.pack();
 			theframe.repaint();
 			ssm.sendText("play‰cars");
+			ssm.sendText("label‰"+strUsername);
 		}
 
 		//clicking the space theme button
@@ -183,6 +186,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.pack();
 			theframe.repaint();
 			ssm.sendText("play‰space");
+			ssm.sendText("label‰"+strUsername);
 		}
 
 		if(evt.getSource() == sendfield){
@@ -211,6 +215,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					carsbutton.setEnabled(true);
 					spacebutton.setEnabled(true);
 				}
+			}else if(strChat[0].equals("label")){
+				user1label.setText(strUsername);
+				user2label.setText(strChat[1]);
 			}else if(strChat[0].equals("attack")){
 				if(strChat[1].equals("1")){
 					gamepanel.intRow = 1;
@@ -538,6 +545,11 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		collist.addActionListener(this);
 		collist.setEnabled(false);
 		gamepanel.add(collist);
+		
+		//Username labels
+		user1label.setSize(150,50);
+		user1label.setLocation(182,83);
+		gamepanel.add(user1label);
 		
 		//Adding game and chat
 		mainpanel.add(gamepanel);
