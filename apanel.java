@@ -66,7 +66,8 @@ public class apanel extends JPanel{
 	//methods
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
-		g.setColor(Color.BLACK);
+		super.paintComponent(g);
+		g.setColor(Color.WHITE);
 		
 		String strTheme[][];
 		strTheme = new String[1][10];
