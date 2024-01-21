@@ -357,6 +357,12 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		System.out.println(gamepanel.intMousex);
 		gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
 		System.out.println(gamepanel.intMousey);
+
+		gamepanel.blnMove2 = false;
+		gamepanel.blnMove3a = false;
+		gamepanel.blnMove3b = false;
+		gamepanel.blnMove4 = false;
+		gamepanel.blnMove5 = false;
 		
 	}
 
