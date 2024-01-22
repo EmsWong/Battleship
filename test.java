@@ -354,9 +354,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	public void mouseReleased(MouseEvent evt){
 
 		gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-		System.out.println(gamepanel.intMousex);
 		gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-		System.out.println(gamepanel.intMousey);
+		gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+		gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 
 		gamepanel.blnMove2 = false;
 		gamepanel.blnMove3a = false;
@@ -376,6 +376,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int2py1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int2px1 = gamepanel.intMousex;
 			gamepanel.int2px2 = gamepanel.intMousex + 90;
 			gamepanel.int2py1 = gamepanel.intMousey;
@@ -386,6 +388,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int3apy1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int3apx1 = gamepanel.intMousex;
 			gamepanel.int3apx2 = gamepanel.intMousex + 135;
 			gamepanel.int3apy1 = gamepanel.intMousey;
@@ -396,6 +400,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int3bpy1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int3bpx1 = gamepanel.intMousex;
 			gamepanel.int3bpx2 = gamepanel.intMousex + 135;
 			gamepanel.int3bpy1 = gamepanel.intMousey;
@@ -406,6 +412,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int4py1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int4px1 = gamepanel.intMousex;
 			gamepanel.int4px2 = gamepanel.intMousex + 180;
 			gamepanel.int4py1 = gamepanel.intMousey;
@@ -416,6 +424,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int5py1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int5px1 = gamepanel.intMousex;
 			gamepanel.int5px2 = gamepanel.intMousex + 225;
 			gamepanel.int5py1 = gamepanel.intMousey;

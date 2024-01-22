@@ -21,4 +21,16 @@ public class controller {
         intMouse = intMousey;
         return intMouse;
     }
+    public static int boundx(int intMousex){
+        if(intMousex < 32){
+            intMousex = 32;
+        }
+        return intMousex;
+    }
+    public static int boundy(int intMousey){
+        if(intMousey < 135){
+            intMousey = 135;
+        }
+        return intMousey;
+    }
 }
