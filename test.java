@@ -19,7 +19,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	JPanel homepanel = new JPanel();
 	JPanel joinpanel = new JPanel();
 	JPanel waitingpanel = new JPanel();
-	JPanel themepanel = new JPanel();
+	thepanel themepanel = new thepanel();
 	JPanel chatpanel = new JPanel();
 	
 	
@@ -724,19 +724,19 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		themepanel.setPreferredSize(new Dimension(1280,780));
 		
 		standardbutton.setSize(331,106);
-		standardbutton.setLocation(582,174);
+		standardbutton.setLocation(622,154);
 		standardbutton.addActionListener(this);
 		standardbutton.setEnabled(true);
 		themepanel.add(standardbutton);
 		
 		carsbutton.setSize(331,106);
-		carsbutton.setLocation(582,364);
+		carsbutton.setLocation(622,344);
 		carsbutton.addActionListener(this);
 		carsbutton.setEnabled(true);
 		themepanel.add(carsbutton);
 		
 		spacebutton.setSize(331,106);
-		spacebutton.setLocation(582,553);
+		spacebutton.setLocation(622,533);
 		spacebutton.addActionListener(this);
 		spacebutton.setEnabled(true);
 		themepanel.add(spacebutton);
