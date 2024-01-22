@@ -439,20 +439,6 @@ public class apanel extends JPanel{
 			g.drawImage(img5v, int5px1, int5py1, null);
 		}
 		
-
-		
-
-		if(blnMove2 == true){
-			intMousex = int2px1;
-			intMousey = int2py1;
-			g.drawImage(img2h, int2px1, int2py1, null);
-		}else if(blnMove3a == true){
-			intMousex = int3apx1;
-			intMousey = int3apy1;
-			g.drawImage(img3h, int3apx1, int3apy1, null);
-		}
-
-		
 		
 	}
 	//constructor

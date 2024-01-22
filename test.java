@@ -483,10 +483,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 	public void mouseReleased(MouseEvent evt){
 
-		gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-		gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-		gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-		gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
+		//gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
+		//gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+		//gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
+		//gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 
 		gamepanel.blnMove2 = false;
 		gamepanel.blnMove3a = false;
@@ -506,16 +506,26 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int2py1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
-			gamepanel.int2px1 = gamepanel.intMousex;
-			gamepanel.int2py1 = gamepanel.intMousey;
+			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 			if(gamepanel.blnRot2 == false){
+				gamepanel.int2px1 = gamepanel.intMousex;
+				gamepanel.int2py1 = gamepanel.intMousey;
 				gamepanel.int2px2 = gamepanel.intMousex + 90;
 				gamepanel.int2py2 = gamepanel.intMousey + 45;
+				gamepanel.int2px2 = controller.boundxright(gamepanel.int2px2);
+				gamepanel.int2py2 = controller.boundybottom(gamepanel.int2py2);
+				gamepanel.int2px1 = gamepanel.int2px2 - 90;
+				gamepanel.int2py1 = gamepanel.int2py2 - 45;
 			}else{
+				gamepanel.int2px1 = gamepanel.intMousex;
+				gamepanel.int2py1 = gamepanel.intMousey;
 				gamepanel.int2px2 = gamepanel.intMousex + 45;
 				gamepanel.int2py2 = gamepanel.intMousey + 90;
+				gamepanel.int2px2 = controller.boundxright(gamepanel.int2px2);
+				gamepanel.int2py2 = controller.boundybottom(gamepanel.int2py2);
+				gamepanel.int2px1 = gamepanel.int2px2 - 45;
+				gamepanel.int2py1 = gamepanel.int2py2 - 90;
 			}
 		}
 		if(gamepanel.blnMove3a == true){
@@ -523,16 +533,26 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int3apy1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
-			gamepanel.int3apx1 = gamepanel.intMousex;
-			gamepanel.int3apy1 = gamepanel.intMousey;
+			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 			if(gamepanel.blnRot3a == false){
+				gamepanel.int3apx1 = gamepanel.intMousex;
+				gamepanel.int3apy1 = gamepanel.intMousey;
 				gamepanel.int3apx2 = gamepanel.intMousex + 135;
 				gamepanel.int3apy2 = gamepanel.intMousey + 45;
+				gamepanel.int3apx2 = controller.boundxright(gamepanel.int3apx2);
+				gamepanel.int3apy2 = controller.boundybottom(gamepanel.int3apy2);
+				gamepanel.int3apx1 = gamepanel.int3apx2 - 135;
+				gamepanel.int3apy1 = gamepanel.int3apy2 - 45;
 			}else{
+				gamepanel.int3apx1 = gamepanel.intMousex;
+				gamepanel.int3apy1 = gamepanel.intMousey;
 				gamepanel.int3apx2 = gamepanel.intMousex + 45;
 				gamepanel.int3apy2 = gamepanel.intMousey + 135;
+				gamepanel.int3apx2 = controller.boundxright(gamepanel.int3apx2);
+				gamepanel.int3apy2 = controller.boundybottom(gamepanel.int3apy2);
+				gamepanel.int3apx1 = gamepanel.int3apx2 - 45;
+				gamepanel.int3apy1 = gamepanel.int3apy2 - 135;
 			}
 		}
 		if(gamepanel.blnMove3b == true){
@@ -540,16 +560,26 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int3bpy1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
-			gamepanel.int3bpx1 = gamepanel.intMousex;
-			gamepanel.int3bpy1 = gamepanel.intMousey;
+			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 			if(gamepanel.blnRot3b == false){
+				gamepanel.int3apx1 = gamepanel.intMousex;
+				gamepanel.int3apy1 = gamepanel.intMousey;
 				gamepanel.int3bpx2 = gamepanel.intMousex + 135;
 				gamepanel.int3bpy2 = gamepanel.intMousey + 45;
+				gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
+				gamepanel.int3bpy2 = controller.boundybottom(gamepanel.int3bpy2);
+				gamepanel.int3bpx1 = gamepanel.int3bpx2 - 135;
+				gamepanel.int3bpy1 = gamepanel.int3bpy2 - 45;
 			}else{
+				gamepanel.int3apx1 = gamepanel.intMousex;
+				gamepanel.int3apy1 = gamepanel.intMousey;
 				gamepanel.int3bpx2 = gamepanel.intMousex + 45;
 				gamepanel.int3bpy2 = gamepanel.intMousey + 135;
+				gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
+				gamepanel.int3bpy2 = controller.boundybottom(gamepanel.int3bpy2);
+				gamepanel.int3bpx1 = gamepanel.int3bpx2 - 45;
+				gamepanel.int3bpy1 = gamepanel.int3bpy2 - 135;
 			}
 		}
 		if(gamepanel.blnMove4 == true){
@@ -557,18 +587,26 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int4py1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
-			gamepanel.int4px1 = gamepanel.intMousex;
-			gamepanel.int4px2 = gamepanel.intMousex + 180;
-			gamepanel.int4py1 = gamepanel.intMousey;
-			gamepanel.int4py2 = gamepanel.intMousey + 45;
+			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 			if(gamepanel.blnRot4 == false){
+				gamepanel.int4px1 = gamepanel.intMousex;
+				gamepanel.int4py1 = gamepanel.intMousey;
 				gamepanel.int4px2 = gamepanel.intMousex + 180;
 				gamepanel.int4py2 = gamepanel.intMousey + 45;
+				gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
+				gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
+				gamepanel.int4px1 = gamepanel.int4px2 - 180;
+				gamepanel.int4py1 = gamepanel.int4py2 - 45;
 			}else{
+				gamepanel.int4px1 = gamepanel.intMousex;
+				gamepanel.int4py1 = gamepanel.intMousey;
 				gamepanel.int4px2 = gamepanel.intMousex + 45;
 				gamepanel.int4py2 = gamepanel.intMousey + 180;
+				gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
+				gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
+				gamepanel.int4px1 = gamepanel.int4px2 - 180;
+				gamepanel.int4py1 = gamepanel.int4py2 - 45;
 			}
 		}
 		if(gamepanel.blnMove5 == true){
@@ -576,18 +614,26 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int5py1 = gamepanel.intMousey;
 			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
-			gamepanel.int5px1 = gamepanel.intMousex;
-			gamepanel.int5px2 = gamepanel.intMousex + 225;
-			gamepanel.int5py1 = gamepanel.intMousey;
-			gamepanel.int5py2 = gamepanel.intMousey + 45;
+			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 			if(gamepanel.blnRot5 == false){
+				gamepanel.int5px1 = gamepanel.intMousex;
+				gamepanel.int5py1 = gamepanel.intMousey;
 				gamepanel.int5px2 = gamepanel.intMousex + 225;
 				gamepanel.int5py2 = gamepanel.intMousey + 45;
+				gamepanel.int5px2 = controller.boundxright(gamepanel.int5px2);
+				gamepanel.int5py2 = controller.boundybottom(gamepanel.int5py2);
+				gamepanel.int5px1 = gamepanel.int5px2 - 225;
+				gamepanel.int5py1 = gamepanel.int5py2 - 45;
 			}else{
+				gamepanel.int5px1 = gamepanel.intMousex;
+				gamepanel.int5py1 = gamepanel.intMousey;
 				gamepanel.int5px2 = gamepanel.intMousex + 45;
 				gamepanel.int5py2 = gamepanel.intMousey + 225;
+				gamepanel.int5px2 = controller.boundxright(gamepanel.int5px2);
+				gamepanel.int5py2 = controller.boundybottom(gamepanel.int5py2);
+				gamepanel.int5px1 = gamepanel.int5px2 - 45;
+				gamepanel.int5py1 = gamepanel.int5py2 - 225;
 			}
 		}
 
