@@ -63,6 +63,13 @@ public class apanel extends JPanel{
 	boolean blnMove4 = false;
 	boolean blnMove5 = false;
 
+	// key variables
+	boolean blnRot2 = false;
+	boolean blnRot3a = false;
+	boolean blnRot3b = false;
+	boolean blnRot4 = false;
+	boolean blnRot5 = false;
+
 	//methods
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
@@ -402,7 +409,11 @@ public class apanel extends JPanel{
 
 		//System.out.println("check x coord" + int2px1);
 		//System.out.println("check x coord "+ int2py1);
-
+		if(blnRot2 == false){
+			g.drawImage(img2h, int2px1, int2py1, null);
+		}else{
+			g.drawImage(img2v, int2px1, int2py1, null);
+		}
 		g.drawImage(img2h, int2px1, int2py1, null);
 		g.drawImage(img3h, int3apx1, int3apy1, null);
 		g.drawImage(img3h, int3bpx1, int3bpy1, null);

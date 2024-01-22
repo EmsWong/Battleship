@@ -282,7 +282,46 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 
 	public void keyPressed(KeyEvent evt){
+		if(evt.getKeyChar() == KeyEvent.VK_R){
+			System.out.println("ya");
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
 
+		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
 	}
 
 	public void keyTyped(KeyEvent evt){
@@ -293,6 +332,48 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}else{
 			userlabel.setText("Username");
 		}
+
+		if(evt.getKeyChar() == KeyEvent.VK_R){
+			System.out.println("ya");
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
 		
 	}
 
@@ -303,6 +384,47 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			userlabel.setText("Too Long");
 		}else{
 			userlabel.setText("Username");
+		}
+
+		if(evt.getKeyChar() == KeyEvent.VK_R){
+			System.out.println("ya");
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
+		}
+
+		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(gamepanel.blnRot2 == false){
+				gamepanel.blnRot2 = true;
+			}else{
+				gamepanel.blnRot2 = false;
+			}
 		}
 	}
 
