@@ -563,8 +563,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
 			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 			if(gamepanel.blnRot3b == false){
-				gamepanel.int3apx1 = gamepanel.intMousex;
-				gamepanel.int3apy1 = gamepanel.intMousey;
+				gamepanel.int3bpx1 = gamepanel.intMousex;
+				gamepanel.int3bpy1 = gamepanel.intMousey;
 				gamepanel.int3bpx2 = gamepanel.intMousex + 135;
 				gamepanel.int3bpy2 = gamepanel.intMousey + 45;
 				gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
@@ -572,8 +572,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				gamepanel.int3bpx1 = gamepanel.int3bpx2 - 135;
 				gamepanel.int3bpy1 = gamepanel.int3bpy2 - 45;
 			}else{
-				gamepanel.int3apx1 = gamepanel.intMousex;
-				gamepanel.int3apy1 = gamepanel.intMousey;
+				gamepanel.int3bpx1 = gamepanel.intMousex;
+				gamepanel.int3bpy1 = gamepanel.intMousey;
 				gamepanel.int3bpx2 = gamepanel.intMousex + 45;
 				gamepanel.int3bpy2 = gamepanel.intMousey + 135;
 				gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
