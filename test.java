@@ -165,6 +165,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
+			theframe.requestFocus();
 			user1label.setText(strUsername);
 			ssm.sendText("play‰standard");
 			ssm.sendText("label‰"+strUsername);
@@ -176,6 +177,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
+			theframe.requestFocus();
 			user1label.setText(strUsername);
 			ssm.sendText("play‰cars");
 			ssm.sendText("label‰"+strUsername);
@@ -187,6 +189,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.setContentPane(mainpanel);
 			theframe.pack();
 			theframe.repaint();
+			theframe.requestFocus();
 			user1label.setText(strUsername);
 			ssm.sendText("play‰space");
 			ssm.sendText("label‰"+strUsername);
@@ -282,7 +285,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 
 	public void keyPressed(KeyEvent evt){
-		if(evt.getKeyChar() == KeyEvent.VK_R){
+		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
 			System.out.println("ya");
 			if(gamepanel.blnRot2 == false){
 				gamepanel.blnRot2 = true;
@@ -438,23 +441,28 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		
 		if(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
 			gamepanel.blnMove2 = true;
+			theframe.requestFocus();
 		}
 
 		if (gamepanel.intMousex >= gamepanel.int3apx1 && gamepanel.intMousex <= gamepanel.int3apx2 && gamepanel.intMousey >= gamepanel.int3apy1 && gamepanel.intMousey <= gamepanel.int3apy2){
 			gamepanel.blnMove3a = true;
+			theframe.requestFocus();
 		}
 		
 
 		if (gamepanel.intMousex >= gamepanel.int3bpx1 && gamepanel.intMousex <= gamepanel.int3bpx2 && gamepanel.intMousey >= gamepanel.int3bpy1 && gamepanel.intMousey <= gamepanel.int3bpy2){
 			gamepanel.blnMove3b = true;
+			theframe.requestFocus();
 		}
 
 		if (gamepanel.intMousex >= gamepanel.int4px1 && gamepanel.intMousex <= gamepanel.int4px2 && gamepanel.intMousey >= gamepanel.int4py1 && gamepanel.intMousey <= gamepanel.int4py2){
 			gamepanel.blnMove4 = true;
+			theframe.requestFocus();
 		}
 
 		if (gamepanel.intMousex >= gamepanel.int5px1 && gamepanel.intMousex <= gamepanel.int5px2 && gamepanel.intMousey >= gamepanel.int5py1 && gamepanel.intMousey <= gamepanel.int5py2){
 			gamepanel.blnMove5 = true;
+			theframe.requestFocus();
 		}
 		/*
 		System.out.println("Mouse was pressed");
@@ -576,7 +584,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		gamepanel.setPreferredSize(new Dimension(966,780));
 		gamepanel.addMouseListener(this);
 		gamepanel.addMouseMotionListener(this);
-		gamepanel.addKeyListener(this);
+		theframe.addKeyListener(this);
 
 		//Chat Area
 		thescroll.setSize(238,524);
