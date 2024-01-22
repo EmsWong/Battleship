@@ -414,11 +414,31 @@ public class apanel extends JPanel{
 		}else{
 			g.drawImage(img2v, int2px1, int2py1, null);
 		}
-		g.drawImage(img2h, int2px1, int2py1, null);
-		g.drawImage(img3h, int3apx1, int3apy1, null);
-		g.drawImage(img3h, int3bpx1, int3bpy1, null);
-		g.drawImage(img4h, int4px1, int4py1, null);
-		g.drawImage(img5h, int5px1, int5py1, null);
+
+		if(blnRot3a == false){
+			g.drawImage(img3h, int3apx1, int3apy1, null);
+		}else{
+			g.drawImage(img3v, int3apx1, int3apy1, null);
+		}
+
+		if(blnRot3b == false){
+			g.drawImage(img3h, int3bpx1, int3bpy1, null);
+		}else{
+			g.drawImage(img3v, int3bpx1, int3bpy1, null);
+		}
+
+		if(blnRot4 == false){
+			g.drawImage(img4h, int4px1, int4py1, null);
+		}else{
+			g.drawImage(img4v, int4px1, int4py1, null);
+		}
+		
+		if(blnRot5 == false){
+			g.drawImage(img5h, int5px1, int5py1, null);
+		}else{
+			g.drawImage(img5v, int5px1, int5py1, null);
+		}
+		
 
 		
 

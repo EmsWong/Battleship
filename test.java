@@ -286,7 +286,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 	public void keyPressed(KeyEvent evt){
 		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			System.out.println("ya");
+			//System.out.println("ya");
 			if(gamepanel.blnRot2 == false){
 				gamepanel.blnRot2 = true;
 			}else{
@@ -295,34 +295,34 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 
 		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot3a == false){
+				gamepanel.blnRot3a = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot3a = false;
 			}
 		}
 
 		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot3b == false){
+				gamepanel.blnRot3b = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot3b = false;
 			}
 		}
 
 		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot4 == false){
+				gamepanel.blnRot4 = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot4 = false;
 			}
 		}
 
 		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot5 == false){
+				gamepanel.blnRot5 = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot5 = false;
 			}
 		}
 	}
@@ -336,8 +336,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			userlabel.setText("Username");
 		}
 
-		if(evt.getKeyChar() == KeyEvent.VK_R){
-			System.out.println("ya");
+		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			//System.out.println("ya");
 			if(gamepanel.blnRot2 == false){
 				gamepanel.blnRot2 = true;
 			}else{
@@ -346,34 +346,34 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 
 		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot3a == false){
+				gamepanel.blnRot3a = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot3a = false;
 			}
 		}
 
 		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot3b == false){
+				gamepanel.blnRot3b = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot3b = false;
 			}
 		}
 
 		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot4 == false){
+				gamepanel.blnRot4 = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot4 = false;
 			}
 		}
 
 		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot5 == false){
+				gamepanel.blnRot5 = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot5 = false;
 			}
 		}
 
@@ -389,8 +389,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			userlabel.setText("Username");
 		}
 
-		if(evt.getKeyChar() == KeyEvent.VK_R){
-			System.out.println("ya");
+		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			//System.out.println("ya");
 			if(gamepanel.blnRot2 == false){
 				gamepanel.blnRot2 = true;
 			}else{
@@ -399,34 +399,34 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 
 		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot3a == false){
+				gamepanel.blnRot3a = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot3a = false;
 			}
 		}
 
 		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot3b == false){
+				gamepanel.blnRot3b = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot3b = false;
 			}
 		}
 
 		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot4 == false){
+				gamepanel.blnRot4 = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot4 = false;
 			}
 		}
 
 		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
+			if(gamepanel.blnRot5 == false){
+				gamepanel.blnRot5 = true;
 			}else{
-				gamepanel.blnRot2 = false;
+				gamepanel.blnRot5 = false;
 			}
 		}
 	}
@@ -509,9 +509,14 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
 			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int2px1 = gamepanel.intMousex;
-			gamepanel.int2px2 = gamepanel.intMousex + 90;
 			gamepanel.int2py1 = gamepanel.intMousey;
-			gamepanel.int2py2 = gamepanel.intMousey + 45;
+			if(gamepanel.blnRot2 == false){
+				gamepanel.int2px2 = gamepanel.intMousex + 90;
+				gamepanel.int2py2 = gamepanel.intMousey + 45;
+			}else{
+				gamepanel.int2px2 = gamepanel.intMousex + 45;
+				gamepanel.int2py2 = gamepanel.intMousey + 90;
+			}
 		}
 		if(gamepanel.blnMove3a == true){
 			gamepanel.int3apx1 = gamepanel.intMousex;
@@ -521,9 +526,14 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
 			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int3apx1 = gamepanel.intMousex;
-			gamepanel.int3apx2 = gamepanel.intMousex + 135;
 			gamepanel.int3apy1 = gamepanel.intMousey;
-			gamepanel.int3apy2 = gamepanel.intMousey + 45;
+			if(gamepanel.blnRot3a == false){
+				gamepanel.int3apx2 = gamepanel.intMousex + 135;
+				gamepanel.int3apy2 = gamepanel.intMousey + 45;
+			}else{
+				gamepanel.int3apx2 = gamepanel.intMousex + 45;
+				gamepanel.int3apy2 = gamepanel.intMousey + 135;
+			}
 		}
 		if(gamepanel.blnMove3b == true){
 			gamepanel.int3bpx1 = gamepanel.intMousex;
@@ -533,9 +543,14 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
 			gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
 			gamepanel.int3bpx1 = gamepanel.intMousex;
-			gamepanel.int3bpx2 = gamepanel.intMousex + 135;
 			gamepanel.int3bpy1 = gamepanel.intMousey;
-			gamepanel.int3bpy2 = gamepanel.intMousey + 45;
+			if(gamepanel.blnRot3b == false){
+				gamepanel.int3bpx2 = gamepanel.intMousex + 135;
+				gamepanel.int3bpy2 = gamepanel.intMousey + 45;
+			}else{
+				gamepanel.int3bpx2 = gamepanel.intMousex + 45;
+				gamepanel.int3bpy2 = gamepanel.intMousey + 135;
+			}
 		}
 		if(gamepanel.blnMove4 == true){
 			gamepanel.int4px1 = gamepanel.intMousex;
@@ -548,6 +563,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int4px2 = gamepanel.intMousex + 180;
 			gamepanel.int4py1 = gamepanel.intMousey;
 			gamepanel.int4py2 = gamepanel.intMousey + 45;
+			if(gamepanel.blnRot4 == false){
+				gamepanel.int4px2 = gamepanel.intMousex + 180;
+				gamepanel.int4py2 = gamepanel.intMousey + 45;
+			}else{
+				gamepanel.int4px2 = gamepanel.intMousex + 45;
+				gamepanel.int4py2 = gamepanel.intMousey + 180;
+			}
 		}
 		if(gamepanel.blnMove5 == true){
 			gamepanel.int5px1 = gamepanel.intMousex;
@@ -560,6 +582,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.int5px2 = gamepanel.intMousex + 225;
 			gamepanel.int5py1 = gamepanel.intMousey;
 			gamepanel.int5py2 = gamepanel.intMousey + 45;
+			if(gamepanel.blnRot5 == false){
+				gamepanel.int5px2 = gamepanel.intMousex + 225;
+				gamepanel.int5py2 = gamepanel.intMousey + 45;
+			}else{
+				gamepanel.int5px2 = gamepanel.intMousex + 45;
+				gamepanel.int5py2 = gamepanel.intMousey + 225;
+			}
 		}
 
 	}
