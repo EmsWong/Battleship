@@ -681,6 +681,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 		if(gamepanel.blnMove5 == true){
 			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
+			System.out.println(gamepanel.blnRot5);
 			if(blnOverlap == true){
 				System.out.println("stay");
 			}else{
