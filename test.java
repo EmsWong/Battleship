@@ -532,83 +532,83 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(blnOverlap == true){
 				System.out.println("stay");
 			}else{
-				System.out.println("go");
+				if(gamepanel.blnRot2 == false){
+					gamepanel.int2px1 = gamepanel.intMousex;
+					gamepanel.int2py1 = gamepanel.intMousey;
+					gamepanel.int2px2 = gamepanel.intMousex + 90;
+					gamepanel.int2py2 = gamepanel.intMousey + 45;
+					gamepanel.int2px2 = controller.boundxright(gamepanel.int2px2);
+					gamepanel.int2py2 = controller.boundybottom(gamepanel.int2py2);
+					gamepanel.int2px1 = gamepanel.int2px2 - 90;
+					gamepanel.int2py1 = gamepanel.int2py2 - 45;
+				}else{
+					gamepanel.int2px1 = gamepanel.intMousex;
+					gamepanel.int2py1 = gamepanel.intMousey;
+					gamepanel.int2px2 = gamepanel.intMousex + 45;
+					gamepanel.int2py2 = gamepanel.intMousey + 90;
+					gamepanel.int2px2 = controller.boundxright(gamepanel.int2px2);
+					gamepanel.int2py2 = controller.boundybottom(gamepanel.int2py2);
+					gamepanel.int2px1 = gamepanel.int2px2 - 45;
+					gamepanel.int2py1 = gamepanel.int2py2 - 90;
+				}
+			}
+			if(gamepanel.blnMove3a == true){
+				gamepanel.int3apx1 = gamepanel.intMousex;
+				gamepanel.int3apy1 = gamepanel.intMousey;
+				gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
+				gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+				gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+				gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
+				if(gamepanel.blnRot3a == false){
+					gamepanel.int3apx1 = gamepanel.intMousex;
+					gamepanel.int3apy1 = gamepanel.intMousey;
+					gamepanel.int3apx2 = gamepanel.intMousex + 135;
+					gamepanel.int3apy2 = gamepanel.intMousey + 45;
+					gamepanel.int3apx2 = controller.boundxright(gamepanel.int3apx2);
+					gamepanel.int3apy2 = controller.boundybottom(gamepanel.int3apy2);
+					gamepanel.int3apx1 = gamepanel.int3apx2 - 135;
+					gamepanel.int3apy1 = gamepanel.int3apy2 - 45;
+				}else{
+					gamepanel.int3apx1 = gamepanel.intMousex;
+					gamepanel.int3apy1 = gamepanel.intMousey;
+					gamepanel.int3apx2 = gamepanel.intMousex + 45;
+					gamepanel.int3apy2 = gamepanel.intMousey + 135;
+					gamepanel.int3apx2 = controller.boundxright(gamepanel.int3apx2);
+					gamepanel.int3apy2 = controller.boundybottom(gamepanel.int3apy2);
+					gamepanel.int3apx1 = gamepanel.int3apx2 - 45;
+					gamepanel.int3apy1 = gamepanel.int3apy2 - 135;
+				}
+			}
+			if(gamepanel.blnMove3b == true){
+				gamepanel.int3bpx1 = gamepanel.intMousex;
+				gamepanel.int3bpy1 = gamepanel.intMousey;
+				gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
+				gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+				gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+				gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
+				if(gamepanel.blnRot3b == false){
+					gamepanel.int3bpx1 = gamepanel.intMousex;
+					gamepanel.int3bpy1 = gamepanel.intMousey;
+					gamepanel.int3bpx2 = gamepanel.intMousex + 135;
+					gamepanel.int3bpy2 = gamepanel.intMousey + 45;
+					gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
+					gamepanel.int3bpy2 = controller.boundybottom(gamepanel.int3bpy2);
+					gamepanel.int3bpx1 = gamepanel.int3bpx2 - 135;
+					gamepanel.int3bpy1 = gamepanel.int3bpy2 - 45;
+				}else{
+					gamepanel.int3bpx1 = gamepanel.intMousex;
+					gamepanel.int3bpy1 = gamepanel.intMousey;
+					gamepanel.int3bpx2 = gamepanel.intMousex + 45;
+					gamepanel.int3bpy2 = gamepanel.intMousey + 135;
+					gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
+					gamepanel.int3bpy2 = controller.boundybottom(gamepanel.int3bpy2);
+					gamepanel.int3bpx1 = gamepanel.int3bpx2 - 45;
+					gamepanel.int3bpy1 = gamepanel.int3bpy2 - 135;
+				}
+			}
 			}
 
-			if(gamepanel.blnRot2 == false){
-				gamepanel.int2px1 = gamepanel.intMousex;
-				gamepanel.int2py1 = gamepanel.intMousey;
-				gamepanel.int2px2 = gamepanel.intMousex + 90;
-				gamepanel.int2py2 = gamepanel.intMousey + 45;
-				gamepanel.int2px2 = controller.boundxright(gamepanel.int2px2);
-				gamepanel.int2py2 = controller.boundybottom(gamepanel.int2py2);
-				gamepanel.int2px1 = gamepanel.int2px2 - 90;
-				gamepanel.int2py1 = gamepanel.int2py2 - 45;
-			}else{
-				gamepanel.int2px1 = gamepanel.intMousex;
-				gamepanel.int2py1 = gamepanel.intMousey;
-				gamepanel.int2px2 = gamepanel.intMousex + 45;
-				gamepanel.int2py2 = gamepanel.intMousey + 90;
-				gamepanel.int2px2 = controller.boundxright(gamepanel.int2px2);
-				gamepanel.int2py2 = controller.boundybottom(gamepanel.int2py2);
-				gamepanel.int2px1 = gamepanel.int2px2 - 45;
-				gamepanel.int2py1 = gamepanel.int2py2 - 90;
-			}
-		}
-		if(gamepanel.blnMove3a == true){
-			gamepanel.int3apx1 = gamepanel.intMousex;
-			gamepanel.int3apy1 = gamepanel.intMousey;
-			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
-			if(gamepanel.blnRot3a == false){
-				gamepanel.int3apx1 = gamepanel.intMousex;
-				gamepanel.int3apy1 = gamepanel.intMousey;
-				gamepanel.int3apx2 = gamepanel.intMousex + 135;
-				gamepanel.int3apy2 = gamepanel.intMousey + 45;
-				gamepanel.int3apx2 = controller.boundxright(gamepanel.int3apx2);
-				gamepanel.int3apy2 = controller.boundybottom(gamepanel.int3apy2);
-				gamepanel.int3apx1 = gamepanel.int3apx2 - 135;
-				gamepanel.int3apy1 = gamepanel.int3apy2 - 45;
-			}else{
-				gamepanel.int3apx1 = gamepanel.intMousex;
-				gamepanel.int3apy1 = gamepanel.intMousey;
-				gamepanel.int3apx2 = gamepanel.intMousex + 45;
-				gamepanel.int3apy2 = gamepanel.intMousey + 135;
-				gamepanel.int3apx2 = controller.boundxright(gamepanel.int3apx2);
-				gamepanel.int3apy2 = controller.boundybottom(gamepanel.int3apy2);
-				gamepanel.int3apx1 = gamepanel.int3apx2 - 45;
-				gamepanel.int3apy1 = gamepanel.int3apy2 - 135;
-			}
-		}
-		if(gamepanel.blnMove3b == true){
-			gamepanel.int3bpx1 = gamepanel.intMousex;
-			gamepanel.int3bpy1 = gamepanel.intMousey;
-			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
-			if(gamepanel.blnRot3b == false){
-				gamepanel.int3bpx1 = gamepanel.intMousex;
-				gamepanel.int3bpy1 = gamepanel.intMousey;
-				gamepanel.int3bpx2 = gamepanel.intMousex + 135;
-				gamepanel.int3bpy2 = gamepanel.intMousey + 45;
-				gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
-				gamepanel.int3bpy2 = controller.boundybottom(gamepanel.int3bpy2);
-				gamepanel.int3bpx1 = gamepanel.int3bpx2 - 135;
-				gamepanel.int3bpy1 = gamepanel.int3bpy2 - 45;
-			}else{
-				gamepanel.int3bpx1 = gamepanel.intMousex;
-				gamepanel.int3bpy1 = gamepanel.intMousey;
-				gamepanel.int3bpx2 = gamepanel.intMousex + 45;
-				gamepanel.int3bpy2 = gamepanel.intMousey + 135;
-				gamepanel.int3bpx2 = controller.boundxright(gamepanel.int3bpx2);
-				gamepanel.int3bpy2 = controller.boundybottom(gamepanel.int3bpy2);
-				gamepanel.int3bpx1 = gamepanel.int3bpx2 - 45;
-				gamepanel.int3bpy1 = gamepanel.int3bpy2 - 135;
-			}
-		}
+			
 		if(gamepanel.blnMove4 == true){
 			gamepanel.int4px1 = gamepanel.intMousex;
 			gamepanel.int4py1 = gamepanel.intMousey;
