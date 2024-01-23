@@ -458,9 +458,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		gamepanel.intMousey = evt.getY();
 		
 		if(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
-			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, true);
-			gamepanel.blnMove2 = true;
 			//gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, true);
+			gamepanel.blnMove2 = true;
+			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, true);
 			theframe.requestFocus();
 		}
 
