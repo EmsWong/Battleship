@@ -528,6 +528,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
 			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
 			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
+			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2);
+			if(blnOverlap == true){
+				System.out.println("stay");
+			}else{
+				System.out.println("go");
+			}
+
 			if(gamepanel.blnRot2 == false){
 				gamepanel.int2px1 = gamepanel.intMousex;
 				gamepanel.int2py1 = gamepanel.intMousey;

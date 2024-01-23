@@ -128,8 +128,13 @@ public class controller {
         return strMap;
     }
 
-    public static boolean checkOverlap(){
-
-        return true;
+    public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength){
+        intx1 = (intx1 - 32) / 45;
+        inty1 = (inty1 - 135) / 45;
+        intlength -= 1;
+        if(intlength >= 0 && !mapfile[inty1][intx1 + intlength].equals("s")){
+           return true;
+        }
+        return false;
     }
 }
