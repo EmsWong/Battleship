@@ -285,44 +285,50 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 
 	public void keyPressed(KeyEvent evt){
-		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			//System.out.println("ya");
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
-			}else{
-				gamepanel.blnRot2 = false;
+		if(gamepanel.int2px1 < 437 && gamepanel.int2py1 < 540){
+			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//System.out.println("ya");
+				if(gamepanel.blnRot2 == false){
+					gamepanel.blnRot2 = true;
+				}else{
+					gamepanel.blnRot2 = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot3a == false){
-				gamepanel.blnRot3a = true;
-			}else{
-				gamepanel.blnRot3a = false;
+		if(gamepanel.int3apx1 < 392 && gamepanel.int3apy1 < 495){
+			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot3a == false){
+					gamepanel.blnRot3a = true;
+				}else{
+					gamepanel.blnRot3a = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot3b == false){
-				gamepanel.blnRot3b = true;
-			}else{
-				gamepanel.blnRot3b = false;
+		if(gamepanel.int3bpx1 < 392 && gamepanel.int3bpy1 < 495){
+			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot3b == false){
+					gamepanel.blnRot3b = true;
+				}else{
+					gamepanel.blnRot3b = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot4 == false){
-				gamepanel.blnRot4 = true;
-			}else{
-				gamepanel.blnRot4 = false;
+		if(gamepanel.int4px1 < 392 && gamepanel.int4py1 < 450){
+			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot4 == false){
+					gamepanel.blnRot4 = true;
+				}else{
+					gamepanel.blnRot4 = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot5 == false){
-				gamepanel.blnRot5 = true;
-			}else{
-				gamepanel.blnRot5 = false;
+		if(gamepanel.int2px1 < 347 && gamepanel.int2py1 < 405){
+			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot5 == false){
+					gamepanel.blnRot5 = true;
+				}else{
+					gamepanel.blnRot5 = false;
+				}
 			}
 		}
 	}
@@ -336,44 +342,50 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			userlabel.setText("Username");
 		}
 
-		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			//System.out.println("ya");
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
-			}else{
-				gamepanel.blnRot2 = false;
+		if(gamepanel.int2px1 < 437 && gamepanel.int2py1 < 540){
+			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//System.out.println("ya");
+				if(gamepanel.blnRot2 == false){
+					gamepanel.blnRot2 = true;
+				}else{
+					gamepanel.blnRot2 = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot3a == false){
-				gamepanel.blnRot3a = true;
-			}else{
-				gamepanel.blnRot3a = false;
+		if(gamepanel.int3apx1 < 392 && gamepanel.int3apy1 < 495){
+			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot3a == false){
+					gamepanel.blnRot3a = true;
+				}else{
+					gamepanel.blnRot3a = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot3b == false){
-				gamepanel.blnRot3b = true;
-			}else{
-				gamepanel.blnRot3b = false;
+		if(gamepanel.int3bpx1 < 392 && gamepanel.int3bpy1 < 495){
+			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot3b == false){
+					gamepanel.blnRot3b = true;
+				}else{
+					gamepanel.blnRot3b = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot4 == false){
-				gamepanel.blnRot4 = true;
-			}else{
-				gamepanel.blnRot4 = false;
+		if(gamepanel.int4px1 < 392 && gamepanel.int4py1 < 450){
+			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot4 == false){
+					gamepanel.blnRot4 = true;
+				}else{
+					gamepanel.blnRot4 = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot5 == false){
-				gamepanel.blnRot5 = true;
-			}else{
-				gamepanel.blnRot5 = false;
+		if(gamepanel.int2px1 < 347 && gamepanel.int2py1 < 405){
+			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot5 == false){
+					gamepanel.blnRot5 = true;
+				}else{
+					gamepanel.blnRot5 = false;
+				}
 			}
 		}
 
@@ -389,44 +401,50 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			userlabel.setText("Username");
 		}
 
-		if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			//System.out.println("ya");
-			if(gamepanel.blnRot2 == false){
-				gamepanel.blnRot2 = true;
-			}else{
-				gamepanel.blnRot2 = false;
+		if(gamepanel.int2px1 < 437 && gamepanel.int2py1 < 540){
+			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//System.out.println("ya");
+				if(gamepanel.blnRot2 == false){
+					gamepanel.blnRot2 = true;
+				}else{
+					gamepanel.blnRot2 = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot3a == false){
-				gamepanel.blnRot3a = true;
-			}else{
-				gamepanel.blnRot3a = false;
+		if(gamepanel.int3apx1 < 392 && gamepanel.int3apy1 < 495){
+			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot3a == false){
+					gamepanel.blnRot3a = true;
+				}else{
+					gamepanel.blnRot3a = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot3b == false){
-				gamepanel.blnRot3b = true;
-			}else{
-				gamepanel.blnRot3b = false;
+		if(gamepanel.int3bpx1 < 392 && gamepanel.int3bpy1 < 495){
+			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot3b == false){
+					gamepanel.blnRot3b = true;
+				}else{
+					gamepanel.blnRot3b = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot4 == false){
-				gamepanel.blnRot4 = true;
-			}else{
-				gamepanel.blnRot4 = false;
+		if(gamepanel.int4px1 < 347 && gamepanel.int4py1 < 450){
+			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot4 == false){
+					gamepanel.blnRot4 = true;
+				}else{
+					gamepanel.blnRot4 = false;
+				}
 			}
 		}
-
-		if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
-			if(gamepanel.blnRot5 == false){
-				gamepanel.blnRot5 = true;
-			}else{
-				gamepanel.blnRot5 = false;
+		if(gamepanel.int5px1 < 302 && gamepanel.int5py1 < 405){
+			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(gamepanel.blnRot5 == false){
+					gamepanel.blnRot5 = true;
+				}else{
+					gamepanel.blnRot5 = false;
+				}
 			}
 		}
 	}
