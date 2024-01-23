@@ -25,7 +25,7 @@ public class thepanel extends JPanel{
 	public thepanel(){
 		InputStream imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream("menuboat.png");
+		imageclass = this.getClass().getResourceAsStream("Resources/menuboat.png");
 		if(imageclass != null){
 			try{
 				imgboat = ImageIO.read(imageclass);
@@ -35,13 +35,13 @@ public class thepanel extends JPanel{
 		}
 		if(imgboat == null){
 			try{
-				imgboat = ImageIO.read(new File("menuboat.png"));
+				imgboat = ImageIO.read(new File("Resources/menuboat.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
 		}
 		
-		imageclass = this.getClass().getResourceAsStream("menucar.png");
+		imageclass = this.getClass().getResourceAsStream("Resources/menucar.png");
 		if(imageclass != null){
 			try{
 				imgcar = ImageIO.read(imageclass);
@@ -51,13 +51,13 @@ public class thepanel extends JPanel{
 		}
 		if(imgcar == null){
 			try{
-				imgcar = ImageIO.read(new File("menucar.png"));
+				imgcar = ImageIO.read(new File("Resources/menucar.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
 		}
 		
-		imageclass = this.getClass().getResourceAsStream("menurocket.png");
+		imageclass = this.getClass().getResourceAsStream("Resources/menurocket.png");
 		if(imageclass != null){
 			try{
 				imgrocket = ImageIO.read(imageclass);
@@ -67,7 +67,7 @@ public class thepanel extends JPanel{
 		}
 		if(imgrocket == null){
 			try{
-				imgrocket = ImageIO.read(new File("menurocket.png"));
+				imgrocket = ImageIO.read(new File("Resources/menurocket.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
