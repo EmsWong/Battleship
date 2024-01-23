@@ -67,16 +67,18 @@ public class controller {
         }
 
         try{
-            PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", true));
+            PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", false));
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
-                    if(j > 8){
+                    //if(j > 8){
+                        //mapcsv.println(mapfile[i][j]);
                         System.out.print(mapfile[i][j]);
-                    }else{
-                        System.out.print(mapfile[i][j] + ",");
-                    }
+                    //}else{
+                        mapcsv.print(mapfile[i][j] + ",");
+                    //}
                 }
                 System.out.println();
+                mapcsv.println();
             }
             mapcsv.close();
         }catch(IOException e){
