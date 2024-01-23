@@ -33,25 +33,25 @@ public class apanel extends JPanel{
 	int intMapChoice = 0;
 
 	// game piece coordinates
-	int int2px1 = 502;
+	int int2px1 = 32;
 	int int2py1 = 135;
-	int int2px2 = 592;
+	int int2px2 = 122;
 	int int2py2 = 180;
-	int int3apx1 = 502;
+	int int3apx1 = 32;
 	int int3apy1 = 180;
-	int int3apx2 = 637;
+	int int3apx2 = 167;
 	int int3apy2 = 225;
-	int int3bpx1 = 502;
+	int int3bpx1 = 32;
 	int int3bpy1 = 225;
-	int int3bpx2 = 637;
+	int int3bpx2 = 167;
 	int int3bpy2 = 270;
-	int int4px1 = 502;
+	int int4px1 = 32;
 	int int4py1 = 270;
-	int int4px2 = 682;
+	int int4px2 = 212;
 	int int4py2 = 315;
-	int int5px1 = 502;
+	int int5px1 = 32;
 	int int5py1 = 315;
-	int int5px2 = 727;
+	int int5px2 = 257;
 	int int5py2 = 360;
 
 	// mouse variables

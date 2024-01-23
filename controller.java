@@ -49,21 +49,32 @@ public class controller {
         }
         return intPieceY2;
     }
-    public static String[][] updateMap(String[][] mapfile, int intx1, int inty1, boolean blnrotated, int intlength){
+    public static String[][] updateMap(String[][] mapfile, int intx1, int inty1, boolean blnrotated, int intlength, boolean blnErase){
         intx1 = (intx1 - 32) / 45;
         inty1 = (inty1 - 135) / 45;
         intlength -= 1;
-        while(intlength >= 0 && blnrotated == false){
-            System.out.println(intx1);
-            System.out.println(inty1);
-            System.out.println(intlength);
+        while(intlength >= 0 && blnrotated == false && blnErase == false){
             mapfile[inty1][intx1 + intlength] = "s";
             intlength -= 1;
         }
 
-        while(intlength >= 0 && blnrotated == true){
+        while(intlength >= 0 && blnrotated == true && blnErase == false){
             mapfile[inty1 + intlength][intx1] = "s";
             intlength -= 1;
+        }
+
+        while(intlength >= 0 && blnrotated == false && blnErase == true){
+            
+                mapfile[inty1][intx1 + intlength] = "w";
+                intlength -= 1;
+            
+        }
+
+        while(intlength >= 0 && blnrotated == true && blnErase == true){
+            
+                mapfile[inty1 + intlength][intx1] = "w";
+                intlength -= 1;
+            
         }
 
         try{
