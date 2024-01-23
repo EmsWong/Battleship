@@ -520,15 +520,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		
 		gamepanel.intMousex = evt.getX();
 		gamepanel.intMousey = evt.getY();
+		gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
+		gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
+		gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
+		gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 
 		if(gamepanel.blnMove2 == true){
-			gamepanel.int2px1 = gamepanel.intMousex;
-			gamepanel.int2py1 = gamepanel.intMousey;
-			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
-			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2);
+			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
 			if(blnOverlap == true){
 				System.out.println("stay");
 			}else{
@@ -552,13 +550,12 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.int2py1 = gamepanel.int2py2 - 90;
 				}
 			}
-			if(gamepanel.blnMove3a == true){
-				gamepanel.int3apx1 = gamepanel.intMousex;
-				gamepanel.int3apy1 = gamepanel.intMousey;
-				gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-				gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-				gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-				gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
+		}
+		if(gamepanel.blnMove3a == true){
+			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
+			if(blnOverlap == true){
+				System.out.println("stay");
+			}else{
 				if(gamepanel.blnRot3a == false){
 					gamepanel.int3apx1 = gamepanel.intMousex;
 					gamepanel.int3apy1 = gamepanel.intMousey;
@@ -579,13 +576,12 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.int3apy1 = gamepanel.int3apy2 - 135;
 				}
 			}
-			if(gamepanel.blnMove3b == true){
-				gamepanel.int3bpx1 = gamepanel.intMousex;
-				gamepanel.int3bpy1 = gamepanel.intMousey;
-				gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-				gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-				gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-				gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
+		}
+		if(gamepanel.blnMove3b == true){
+			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
+			if(blnOverlap == true){
+				System.out.println("stay");
+			}else{
 				if(gamepanel.blnRot3b == false){
 					gamepanel.int3bpx1 = gamepanel.intMousex;
 					gamepanel.int3bpy1 = gamepanel.intMousey;
@@ -606,61 +602,57 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.int3bpy1 = gamepanel.int3bpy2 - 135;
 				}
 			}
-			}
-
-			
+		}	
 		if(gamepanel.blnMove4 == true){
-			gamepanel.int4px1 = gamepanel.intMousex;
-			gamepanel.int4py1 = gamepanel.intMousey;
-			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
-			if(gamepanel.blnRot4 == false){
-				gamepanel.int4px1 = gamepanel.intMousex;
-				gamepanel.int4py1 = gamepanel.intMousey;
-				gamepanel.int4px2 = gamepanel.intMousex + 180;
-				gamepanel.int4py2 = gamepanel.intMousey + 45;
-				gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
-				gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
-				gamepanel.int4px1 = gamepanel.int4px2 - 180;
-				gamepanel.int4py1 = gamepanel.int4py2 - 45;
+			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
+			if(blnOverlap == true){
+				System.out.println("stay");
 			}else{
-				gamepanel.int4px1 = gamepanel.intMousex;
-				gamepanel.int4py1 = gamepanel.intMousey;
-				gamepanel.int4px2 = gamepanel.intMousex + 45;
-				gamepanel.int4py2 = gamepanel.intMousey + 180;
-				gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
-				gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
-				gamepanel.int4px1 = gamepanel.int4px2 - 45;
-				gamepanel.int4py1 = gamepanel.int4py2 - 180;
+				if(gamepanel.blnRot4 == false){
+					gamepanel.int4px1 = gamepanel.intMousex;
+					gamepanel.int4py1 = gamepanel.intMousey;
+					gamepanel.int4px2 = gamepanel.intMousex + 180;
+					gamepanel.int4py2 = gamepanel.intMousey + 45;
+					gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
+					gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
+					gamepanel.int4px1 = gamepanel.int4px2 - 180;
+					gamepanel.int4py1 = gamepanel.int4py2 - 45;
+				}else{
+					gamepanel.int4px1 = gamepanel.intMousex;
+					gamepanel.int4py1 = gamepanel.intMousey;
+					gamepanel.int4px2 = gamepanel.intMousex + 45;
+					gamepanel.int4py2 = gamepanel.intMousey + 180;
+					gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
+					gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
+					gamepanel.int4px1 = gamepanel.int4px2 - 45;
+					gamepanel.int4py1 = gamepanel.int4py2 - 180;
+				}
 			}
 		}
 		if(gamepanel.blnMove5 == true){
-			gamepanel.int5px1 = gamepanel.intMousex;
-			gamepanel.int5py1 = gamepanel.intMousey;
-			gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-			gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-			gamepanel.intMousex = controller.boundxleft(gamepanel.intMousex);
-			gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
-			if(gamepanel.blnRot5 == false){
-				gamepanel.int5px1 = gamepanel.intMousex;
-				gamepanel.int5py1 = gamepanel.intMousey;
-				gamepanel.int5px2 = gamepanel.intMousex + 225;
-				gamepanel.int5py2 = gamepanel.intMousey + 45;
-				gamepanel.int5px2 = controller.boundxright(gamepanel.int5px2);
-				gamepanel.int5py2 = controller.boundybottom(gamepanel.int5py2);
-				gamepanel.int5px1 = gamepanel.int5px2 - 225;
-				gamepanel.int5py1 = gamepanel.int5py2 - 45;
+			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
+			if(blnOverlap == true){
+				System.out.println("stay");
 			}else{
-				gamepanel.int5px1 = gamepanel.intMousex;
-				gamepanel.int5py1 = gamepanel.intMousey;
-				gamepanel.int5px2 = gamepanel.intMousex + 45;
-				gamepanel.int5py2 = gamepanel.intMousey + 225;
-				gamepanel.int5px2 = controller.boundxright(gamepanel.int5px2);
-				gamepanel.int5py2 = controller.boundybottom(gamepanel.int5py2);
-				gamepanel.int5px1 = gamepanel.int5px2 - 45;
-				gamepanel.int5py1 = gamepanel.int5py2 - 225;
+				if(gamepanel.blnRot5 == false){
+					gamepanel.int5px1 = gamepanel.intMousex;
+					gamepanel.int5py1 = gamepanel.intMousey;
+					gamepanel.int5px2 = gamepanel.intMousex + 225;
+					gamepanel.int5py2 = gamepanel.intMousey + 45;
+					gamepanel.int5px2 = controller.boundxright(gamepanel.int5px2);
+					gamepanel.int5py2 = controller.boundybottom(gamepanel.int5py2);
+					gamepanel.int5px1 = gamepanel.int5px2 - 225;
+					gamepanel.int5py1 = gamepanel.int5py2 - 45;
+				}else{
+					gamepanel.int5px1 = gamepanel.intMousex;
+					gamepanel.int5py1 = gamepanel.intMousey;
+					gamepanel.int5px2 = gamepanel.intMousex + 45;
+					gamepanel.int5py2 = gamepanel.intMousey + 225;
+					gamepanel.int5px2 = controller.boundxright(gamepanel.int5px2);
+					gamepanel.int5py2 = controller.boundybottom(gamepanel.int5py2);
+					gamepanel.int5px1 = gamepanel.int5px2 - 45;
+					gamepanel.int5py1 = gamepanel.int5py2 - 225;
+				}
 			}
 		}
 
