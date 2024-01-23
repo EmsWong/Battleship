@@ -77,14 +77,10 @@ public class controller {
             PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", false));
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
-                    //if(j > 8){
-                        //mapcsv.println(mapfile[i][j]);
-                        System.out.print(mapfile[i][j]);
-                    //}else{
-                        mapcsv.print(mapfile[i][j] + ",");
-                    //}
+                    //System.out.print(mapfile[i][j]);
+                    mapcsv.print(mapfile[i][j] + ",");
                 }
-                System.out.println();
+                //System.out.println();
                 mapcsv.println();
             }
             mapcsv.close();
@@ -132,18 +128,30 @@ public class controller {
         intx1 = (intx1 - 32) / 45;
         inty1 = (inty1 - 135) / 45;
         intlength -= 1;
-        while(intlength >= 0 && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(mapfile[i][j] + ",");
+            }
+            System.out.println();
+        }
+
+        System.out.println(inty1);
+        System.out.println(intx1);
+        System.out.println(intlength);
+        while(intlength > 0 && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
+            System.out.println("change");
             intlength -= 1;
         }
 
-        while(intlength >= 0 && !mapfile[inty1 + intlength][intx1].equals("s") && blnrotated == true){
+        while(intlength > 0 && !mapfile[inty1 + intlength][intx1].equals("s") && blnrotated == true){
             intlength -= 1;
         }
-
-        if(intlength == 0){
-            return true;
-        }else{
+        System.out.println(intlength);
+        if(intlength <= 0){
             return false;
+        }else{
+            return true;
         }
     }
 }

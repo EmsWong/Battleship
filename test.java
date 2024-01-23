@@ -530,6 +530,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(blnOverlap == true){
 				System.out.println("stay");
 			}else{
+				System.out.println(blnOverlap);
 				if(gamepanel.blnRot2 == false){
 					gamepanel.int2px1 = gamepanel.intMousex;
 					gamepanel.int2py1 = gamepanel.intMousey;
