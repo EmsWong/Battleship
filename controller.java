@@ -93,7 +93,7 @@ public class controller {
         }catch(ArrayIndexOutOfBoundsException e){
 
         }
-
+        System.out.println();
         return mapfile;
     }
 
