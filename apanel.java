@@ -70,13 +70,14 @@ public class apanel extends JPanel{
 	boolean blnRot4 = false;
 	boolean blnRot5 = false;
 
+	String strMap[][] = new String[10][10];
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.WHITE);
 		
 		String strTheme[][];
-		strTheme = new String[1][10];
+		strTheme = new String[10][10];
 		String strLine = "";
 		String strSplit[];
 		int intTemp;
@@ -341,8 +342,6 @@ public class apanel extends JPanel{
 		}
 		
 		//LOADS MAP INTO 2D ARRAY
-		String strMap[][];
-		strMap = new String[10][10];
 		String strLines = "";
 		String strSplits[];
 		int intMapCol = 0;
