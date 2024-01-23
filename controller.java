@@ -125,35 +125,41 @@ public class controller {
     }
 
     public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength, boolean blnrotated){
-        intx1 = ((intx1 - 32) / 45);
-        inty1 = (inty1 - 135) / 45;
+        intx1 = ((intx1 - (intx1 % 45)) / 45);
+        inty1 = (inty1 - (inty1 % 45) - 135) / 45;
+
+        System.out.println(intx1 + " " + inty1);
+
         intlength -= 1;
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if(j>8){
-                    System.out.print(mapfile[i][j]);
+                    //System.out.print(mapfile[i][j]);
                 }else{
-                  System.out.print(mapfile[i][j] + ",");
+                  //System.out.print(mapfile[i][j] + ",");
                 }
             }
-            System.out.println();
+            //System.out.println();
         }
 
         System.out.println("inty:" +inty1);
         System.out.println("intx:"+intx1);
         System.out.println("length"+intlength);
-         
-        while(intlength > 0 && !mapfile[inty1][intx1 + intlength - 1].equals("s") && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
-            System.out.println("change");
-            intlength -= 1;
-        }
+       
+        try{
+            while(intlength > 0 && !mapfile[inty1][intx1].equals("s") && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
+                System.out.println("change");
+                intlength -= 1;
+            }
 
-        while(intlength >= 0 && !mapfile[inty1 + intlength][intx1].equals("s") && !mapfile[inty1][intx1].equals("s")&& blnrotated == true){
-            System.out.println("HI");
-            intlength -= 1;
+            while(intlength >= 0 && !mapfile[inty1 + intlength][intx1].equals("s") && !mapfile[inty1][intx1].equals("s")&& blnrotated == true){
+                System.out.println("HI");
+                intlength -= 1;
+            }
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Array");
         }
-        
 
         System.out.println(intlength);
         if(intlength <= 0){
