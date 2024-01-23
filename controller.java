@@ -97,7 +97,39 @@ public class controller {
         return mapfile;
     }
 
+    //for play again if needed
+    public static String[][] reloadMap(String[][] strMap){
+        int intCount1;
+        int intCount2;
+
+        for(intCount1 = 0; intCount1 < 10; intCount1++){
+			for(intCount2 = 0; intCount2 <10; intCount2++){
+				strMap[intCount1][intCount2] = "w";		
+			}
+		}
+        strMap[0][0] = "s";
+        strMap[0][1] = "s";
+        strMap[1][0] = "s";
+        strMap[1][1] = "s";
+        strMap[1][2] = "s";
+        strMap[2][0] = "s";
+        strMap[2][1] = "s";
+        strMap[2][2] = "s";
+        strMap[3][0] = "s";
+        strMap[3][1] = "s";
+        strMap[3][2] = "s";
+        strMap[3][3] = "s";
+        strMap[4][0] = "s";
+        strMap[4][1] = "s";
+        strMap[4][2] = "s";
+        strMap[4][3] = "s";
+        strMap[4][4] = "s";
+
+        return strMap;
+    }
+
     public static boolean checkOverlap(){
+
         return true;
     }
 }
