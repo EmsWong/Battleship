@@ -1,3 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class controller {
     public static int snapToX(int intMousex){
         int intMouse = 0;
@@ -62,11 +66,23 @@ public class controller {
             intlength -= 1;
         }
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                System.out.print(mapfile[i][j] + "\t");
+        try{
+            PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", true));
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if(j > 8){
+                        System.out.print(mapfile[i][j]);
+                    }else{
+                        System.out.print(mapfile[i][j] + ",");
+                    }
+                }
+                System.out.println();
             }
-            System.out.println();
+            mapcsv.close();
+        }catch(IOException e){
+
+        }catch(ArrayIndexOutOfBoundsException e){
+
         }
 
         return mapfile;
