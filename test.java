@@ -623,8 +623,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				gamepanel.int4py2 = gamepanel.intMousey + 180;
 				gamepanel.int4px2 = controller.boundxright(gamepanel.int4px2);
 				gamepanel.int4py2 = controller.boundybottom(gamepanel.int4py2);
-				gamepanel.int4px1 = gamepanel.int4px2 - 180;
-				gamepanel.int4py1 = gamepanel.int4py2 - 45;
+				gamepanel.int4px1 = gamepanel.int4px2 - 45;
+				gamepanel.int4py1 = gamepanel.int4py2 - 180;
 			}
 		}
 		if(gamepanel.blnMove5 == true){
