@@ -48,13 +48,17 @@ public class controller {
     public static String[][] updateMap(String[][] mapfile, int intx1, int inty1, boolean blnrotated, int intlength){
         intx1 = (intx1 - 32) / 45;
         inty1 = (inty1 - 135) / 45;
-        while(intlength >= intx1 && blnrotated == false){
-            mapfile[intx1 + intlength][inty1] = "s";
+        intlength -= 1;
+        while(intlength >= 0 && blnrotated == false){
+            System.out.println(intx1);
+            System.out.println(inty1);
+            System.out.println(intlength);
+            mapfile[inty1][intx1 + intlength] = "s";
             intlength -= 1;
         }
 
-        while(intlength >= intx1 && blnrotated == true){
-            mapfile[intx1][inty1 + intlength] = "s";
+        while(intlength >= 0 && blnrotated == true){
+            mapfile[inty1 + intlength][intx1] = "s";
             intlength -= 1;
         }
 
@@ -62,9 +66,9 @@ public class controller {
             for (int j = 0; j < 10; j++) {
                 System.out.print(mapfile[i][j] + "\t");
             }
-            System.out.println(); // Move to the next line after printing each row
+            System.out.println();
         }
-        
+
         return mapfile;
     }
 }

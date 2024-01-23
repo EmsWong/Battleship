@@ -503,6 +503,19 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		if(gamepanel.blnMove2 == true){
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2);
 		}
+		
+		if(gamepanel.blnMove3a == true){
+			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int3apx1, gamepanel.int3apy1, gamepanel.blnRot3a, 3);
+		}
+		if(gamepanel.blnMove3b == true){
+			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int3bpx1, gamepanel.int3bpy1, gamepanel.blnRot3b, 3);
+		}
+		if(gamepanel.blnMove4 == true){
+			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int4px1, gamepanel.int4py1, gamepanel.blnRot4, 4);
+		}
+		if(gamepanel.blnMove5 == true){
+			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int5px1, gamepanel.int5py1, gamepanel.blnRot5, 5);
+		}
 
 		gamepanel.blnMove2 = false;
 		gamepanel.blnMove3a = false;
