@@ -129,14 +129,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				ssm.connect();
 				System.out.println(ssm.getMyAddress());
 				theframe.setTitle(ssm.getMyAddress());
-/*
-				try{
-					Thread.sleep(3500);
-				}
-					catch (InterruptedException e){
-				
-				}
-*/
 				theframe.setContentPane(themepanel);
 				theframe.pack();
 				theframe.repaint();
@@ -488,13 +480,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int5px1, gamepanel.int5py1, gamepanel.blnRot5, 5, true);
 			theframe.requestFocus();
 		}
-		/*
-		System.out.println("Mouse was pressed");
-		System.out.println("X: "+gamepanel.intMousex);
-		System.out.println("Y: "+gamepanel.intMousey);
-		*/
-
-		
 	}
 	
 	public void mouseEntered(MouseEvent evt){

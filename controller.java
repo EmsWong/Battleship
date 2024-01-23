@@ -64,17 +64,13 @@ public class controller {
         }
 
         while(intlength >= 0 && blnrotated == false && blnErase == true){
-            
-                mapfile[inty1][intx1 + intlength] = "w";
-                intlength -= 1;
-            
+            mapfile[inty1][intx1 + intlength] = "w";
+            intlength -= 1;
         }
 
         while(intlength >= 0 && blnrotated == true && blnErase == true){
-            
-                mapfile[inty1 + intlength][intx1] = "w";
-                intlength -= 1;
-            
+            mapfile[inty1 + intlength][intx1] = "w";
+            intlength -= 1; 
         }
 
         try{
@@ -99,5 +95,9 @@ public class controller {
         }
 
         return mapfile;
+    }
+
+    public static boolean checkOverlap(){
+        
     }
 }
