@@ -173,7 +173,7 @@ public class apanel extends JPanel{
 		String strImage = strTheme[0][1];
 		InputStream imageclass = null;
 
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				imgtile = ImageIO.read(imageclass);
@@ -183,7 +183,7 @@ public class apanel extends JPanel{
 		}
 		if(imgtile == null){
 			try{
-				imgtile = ImageIO.read(new File(strImage));
+				imgtile = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -192,7 +192,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][2];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img2h = ImageIO.read(imageclass);
@@ -202,7 +202,7 @@ public class apanel extends JPanel{
 		}
 		if(img2h == null){
 			try{
-				img2h = ImageIO.read(new File(strImage));
+				img2h = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -211,7 +211,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][3];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img2v = ImageIO.read(imageclass);
@@ -221,7 +221,7 @@ public class apanel extends JPanel{
 		}
 		if(img2v == null){
 			try{
-				img2v = ImageIO.read(new File(strImage));
+				img2v = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -230,7 +230,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][4];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img3h = ImageIO.read(imageclass);
@@ -240,7 +240,7 @@ public class apanel extends JPanel{
 		}
 		if(img3h == null){
 			try{
-				img3h = ImageIO.read(new File(strImage));
+				img3h = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -249,7 +249,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][5];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img3v = ImageIO.read(imageclass);
@@ -259,7 +259,7 @@ public class apanel extends JPanel{
 		}
 		if(img3v == null){
 			try{
-				img3v = ImageIO.read(new File(strImage));
+				img3v = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -268,7 +268,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][6];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img4h = ImageIO.read(imageclass);
@@ -278,7 +278,7 @@ public class apanel extends JPanel{
 		}
 		if(img4h == null){
 			try{
-				img4h = ImageIO.read(new File(strImage));
+				img4h = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -287,7 +287,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][7];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img4v = ImageIO.read(imageclass);
@@ -297,7 +297,7 @@ public class apanel extends JPanel{
 		}
 		if(img4v == null){
 			try{
-				img4v = ImageIO.read(new File(strImage));
+				img4v = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -306,7 +306,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][8];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img5h = ImageIO.read(imageclass);
@@ -316,7 +316,7 @@ public class apanel extends JPanel{
 		}
 		if(img5h == null){
 			try{
-				img5h = ImageIO.read(new File(strImage));
+				img5h = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -325,7 +325,7 @@ public class apanel extends JPanel{
 		strImage = strTheme[0][9];
 		imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream(strImage);
+		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
 				img5v = ImageIO.read(imageclass);
@@ -335,7 +335,7 @@ public class apanel extends JPanel{
 		}
 		if(img5v == null){
 			try{
-				img5v = ImageIO.read(new File(strImage));
+				img5v = ImageIO.read(new File("Resources/"+strImage));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
@@ -449,7 +449,7 @@ public class apanel extends JPanel{
 	public apanel(){
 		InputStream imageclass = null;
 		
-		imageclass = this.getClass().getResourceAsStream("stars.png");
+		imageclass = this.getClass().getResourceAsStream("Resources/stars.png");
 		if(imageclass != null){
 			try{
 				imgstars = ImageIO.read(imageclass);
@@ -459,7 +459,7 @@ public class apanel extends JPanel{
 		}
 		if(imgstars == null){
 			try{
-				imgstars = ImageIO.read(new File("stars.png"));
+				imgstars = ImageIO.read(new File("Resources/stars.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
