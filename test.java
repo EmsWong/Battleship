@@ -22,6 +22,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	thepanel themepanel = new thepanel();
 	JPanel chatpanel = new JPanel();
 	
+	//Help Screen Panels
+	hpanel helppanel1 = new hpanel();
+	hpanel helppanel2 = new hpanel();
+	hpanel helppanel3 = new hpanel();
 	
 	//Chat Area
 	JTextArea textarea = new JTextArea();
@@ -58,39 +62,41 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	JButton carsbutton = new JButton("Cars");
 	JButton spacebutton = new JButton("Space");
 	
+	//Help Screen 
+	JButton nextbutton1 = new JButton("Next");
+	JButton nextbutton2 = new JButton("Next");
+	JButton backbutton1 = new JButton("Back");
+	JButton backbutton2 = new JButton("Back");
+	JButton backbutton = new JButton("Go Back to Home Screen");
+	
+	JButton startbuttonh = new JButton("START");
+	
+	JLabel user1labelh = new JLabel("Player1", SwingConstants.CENTER);
+	JLabel user2labelh = new JLabel("Player1", SwingConstants.CENTER);
+	JLabel user3labelh = new JLabel("Player1", SwingConstants.CENTER);
+	
+	String[] strRowh = {"1","2","3","4","5","6","7","8","9","10"}; 
+	String[] strColh = {"A","B","C","D","E","F","G","H","I","J"}; 
+	JComboBox rowlisth = new JComboBox(strRowh);
+	JComboBox collisth = new JComboBox(strColh);
+	JButton firebuttonh = new JButton("FIRE");
+	
+	JTextArea textareah = new JTextArea();
+	JScrollPane thescrollh = new JScrollPane(textareah);
+	JTextField sendfieldh = new JTextField();
+	
 	//Waiting 
 	JLabel waitinglabel = new JLabel("Waiting for Host...");
 	
 	//Username
 	String strUsername = "";
 	JLabel user1label = new JLabel("", SwingConstants.CENTER);
-	JLabel user2label = new JLabel("");
+	JLabel user2label = new JLabel("", SwingConstants.CENTER);
 	
-	//Mouse coordinates and variables 
+	//Rematch or Quit
+	JButton rematchbutton = new JButton("REMATCH");
+	JButton quitbutton1 = new JButton("QUIT");
 	
-	// game piece coords
-	/*
-	int int2px1 = 502;
-	int int2py1 = 135;
-	int int2px2 = 592;
-	int int2py2 = 180;
-	int int3apx1 = 502;
-	int int3apy1 = 180;
-	int int3apx2 = 637;
-	int int3apy2 = 225;
-	int int3bpx1 = 502;
-	int int3bpy1 = 225;
-	int int3bpx2 = 637;
-	int int3bpy2 = 270;
-	int int4px1 = 502;
-	int int4py1 = 270;
-	int int4px2 = 682;
-	int int4py2 = 315;
-	int int5px1 = 502;
-	int int5py1 = 315;
-	int int5px2 = 727;
-	int int5py2 = 360;
-	*/
 
 
 	public void actionPerformed(ActionEvent evt){
@@ -100,12 +106,56 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			theframe.pack();
 			theframe.repaint();
 		}
-
+		//clicking help button on home screen
+		if(evt.getSource() == helpbutton){
+			theframe.setContentPane(helppanel1);
+			theframe.pack();
+			theframe.repaint();
+			helppanel1.intPanel = 1;
+		}
 		//clicking quit button on home screen
 		if(evt.getSource() == quitbutton){
 			System.exit(0);
 		}
-
+		//clicking back button on first help screen
+		if(evt.getSource() == backbutton){
+			theframe.setContentPane(homepanel);
+			theframe.pack();
+			theframe.repaint();
+		}
+		//clicking back button on second help screen
+		if(evt.getSource() == backbutton1){
+			theframe.setContentPane(helppanel1);
+			theframe.pack();
+			theframe.repaint();
+			helppanel1.intPanel = 1;
+		}
+		//clicking back button on final help screen
+		if(evt.getSource() == backbutton2){
+			theframe.setContentPane(helppanel2);
+			theframe.pack();
+			theframe.repaint();
+			helppanel2.intPanel = 2;
+		}
+		//clicking next button on first help screen
+		if(evt.getSource() == nextbutton1){
+			theframe.setContentPane(helppanel2);
+			theframe.pack();
+			theframe.repaint();
+			helppanel2.intPanel = 2;
+		}
+		//clicking next button on second help screen
+		if(evt.getSource() == nextbutton2){
+			theframe.setContentPane(helppanel3);
+			theframe.pack();
+			theframe.repaint();
+			helppanel3.intPanel = 3;
+		}
+		//chat on help screen
+		if(evt.getSource() == sendfieldh){
+			textareah.append("Player1: " + sendfieldh.getText() + "\n");
+			sendfieldh.setText("");
+		}
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
 			if(firebutton.getText().equals("START")){
@@ -117,7 +167,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				ssm.sendText("attack‰"+strRow+"‰"+strCol);
 			}
 		}
-
 		//clicking the host button on join screen
 		if(evt.getSource() == host){
 			strUsername = username.getText();
@@ -687,7 +736,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		textarea.setEditable(false);
 		chatpanel.add(thescroll);
 		
-		
 		sendfield.setSize(238,48);
 		sendfield.setLocation(39,607);
 		sendfield.addActionListener(this);
@@ -839,14 +887,99 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		//Waiting Panel
 		waitingpanel.setLayout(null);
 		waitingpanel.setPreferredSize(new Dimension(1280,780));
-		
 		text = new Font("arial", Font.BOLD, 60);
 		waitinglabel.setSize(650,100);
 		waitinglabel.setLocation(330,320);
 		waitinglabel.setFont(text);
 		waitingpanel.add(waitinglabel);
 		
+		//Help
+		helppanel1.setLayout(null);
+		helppanel1.setPreferredSize(new Dimension(1280,780));
 		
+		helppanel2.setLayout(null);
+		helppanel2.setPreferredSize(new Dimension(1280,780));
+		
+		helppanel3.setLayout(null);
+		helppanel3.setPreferredSize(new Dimension(1280,780));
+		
+		//Font
+		text = new Font("arial", Font.BOLD, 20);
+		
+		//Help Panel 1
+		backbutton.setSize(250,100);
+		backbutton.setLocation(20,660);
+		backbutton.addActionListener(this);
+		helppanel1.add(backbutton);
+		
+		nextbutton1.setSize(250,100);
+		nextbutton1.setLocation(1010,660);
+		nextbutton1.addActionListener(this);
+		helppanel1.add(nextbutton1);
+		
+		startbuttonh.setSize(163,47);
+		startbuttonh.setLocation(646,607);
+		//firebutton.setFont(text);
+		helppanel1.add(startbuttonh);
+		
+		user1labelh.setFont(text);
+		user1labelh.setSize(150,50);
+		user1labelh.setLocation(182,83);
+		helppanel1.add(user1labelh);
+		
+		//Help Panel 2
+		backbutton1.setSize(250,100);
+		backbutton1.setLocation(20,660);
+		backbutton1.addActionListener(this);
+		helppanel2.add(backbutton1);
+		
+		nextbutton2.setSize(250,100);
+		nextbutton2.setLocation(1010,660);
+		nextbutton2.addActionListener(this);
+		helppanel2.add(nextbutton2);
+		
+		firebuttonh.setSize(163,47);
+		firebuttonh.setLocation(646,607);
+		//firebutton.setFont(text);
+		helppanel2.add(firebuttonh);
+		
+		user2labelh.setFont(text);
+		user2labelh.setSize(150,50);
+		user2labelh.setLocation(182,83);
+		helppanel2.add(user2labelh);
+		
+		//Help text area
+		thescrollh.setSize(238,524);
+		thescrollh.setLocation(1005,66);
+		textareah.setEditable(false);
+		helppanel2.add(thescrollh);
+		
+		sendfieldh.setSize(238,48);
+		sendfieldh.setLocation(1005,607);
+		sendfieldh.addActionListener(this);
+		helppanel2.add(sendfieldh);
+		
+		//Help Drop down lists
+		rowlisth.setSize(163,30);
+		rowlisth.setLocation(551,83);
+		rowlisth.addActionListener(this);
+		helppanel2.add(rowlisth);
+		
+		collisth.setSize(163,30);
+		collisth.setLocation(740,83);
+		collisth.addActionListener(this);
+		helppanel2.add(collisth);
+		
+		//Help Panel 3
+		backbutton2.setSize(250,100);
+		backbutton2.setLocation(20,660);
+		backbutton2.addActionListener(this);
+		helppanel3.add(backbutton2);
+		
+		user3labelh.setFont(text);
+		user3labelh.setSize(150,50);
+		user3labelh.setLocation(182,83);
+		helppanel3.add(user3labelh);
 		
 		//The Frame
 		theframe.setContentPane(homepanel);
