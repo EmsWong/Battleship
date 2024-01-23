@@ -45,4 +45,19 @@ public class controller {
         }
         return intPieceY2;
     }
+    public static String[][] updateMap(String[][] mapfile, int intx1, int inty1, boolean blnrotated, int intlength){
+        intx1 = (intx1 - 32) / 45;
+        inty1 = (inty1 - 135) / 45;
+        while(intlength >= intx1 && blnrotated == false){
+            mapfile[intx1 + intlength][inty1] = "s";
+            intlength -= 1;
+        }
+
+        while(intlength >= intx1 && blnrotated == true){
+            mapfile[intx1][inty1 + intlength] = "s";
+            intlength -= 1;
+        }
+
+        return mapfile;
+    }
 }

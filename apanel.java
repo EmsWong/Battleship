@@ -70,7 +70,6 @@ public class apanel extends JPanel{
 	boolean blnRot4 = false;
 	boolean blnRot5 = false;
 
-	//methods
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -390,12 +389,18 @@ public class apanel extends JPanel{
 				if(strMap[intCount1][intCount2].equals("w")){
 					g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
 				}
+				if(strMap[intCount1][intCount2].equals("s")){
+					g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
+				}
 			}
 
 		}
 		for(intCount3 = 0; intCount3 < 10; intCount3++){
 			for(intCount4 = 0; intCount4 <10; intCount4++){
 				if(strMap[intCount3][intCount4].equals("w")){
+					g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+				}
+				if(strMap[intCount3][intCount4].equals("s")){
 					g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
 				}
 			}

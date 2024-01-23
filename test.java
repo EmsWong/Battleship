@@ -500,11 +500,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 
 	public void mouseReleased(MouseEvent evt){
-
-		//gamepanel.intMousex = controller.snapToX(gamepanel.intMousex);
-		//gamepanel.intMousey = controller.snapToY(gamepanel.intMousey);
-		//gamepanel.intMousex = controller.boundx(gamepanel.intMousex);
-		//gamepanel.intMousey = controller.boundy(gamepanel.intMousey);
+		if(gamepanel.blnMove2 == true){
+			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2);
+		}
 
 		gamepanel.blnMove2 = false;
 		gamepanel.blnMove3a = false;
