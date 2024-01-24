@@ -261,6 +261,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			textarea.append(strUsername + ": " + sendfield.getText() + "\n");
 			sendfield.setText("");
 		}
+
+		if(evt.getSource() == quitbutton1){
+			gamepanel.strMap = controller.reloadMap(gamepanel.strMap);
+			//gamepanel.strGuessing = controller.reloadGuessing(gamepanel.strGuessing, 1);
+			//gamepanel.strHits = controller.reloadGuessing(gamepanel.strHits, 2);
+			System.exit(0);
+		}
 		
 		if(evt.getSource() == ssm){
 			//ssm message for client to switch to gameplay screen
@@ -893,6 +900,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		quitbutton.setFont(text);
 		quitbutton.addActionListener(this);
 		homepanel.add(quitbutton);
+
+		quitbutton1.setSize(60,45);
+		quitbutton1.setLocation(900, 2);
+		quitbutton1.setFont(text);
+		quitbutton1.setText("X");
+		quitbutton1.addActionListener(this);
+		gamepanel.add(quitbutton1);
 
 		//Battleship Title
 		text = new Font("arial", Font.BOLD, 60);

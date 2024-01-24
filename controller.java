@@ -124,8 +124,86 @@ public class controller {
         strMap[4][2] = "s";
         strMap[4][3] = "s";
         strMap[4][4] = "s";
+        try{
+            PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", false));
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if(j>8){
+                    //System.out.print(mapfile[i][j]);
+                        mapcsv.print(strMap[i][j]);
+                    }else{
+                        mapcsv.print(strMap[i][j] + ",");
+                    }
+                }
+                //System.out.println();
+                mapcsv.println();
+            }
+            mapcsv.close();
+        }catch(IOException e){
 
+        }catch(ArrayIndexOutOfBoundsException e){
+
+        }
+        System.out.println();
         return strMap;
+    }
+
+    public static String[][] reloadDotMaps(String[][] strDotMap, int intcsv){
+        int intCount1;
+        int intCount2;
+
+        for(intCount1 = 0; intCount1 < 10; intCount1++){
+			for(intCount2 = 0; intCount2 <10; intCount2++){
+				strDotMap[intCount1][intCount2] = "n";		
+			}
+		}
+        if(intcsv == 1){
+            try{
+                PrintWriter mapcsv = new PrintWriter(new FileWriter("guessing.csv", false));
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        if(j>8){
+                        //System.out.print(mapfile[i][j]);
+                            mapcsv.print(strDotMap[i][j]);
+                        }else{
+                            mapcsv.print(strDotMap[i][j] + ",");
+                        }
+                    }
+                    //System.out.println();
+                    mapcsv.println();
+                }
+                mapcsv.close();
+            }catch(IOException e){
+    
+            }catch(ArrayIndexOutOfBoundsException e){
+    
+            }
+            System.out.println();
+        }
+        if(intcsv == 2){
+            try{
+                PrintWriter mapcsv = new PrintWriter(new FileWriter("hits.csv", false));
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        if(j>8){
+                        //System.out.print(mapfile[i][j]);
+                            mapcsv.print(strDotMap[i][j]);
+                        }else{
+                            mapcsv.print(strDotMap[i][j] + ",");
+                        }
+                    }
+                    //System.out.println();
+                    mapcsv.println();
+                }
+                mapcsv.close();
+            }catch(IOException e){
+    
+            }catch(ArrayIndexOutOfBoundsException e){
+    
+            }
+            System.out.println();
+        }
+        return strDotMap;
     }
 
     public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength, boolean blnrotated){
