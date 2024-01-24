@@ -129,10 +129,8 @@ public class controller {
     }
 
     public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength, boolean blnrotated){
-        //intx1 = ((intx1 - (intx1 % 45)) / 45);
-        //inty1 = ((inty1 - (inty1 % 45) - 135) / 45);
-        intx1 = (intx1 - 32) / 45;
-        inty1 = (inty1 - 135) / 45;
+        intx1 = ((intx1 - (intx1 % 45)) / 45);
+        inty1 = ((inty1 - (inty1 % 45) - 135) / 45);
 
         System.out.println(intx1 + " " + inty1);
 
