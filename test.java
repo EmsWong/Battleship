@@ -350,6 +350,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.intguessx = 437;
 				}
 				gamepanel.intHit = controller.hitmiss(gamepanel.strMap, gamepanel.intRow, gamepanel.intCol);
+				if(gamepanel.intHit == 1){
+					gamepanel.strMap[gamepanel.intRow][gamepanel.intCol] = "w";
+				}
 				
 			//chat messages
 			}else{
