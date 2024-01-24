@@ -222,6 +222,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				username.setText("");
 			}else{
 				gamepanel.intPlayer = 1;
+				user1label.setText(strUsername);
 				ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
 				ssm.connect();
 				theframe.setContentPane(waitingpanel);
@@ -896,16 +897,27 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		helppanel1.intMousey = controller.boundytop(helppanel1.intMousey);
 		
 		if(helppanel1.blnMove2 == true){
-			helppanel1.int2px1 = helppanel1.intMousex;
-			helppanel1.int2py1 = helppanel1.intMousey;
-			helppanel1.int2px2 = helppanel1.intMousex + 90;
-			helppanel1.int2py2 = helppanel1.intMousey + 45;
-			helppanel1.int2px2 = controller.boundxright(helppanel1.int2px2);
-			helppanel1.int2py2 = controller.boundybottom(helppanel1.int2py2);
-			helppanel1.int2px1 = helppanel1.int2px2 - 90;
-			helppanel1.int2py1 = helppanel1.int2py2 - 45;
+			if(helppanel1.blnRot2 == false){
+				helppanel1.int2px1 = helppanel1.intMousex;
+				helppanel1.int2py1 = helppanel1.intMousey;
+				helppanel1.int2px2 = helppanel1.intMousex + 90;
+				helppanel1.int2py2 = helppanel1.intMousey + 45;
+				helppanel1.int2px2 = controller.boundxright(helppanel1.int2px2);
+				helppanel1.int2py2 = controller.boundybottom(helppanel1.int2py2);
+				helppanel1.int2px1 = helppanel1.int2px2 - 90;
+				helppanel1.int2py1 = helppanel1.int2py2 - 45;
+			}else{
+				helppanel1.int2px1 = helppanel1.intMousex;
+				helppanel1.int2py1 = helppanel1.intMousey;
+				helppanel1.int2px2 = helppanel1.intMousex + 45;
+				helppanel1.int2py2 = helppanel1.intMousey + 90;
+				helppanel1.int2px2 = controller.boundxright(helppanel1.int2px2);
+				helppanel1.int2py2 = controller.boundybottom(helppanel1.int2py2);
+				helppanel1.int2px1 = helppanel1.int2px2 - 45;
+				helppanel1.int2py1 = helppanel1.int2py2 - 90;
+			}
 		}else{
-
+			
 		}
 	}
 
