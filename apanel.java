@@ -473,7 +473,13 @@ public class apanel extends JPanel{
 			}
 		}else if(intHit == 2){
 			g.drawImage(imgmiss, intguessx, intguessy, null);
-			
+			strGuess[intCounter][0] = ""+intguessx;
+			strGuess[intCounter][1] = ""+intguessy;
+			for(intCounts = 0; intCounter > intCounts; intCounts++){
+				intguessx = Integer.parseInt(strGuess[intCounts][0]);
+				intguessy = Integer.parseInt(strGuess[intCounts][1]);
+				g.drawImage(imgmiss, intguessx, intguessy, null);
+			}
 		}else if(intHit == 0){
 
 		}
