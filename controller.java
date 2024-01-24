@@ -245,6 +245,8 @@ public class controller {
             System.out.println("inty1 + intlength :"+ intnew);
             System.out.println("intx1:" + intx1);
             System.out.println("Array");
+        }catch(NullPointerException e){
+            System.out.println("idk this exception");
         }
 
         System.out.println(intlength);

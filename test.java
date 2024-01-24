@@ -891,12 +891,14 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		if(helppanel1.blnMove2 == true){
 			helppanel1.int2px1 = helppanel1.intMousex;
 			helppanel1.int2py1 = helppanel1.intMousey;
-			helppanel1.int2px2 = helppanel1.intMousex + 45;
-			helppanel1.int2py2 = helppanel1.intMousey + 225;
+			helppanel1.int2px2 = helppanel1.intMousex + 90;
+			helppanel1.int2py2 = helppanel1.intMousey + 45;
 			helppanel1.int2px2 = controller.boundxright(helppanel1.int2px2);
 			helppanel1.int2py2 = controller.boundybottom(helppanel1.int2py2);
-			helppanel1.int2px1 = helppanel1.int2px2 - 45;
-			helppanel1.int2py1 = helppanel1.int2py2 - 225;
+			helppanel1.int2px1 = helppanel1.int2px2 - 90;
+			helppanel1.int2py1 = helppanel1.int2py2 - 45;
+		}else{
+			
 		}
 	}
 
