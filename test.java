@@ -99,6 +99,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	JButton quitbutton1 = new JButton("QUIT");
 	
 	int intClick = 0;
+	boolean blnConfirmGuess;
 
 	public void actionPerformed(ActionEvent evt){
 		//clicking play button on home screen
@@ -175,6 +176,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(gamepanel.intPlayer == (intClick % 2)){
 				firebutton.setEnabled(false);
 			}
+			gamepanel.strDotMap1 = controller.startDotMaps(gamepanel.strDotMap1);
+			gamepanel.strDotMap2 = controller.startDotMaps(gamepanel.strDotMap2);
+			gamepanel.gameStarted = true;
 		}
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
@@ -185,7 +189,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			String strCol = (String)collist.getSelectedItem();
 			System.out.println(strRow+strCol);
 			
-			ssm.sendText("attack‰"+strRow+"‰"+strCol);
+			ssm.sendText("OppAttack‰"+strRow+"‰"+strCol);
 			if(gamepanel.intPlayer == (intClick % 2)){
 				firebutton.setEnabled(false);
 			}
@@ -194,7 +198,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		//clicking the host button on join screen
 		if(evt.getSource() == host){
 			strUsername = username.getText();
-			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("attack") || strUsername.equals("label")){
+			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("OppAttack") || strUsername.equals("label")){
 				userlabel.setText("Change name");
 				username.setText("");
 			}else{
@@ -211,7 +215,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		//clicking the join button on the join screen
 		if(evt.getSource() == join){
 			strUsername = username.getText();
-			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("attack") || strUsername.equals("label")){
+			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("OppAttack") || strUsername.equals("label")){
 				userlabel.setText("Change Name");
 				username.setText("");
 			}else{
@@ -297,7 +301,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}else if(strChat[0].equals("label")){
 				user2label.setText(strChat[1]);
-			}else if(strChat[0].equals("attack")){
+			}else if(strChat[0].equals("OppAttack")){
 				firebutton.setEnabled(true);
 				intClick++;
 				if(strChat[1].equals("1")){
@@ -362,10 +366,24 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.intCol = 9;
 					gamepanel.intguessx = 437;
 				}
+				System.out.println("intRow:" + gamepanel.intRow);
+				System.out.println("intCol:" + gamepanel.intCol);
 				gamepanel.intHit = controller.hitmiss(gamepanel.strMap, gamepanel.intRow, gamepanel.intCol);
+				System.out.println(gamepanel.intHit);
 				if(gamepanel.intHit == 1){
-					gamepanel.strMap[gamepanel.intRow][gamepanel.intCol] = "w";
+					System.out.println("hit shot");
+					blnConfirmGuess = true;
+					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
+					//need to tell opponent their attack was hit
 				}
+				if(gamepanel.intHit == 2){
+					System.out.println("missed shot");
+					blnConfirmGuess = false;
+					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
+				}
+				//if(gamepanel.intHit == 1){
+					//gamepanel.strMap[gamepanel.intRow][gamepanel.intCol] = "w";
+				//}
 				
 			//chat messages
 			}else{

@@ -78,6 +78,10 @@ public class apanel extends JPanel{
 	boolean blnRot5 = false;
 
 	String strMap[][] = new String[10][10];
+	String strDotMap1[][] = new String[10][10];
+	String strDotMap2[][] = new String[10][10];
+
+	boolean gameStarted = false;
 
 	// Player variables
 	int intPlayerTurn = 0;
@@ -458,40 +462,64 @@ public class apanel extends JPanel{
 			g.drawImage(img5v, int5px1, int5py1, null);
 		}
 		
-		String strGuess[][];
-		strGuess = new String[100][2];
-		int intCounts = 0;
+		//String strGuess[][];
+		//strGuess = new String[100][2];
+		//int intCounts = 0;
 
-		try{
-			if(intHit == 1){
-				strGuess[intCounter][0] = ""+intguessx;
-				strGuess[intCounter][1] = ""+intguessy;
-				System.out.println("hi:"+intCounter);
-				for(intCounts = 0; intCounts <= intCounter; intCounts++){
-					intguessx = Integer.parseInt(strGuess[intCounts][0]);
-					intguessy = Integer.parseInt(strGuess[intCounts][1]);
-					System.out.println(intguessx);
-					System.out.println(intguessy);
-					g.drawImage(imghit, intguessx, intguessy, null);
-				}
-			}else if(intHit == 2){
-				strGuess[intCounter][0] = ""+intguessx;
-				strGuess[intCounter][1] = ""+intguessy;
-				for(intCounts = 0; intCounter >= intCounts; intCounts++){
-					System.out.println("hello:"+strGuess[intCounts][0]);
-					intguessx = Integer.parseInt(strGuess[intCounts][0]);
-					intguessy = Integer.parseInt(strGuess[intCounts][1]);
-					System.out.println(intguessx);
-					System.out.println(intguessy);
-					g.drawImage(imgmiss, intguessx, intguessy, null);
-				}
-			}else if(intHit == 0){
 
+		if(gameStarted == true){
+			try{
+				int intDotX;
+				int intDotY;
+				for (int i = 0; i < 10; i++) {
+					for (int j = 0; j < 10; j++) {
+						if(strDotMap1[i][j].equals("n")){
+							//nothing is drawn there
+						}else if(strDotMap1[i][j].equals("h")){
+							intDotX = 32 + (j * 45);
+							intDotY = 135 + (i * 45);
+							g.drawImage(imghit, intDotX, intDotY, null);
+						}else if(strDotMap1[i][j].equals("m")){
+							intDotX = 32 + (j * 45);
+							intDotY = 135 + (i * 45);
+							g.drawImage(imgmiss, intDotX, intDotY, null);
+						}
+					}
+				}
+				if(intHit == 1){
+					/*/
+					strGuess[intCounter][0] = ""+intguessx;
+					strGuess[intCounter][1] = ""+intguessy;
+					System.out.println("hi:"+intCounter);
+					for(intCounts = 0; intCounts <= intCounter; intCounts++){
+						intguessx = Integer.parseInt(strGuess[intCounts][0]);
+						intguessy = Integer.parseInt(strGuess[intCounts][1]);
+						System.out.println(intguessx);
+						System.out.println(intguessy);
+						g.drawImage(imghit, intguessx, intguessy, null);
+					}
+					*/
+				}else if(intHit == 2){
+					/*
+					strGuess[intCounter][0] = ""+intguessx;
+					strGuess[intCounter][1] = ""+intguessy;
+					for(intCounts = 0; intCounter >= intCounts; intCounts++){
+						System.out.println("hello:"+strGuess[intCounts][0]);
+						intguessx = Integer.parseInt(strGuess[intCounts][0]);
+						intguessy = Integer.parseInt(strGuess[intCounts][1]);
+						System.out.println(intguessx);
+						System.out.println(intguessy);
+						g.drawImage(imgmiss, intguessx, intguessy, null);
+					}
+					*/
+				}else if(intHit == 0){
+
+				}
+			}catch(NumberFormatException e){
+				System.out.println("Unable to parse number");
+			}catch(ArrayIndexOutOfBoundsException e){
+				System.out.println("array out of bounds");
 			}
-		}catch(NumberFormatException e){
-			System.out.println("Unable to parse number");
-		}catch(ArrayIndexOutOfBoundsException e){
-			System.out.println("array out of bounds");
 		}
 		
 		

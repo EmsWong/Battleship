@@ -257,8 +257,10 @@ public class controller {
 
     public static int hitmiss(String[][] mapfile, int intRow, int intCol){
         if(mapfile[intRow][intCol].equals("s")){
+            //boat was hit
             return 1;
         }else{
+            //boats were missed
             return 2;
         }
     }
@@ -279,5 +281,36 @@ public class controller {
         }else{
             return true;
         }
+    }
+
+    public static String[][] startDotMaps(String[][] strDotMap){
+        int intCount1;
+        int intCount2;
+
+        for(intCount1 = 0; intCount1 < 10; intCount1++){
+			for(intCount2 = 0; intCount2 <10; intCount2++){
+				strDotMap[intCount1][intCount2] = "n";	
+			}
+		}
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if(j>8){
+                    System.out.print(strDotMap[i][j]);
+                }else{
+                  System.out.print(strDotMap[i][j] + ",");
+                }
+            }
+            System.out.println();
+        }
+        return strDotMap;
+    }
+
+    public static String[][] updateDotMaps(String[][] strDotMap, boolean blnHitMiss, int intRow, int intCol){
+        if(blnHitMiss == true){
+            strDotMap[intRow][intCol] = "h";
+        }else{
+            strDotMap[intRow][intCol] = "m";
+        }
+        return strDotMap;
     }
 }
