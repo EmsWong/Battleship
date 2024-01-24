@@ -299,47 +299,48 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			}else if(strChat[0].equals("label")){
 				user2label.setText(strChat[1]);
 			}else if(strChat[0].equals("attack")){
+				firebutton.setEnabled(true);
 				if(strChat[1].equals("1")){
-					gamepanel.intRow = 1;
+					gamepanel.intRow = 0;
 				}else if(strChat[1].equals("2")){
-					gamepanel.intRow = 2;
+					gamepanel.intRow = 1;
 				}else if(strChat[1].equals("3")){
-					gamepanel.intRow = 3;
+					gamepanel.intRow = 2;
 				}else if(strChat[1].equals("4")){
-					gamepanel.intRow = 4;
+					gamepanel.intRow = 3;
 				}else if(strChat[1].equals("5")){
-					gamepanel.intRow = 5;
+					gamepanel.intRow = 4;
 				}else if(strChat[1].equals("6")){
-					gamepanel.intRow = 6;
+					gamepanel.intRow = 5;
 				}else if(strChat[1].equals("7")){
-					gamepanel.intRow = 7;
+					gamepanel.intRow = 6;
 				}else if(strChat[1].equals("8")){
-					gamepanel.intRow = 8;
+					gamepanel.intRow = 7;
 				}else if(strChat[1].equals("9")){
-					gamepanel.intRow = 9;
+					gamepanel.intRow = 8;
 				}else if(strChat[1].equals("10")){
-					gamepanel.intRow = 10;
+					gamepanel.intRow = 9;
 				}
 				if(strChat[2].equals("A")){
-					gamepanel.intCol = 1;
+					gamepanel.intCol = 0;
 				}else if(strChat[2].equals("B")){
-					gamepanel.intCol = 2;
+					gamepanel.intCol = 1;
 				}else if(strChat[2].equals("C")){
-					gamepanel.intCol = 3;
+					gamepanel.intCol = 2;
 				}else if(strChat[2].equals("D")){
-					gamepanel.intCol = 4;
+					gamepanel.intCol = 3;
 				}else if(strChat[2].equals("E")){
-					gamepanel.intCol = 5;
+					gamepanel.intCol = 4;
 				}else if(strChat[2].equals("F")){
-					gamepanel.intCol = 6;
+					gamepanel.intCol = 5;
 				}else if(strChat[2].equals("G")){
-					gamepanel.intCol = 7;
+					gamepanel.intCol = 6;
 				}else if(strChat[2].equals("H")){
-					gamepanel.intCol = 8;
+					gamepanel.intCol = 7;
 				}else if(strChat[2].equals("I")){
-					gamepanel.intCol = 9;
+					gamepanel.intCol = 8;
 				}else if(strChat[2].equals("J")){
-					gamepanel.intCol = 10;
+					gamepanel.intCol = 9;
 				}
 			//chat messages
 			}else{
