@@ -157,6 +157,11 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			textareah.append("Player1: " + sendfieldh.getText() + "\n");
 			sendfieldh.setText("");
 		}
+		//Quit button on rematch screen
+		if(evt.getSource() == quitbutton1){
+			
+			System.exit(0);
+		}
 		//clicking start button on gameplay screen
 		if(evt.getSource() == startbutton){
 			intClick++;
@@ -418,12 +423,23 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
-		if(gamepanel.int2px1 < 347 && gamepanel.int2py1 < 405){
+		if(gamepanel.int5px1 < 347 && gamepanel.int5py1 < 405){
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
 				}else{
 					gamepanel.blnRot5 = false;
+				}
+			}
+		}
+		
+		//Help Screen
+		if(helppanel1.int2px1 < 437 && helppanel1.int2py1 < 540){
+			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(helppanel1.blnRot2 == false){
+					helppanel1.blnRot2 = true;
+				}else{
+					helppanel1.blnRot2 = false;
 				}
 			}
 		}
@@ -475,7 +491,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
-		if(gamepanel.int2px1 < 347 && gamepanel.int2py1 < 405){
+		if(gamepanel.int5px1 < 347 && gamepanel.int5py1 < 405){
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
@@ -484,7 +500,16 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
-
+		//Help Screen
+		if(helppanel1.int2px1 < 437 && helppanel1.int2py1 < 540){
+			if(helppanel1.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				if(helppanel1.blnRot2 == false){
+					helppanel1.blnRot2 = true;
+				}else{
+					helppanel1.blnRot2 = false;
+				}
+			}
+		}
 		
 	}
 
@@ -583,6 +608,17 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
+		//Help Screen
+		if(helppanel1.int2px1 < 437 && helppanel1.int2py1 < 540){
+			if(helppanel1.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//System.out.println("ya");
+				if(helppanel1.blnRot2 == false){
+					helppanel1.blnRot2 = true;
+				}else{
+					helppanel1.blnRot2 = false;
+				}
+			}
+		}
 	}
 
 	public void mouseClicked(MouseEvent evt){
@@ -624,6 +660,13 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int5px1, gamepanel.int5py1, gamepanel.blnRot5, 5, true);
 			theframe.requestFocus();
 		}
+		//Help Screen
+		helppanel1.intMousex = evt.getX();
+		helppanel1.intMousey = evt.getY();
+		if(helppanel1.intMousex > helppanel1.int2px1 && helppanel1.intMousex < helppanel1.int2px2 && helppanel1.intMousey > helppanel1.int2py1 && helppanel1.intMousey < helppanel1.int2py2){
+			helppanel1.blnMove2 = true;
+			theframe.requestFocus();
+		}
 	}
 	
 	public void mouseEntered(MouseEvent evt){
@@ -657,6 +700,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		gamepanel.blnMove3b = false;
 		gamepanel.blnMove4 = false;
 		gamepanel.blnMove5 = false;
+		
+		//Help Screen
+		helppanel1.blnMove2 = false;
 		
 	}
 
@@ -801,7 +847,24 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
-
+		//Help Screen
+		helppanel1.intMousex = evt.getX();
+		helppanel1.intMousey = evt.getY();
+		helppanel1.intMousex = controller.snapToX(helppanel1.intMousex);
+		helppanel1.intMousey = controller.snapToY(helppanel1.intMousey);
+		helppanel1.intMousex = controller.boundxleft(helppanel1.intMousex);
+		helppanel1.intMousey = controller.boundytop(helppanel1.intMousey);
+		
+		if(helppanel1.blnMove2 == true){
+			helppanel1.int2px1 = helppanel1.intMousex;
+			helppanel1.int2py1 = helppanel1.intMousey;
+			helppanel1.int2px2 = helppanel1.intMousex + 45;
+			helppanel1.int2py2 = helppanel1.intMousey + 225;
+			helppanel1.int2px2 = controller.boundxright(helppanel1.int2px2);
+			helppanel1.int2py2 = controller.boundybottom(helppanel1.int2py2);
+			helppanel1.int2px1 = helppanel1.int2px2 - 45;
+			helppanel1.int2py1 = helppanel1.int2py2 - 225;
+		}
 	}
 
 	public void mouseMoved(MouseEvent evt){
@@ -1009,6 +1072,8 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		//Help
 		helppanel1.setLayout(null);
 		helppanel1.setPreferredSize(new Dimension(1280,780));
+		helppanel1.addMouseListener(this);
+		helppanel1.addMouseMotionListener(this);
 		
 		helppanel2.setLayout(null);
 		helppanel2.setPreferredSize(new Dimension(1280,780));

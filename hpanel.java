@@ -21,18 +21,24 @@ public class hpanel extends JPanel{
 	
 	BufferedImage imghelp3 = null;
 	BufferedImage imghelp2 = null;
-	//Variables
+	
+	//Variables	
 	int intPanel;
+	int intMousex;
+	int intMousey;
+	
+	int int2px1 = 32;
+	int int2py1 = 135;
+	int int2px2 = 122;
+	int int2py2 = 180;
+	
+	boolean blnMove2 = false;
+	boolean blnRot2 = false;
 	
 	//Methods
 	public void paintComponent(Graphics g){
 		//Properties
-		g.setColor(Color.WHITE);
-		
-		g.fillRect(1005,66,238,524);
-		g.fillRect(1005,607,238,48);
-		g.fillRect(554,85,156,24);
-		g.fillRect(743,85,156,24);
+		//Array
 		String strMap[][] = new String[10][10];
 		String strLines = "";
 		String strSplits[];
@@ -41,75 +47,55 @@ public class hpanel extends JPanel{
 		int intCount1;
 		int intCount2;
 		int intCount3;
-		int intCount4;
+		int intCount;
 		
 		int intX = 32;
 		int intY = 135;
 		int intX1 = 502;
 		int intY1 = 135;
-			
 		
-		try{
-			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
-			
-			while(intMapRow <= 9 && strLines != null){
-				try{
-					strLines = mapFile.readLine();
-				}catch(IOException e){
-					
-				}
-				strSplits = strLines.split(",");
-				strMap[intMapRow][0] = strSplits[0];
-				strMap[intMapRow][1] = strSplits[1];
-				strMap[intMapRow][2] = strSplits[2];
-				strMap[intMapRow][3] = strSplits[3];
-				strMap[intMapRow][4] = strSplits[4];
-				strMap[intMapRow][5] = strSplits[5];
-				strMap[intMapRow][6] = strSplits[6];
-				strMap[intMapRow][7] = strSplits[7];
-				strMap[intMapRow][8] = strSplits[8];
-				strMap[intMapRow][9] = strSplits[9];
-				intMapRow += 1;
+		g.setColor(Color.WHITE);
+		
+		g.fillRect(1005,66,238,524);
+		g.fillRect(1005,607,238,48);
+		g.fillRect(554,85,156,24);
+		g.fillRect(743,85,156,24);
+		
+		for(intCount = 0; intCount < 10; intCount++){
+			for(intCount1 = 0; intCount1 <10; intCount1++){
+				strMap[intCount][intCount1] = "w";
 			}
-			
-			mapFile.close();
-		}catch(FileNotFoundException e){
-			System.out.println("Can't load file");
-		}catch(IOException e){
-			System.out.println("Can't load file");
-
 		}
-		
-		for(intCount1 = 0; intCount1 < 10; intCount1++){
-			for(intCount2 = 0; intCount2 <10; intCount2++){
-				if(strMap[intCount1][intCount2].equals("w")){
-					g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
-				}
-				if(strMap[intCount1][intCount2].equals("s")){
-					g.drawImage(imgtile, intX + intCount2 *45, intY + intCount1 * 45, null);
+		for(intCount2 = 0; intCount2 < 10; intCount2++){
+			for(intCount3 = 0; intCount3 <10; intCount3++){
+				if(strMap[intCount2][intCount3].equals("w")){
+					g.drawImage(imgtile, intX + intCount3 *45, intY + intCount2 * 45, null);
 				}
 			}
-
 		}
-		for(intCount3 = 0; intCount3 < 10; intCount3++){
-			for(intCount4 = 0; intCount4 <10; intCount4++){
-				if(strMap[intCount3][intCount4].equals("w")){
-					g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
-				}
-				if(strMap[intCount3][intCount4].equals("s")){
-					g.drawImage(imgtile, intX1 + intCount4 *45, intY1 + intCount3 * 45, null);
+		for(intCount2 = 0; intCount2 < 10; intCount2++){
+			for(intCount3 = 0; intCount3 <10; intCount3++){
+				if(strMap[intCount2][intCount3].equals("w")){
+					g.drawImage(imgtile, intX1 + intCount3 *45, intY1 + intCount2 * 45, null);
 				}
 			}
 		}
 		if(intPanel == 1){
+			if(blnRot2 == false){
+				g.drawImage(img2boata, int2px1, int2py1, null);
+			}else{
+				g.drawImage(img2boatb, int2px1, int2py1, null);
+			}
+			System.out.println(intMousex+" "+intMousey);
 			
-		}else if(intPanel == 2){
+		}else if(intPanel ==2){
+			g.drawImage(imghelp2,0,0,null);
+			
 			g.drawImage(img2boatb, 167, 270, null);
 			g.drawImage(img3boat, 347, 180, null);
 			g.drawImage(img3boat, 77, 450, null);
 			g.drawImage(img4boat, 437, 270, null);
 			g.drawImage(img5boat, 122, 405, null);
-			g.drawImage(imghelp2,0,0,null);
 		}else if(intPanel == 3){
 			g.drawImage(img2boatb, 167, 270, null);
 			g.drawImage(img3boat, 347, 180, null);
@@ -131,12 +117,11 @@ public class hpanel extends JPanel{
 			
 			g.fillRect(646,607,163,47);
 			g.drawImage(imghelp3,0,0,null);
-		}	
+		}
 	}
 	
 	//constructor
 	public hpanel(){
-		
 		
 		InputStream imageclass = null;
 		
