@@ -418,7 +418,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
-		if(gamepanel.int2px1 < 347 && gamepanel.int2py1 < 405){
+		if(gamepanel.int5px1 < 347 && gamepanel.int5py1 < 405){
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
@@ -475,7 +475,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				}
 			}
 		}
-		if(gamepanel.int2px1 < 347 && gamepanel.int2py1 < 405){
+		if(gamepanel.int5px1 < 347 && gamepanel.int5py1 < 405){
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
