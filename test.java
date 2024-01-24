@@ -160,11 +160,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			textareah.append("Player1: " + sendfieldh.getText() + "\n");
 			sendfieldh.setText("");
 		}
-		//Quit button on rematch screen
-		if(evt.getSource() == quitbutton1){
-			
-			System.exit(0);
-		}
 		//clicking start button on gameplay screen
 		if(evt.getSource() == startbutton){
 			intClick++;
@@ -275,6 +270,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 		if(evt.getSource() == quitbutton1){
 			gamepanel.strMap = controller.reloadMap(gamepanel.strMap);
+			System.out.println("quit");
 			//gamepanel.strGuessing = controller.reloadGuessing(gamepanel.strGuessing, 1);
 			//gamepanel.strHits = controller.reloadGuessing(gamepanel.strHits, 2);
 			System.exit(0);

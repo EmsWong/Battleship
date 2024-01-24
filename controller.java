@@ -124,6 +124,14 @@ public class controller {
         strMap[4][2] = "s";
         strMap[4][3] = "s";
         strMap[4][4] = "s";
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.println(strMap[i][j] + " ");
+            }
+            System.out.println();
+            //System.out.println();
+        }
         try{
             PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", false));
             for (int i = 0; i < 10; i++) {
@@ -148,7 +156,7 @@ public class controller {
         return strMap;
     }
 
-    public static String[][] reloadDotMaps(String[][] strDotMap, int intcsv){
+    public static String[][] reloadDotMaps(String[][] strDotMap){
         int intCount1;
         int intCount2;
 
@@ -157,52 +165,6 @@ public class controller {
 				strDotMap[intCount1][intCount2] = "n";		
 			}
 		}
-        if(intcsv == 1){
-            try{
-                PrintWriter mapcsv = new PrintWriter(new FileWriter("guessing.csv", false));
-                for (int i = 0; i < 10; i++) {
-                    for (int j = 0; j < 10; j++) {
-                        if(j>8){
-                        //System.out.print(mapfile[i][j]);
-                            mapcsv.print(strDotMap[i][j]);
-                        }else{
-                            mapcsv.print(strDotMap[i][j] + ",");
-                        }
-                    }
-                    //System.out.println();
-                    mapcsv.println();
-                }
-                mapcsv.close();
-            }catch(IOException e){
-    
-            }catch(ArrayIndexOutOfBoundsException e){
-    
-            }
-            System.out.println();
-        }
-        if(intcsv == 2){
-            try{
-                PrintWriter mapcsv = new PrintWriter(new FileWriter("hits.csv", false));
-                for (int i = 0; i < 10; i++) {
-                    for (int j = 0; j < 10; j++) {
-                        if(j>8){
-                        //System.out.print(mapfile[i][j]);
-                            mapcsv.print(strDotMap[i][j]);
-                        }else{
-                            mapcsv.print(strDotMap[i][j] + ",");
-                        }
-                    }
-                    //System.out.println();
-                    mapcsv.println();
-                }
-                mapcsv.close();
-            }catch(IOException e){
-    
-            }catch(ArrayIndexOutOfBoundsException e){
-    
-            }
-            System.out.println();
-        }
         return strDotMap;
     }
 
