@@ -1,5 +1,5 @@
 //Battleship
-//Chloe, Emily, Janya
+//Chloe, Emily, Jayna
 //v1
 
 import java.awt.*;
@@ -24,6 +24,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	JPanel homepanel = new JPanel();
 	JPanel joinpanel = new JPanel();
 	JPanel waitingpanel = new JPanel();
+	JPanel gameoverpanel = new JPanel();
 	thepanel themepanel = new thepanel();
 	JPanel chatpanel = new JPanel();
 	
@@ -99,8 +100,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	JLabel user1label = new JLabel("", SwingConstants.CENTER);
 	JLabel user2label = new JLabel("", SwingConstants.CENTER);
 	
-	//Rematch or Quit
-	JButton rematchbutton = new JButton("REMATCH");
+	//Quit
+	JLabel gameoverlabel = new JLabel("Gameover");
 	JButton quitbutton1 = new JButton("QUIT");
 	
 	int intClick = 0;
@@ -394,7 +395,9 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				if(blnWinCheck == true){
 					System.out.println("GAME OVER");
 					ssm.sendText("gameover");
-					// set to another panel
+					theframe.setContentPane(gameoverpanel);
+					theframe.pack();
+					theframe.repaint();
 				}
 				System.out.println("hit");
 			}else if(strChat[0].equals("attackResult") && strChat[1].equals("0")){
@@ -402,7 +405,9 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				System.out.println("missed");
 			}else if(strChat[0].equals("gameover")){
 				System.out.println("GAME OVER");
-				// set to another panel
+				theframe.setContentPane(gameoverpanel);
+				theframe.pack();
+				theframe.repaint();
 			
 			//chat messages
 			}else{
@@ -1019,12 +1024,11 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		quitbutton.addActionListener(this);
 		homepanel.add(quitbutton);
 
-		quitbutton1.setSize(60,45);
-		quitbutton1.setLocation(900, 2);
+		quitbutton1.setSize(497,80);
+		quitbutton1.setLocation(390, 567);
 		quitbutton1.setFont(text);
-		quitbutton1.setText("X");
 		quitbutton1.addActionListener(this);
-		gamepanel.add(quitbutton1);
+		gameoverpanel.add(quitbutton1);
 
 		//Battleship Title
 		text = new Font("arial", Font.BOLD, 60);
@@ -1213,6 +1217,15 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		user3labelh.setLocation(182,83);
 		helppanel3.add(user3labelh);
 		
+		//Waiting Panel
+		gameoverpanel.setLayout(null);
+		gameoverpanel.setPreferredSize(new Dimension(1280,780));
+		text = new Font("arial", Font.BOLD, 60);
+		gameoverlabel.setSize(650,100);
+		gameoverlabel.setLocation(460,320);
+		gameoverlabel.setFont(text);
+		gameoverpanel.add(gameoverlabel);
+
 		//The Frame
 		theframe.setContentPane(homepanel);
 		theframe.pack();
