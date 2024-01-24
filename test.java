@@ -374,19 +374,19 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					blnConfirmGuess = true;
 					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
 					//need to tell opponent their attack was hit
-					ssm.sendText("attackResult‰1"+gamepanel.intRow+"‰"+gamepanel.intCol);
+					ssm.sendText("attackResult‰1‰"+gamepanel.intRow+"‰"+gamepanel.intCol);
 				}
 				if(gamepanel.intHit == 2){
 					System.out.println("missed shot");
 					blnConfirmGuess = false;
 					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
-					ssm.sendText("attackResult‰0"+gamepanel.intRow+"‰"+gamepanel.intCol);
+					ssm.sendText("attackResult‰0‰"+gamepanel.intRow+"‰"+gamepanel.intCol);
 				}
 				//if(gamepanel.intHit == 1){
 					//gamepanel.strMap[gamepanel.intRow][gamepanel.intCol] = "w";
 				//}
 				
-			}else if(strChat[0].equals("attackResult")){
+			}else if(strChat[0].equals("attackResult")&& strChat[1].equals("1")){
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap1, true, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));
 				System.out.println("hit");
 			}else if(strChat[0].equals("attackResult") && strChat[1].equals("0")){
