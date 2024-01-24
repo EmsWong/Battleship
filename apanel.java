@@ -462,26 +462,32 @@ public class apanel extends JPanel{
 		strGuess = new String[100][2];
 		int intCounts = 0;
 
-		if(intHit == 1){
-			g.drawImage(imghit, intguessx, intguessy, null);
-			strGuess[intCounter][0] = ""+intguessx;
-			strGuess[intCounter][1] = ""+intguessy;
-			for(intCounts = 0; intCounter > intCounts; intCounts++){
-				intguessx = Integer.parseInt(strGuess[intCounts][0]);
-				intguessy = Integer.parseInt(strGuess[intCounts][1]);
+		try{
+			if(intHit == 1){
 				g.drawImage(imghit, intguessx, intguessy, null);
-			}
-		}else if(intHit == 2){
-			g.drawImage(imgmiss, intguessx, intguessy, null);
-			strGuess[intCounter][0] = ""+intguessx;
-			strGuess[intCounter][1] = ""+intguessy;
-			for(intCounts = 0; intCounter > intCounts; intCounts++){
-				intguessx = Integer.parseInt(strGuess[intCounts][0]);
-				intguessy = Integer.parseInt(strGuess[intCounts][1]);
+				strGuess[intCounter][0] = ""+intguessx;
+				strGuess[intCounter][1] = ""+intguessy;
+				for(intCounts = 0; intCounter > intCounts; intCounts++){
+					intguessx = Integer.parseInt(strGuess[intCounts][0]);
+					intguessy = Integer.parseInt(strGuess[intCounts][1]);
+					g.drawImage(imghit, intguessx, intguessy, null);
+				}
+			}else if(intHit == 2){
 				g.drawImage(imgmiss, intguessx, intguessy, null);
-			}
-		}else if(intHit == 0){
+				strGuess[intCounter][0] = ""+intguessx;
+				strGuess[intCounter][1] = ""+intguessy;
+				for(intCounts = 0; intCounter > intCounts; intCounts++){
+					intguessx = Integer.parseInt(strGuess[intCounts][0]);
+					intguessy = Integer.parseInt(strGuess[intCounts][1]);
+					g.drawImage(imgmiss, intguessx, intguessy, null);
+				}
+			}else if(intHit == 0){
 
+			}
+		}catch(NumberFormatException e){
+
+		}catch(ArrayIndexOutOfBoundsException e){
+			
 		}
 		
 		
