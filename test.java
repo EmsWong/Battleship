@@ -8,6 +8,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	//Properties
 
 	Timer theTimer = new Timer(1000/60, this);
+	Timer helpTimer = new Timer(1000/60, this);
 
 	//Font
 	Font text = null;
@@ -413,6 +414,10 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 		if(evt.getSource() == theTimer){
 			gamepanel.repaint();
+			
+		}
+		if(evt.getSource() == helpTimer){
+			helppanel1.repaint();
 			
 		}
 	}
@@ -898,7 +903,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			helppanel1.int2px1 = helppanel1.int2px2 - 90;
 			helppanel1.int2py1 = helppanel1.int2py2 - 45;
 		}else{
-			
+
 		}
 	}
 
@@ -1203,6 +1208,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 
 		//Timer
 		theTimer.start();
+		helpTimer.start();
 	}
 	
 	public static void main(String[] args){
