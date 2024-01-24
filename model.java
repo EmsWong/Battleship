@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.io.*;
 
-public class test implements ActionListener, KeyListener, MouseListener, MouseMotionListener{
+public class model implements ActionListener, KeyListener, MouseListener, MouseMotionListener{
 	//Properties
 
 	Timer theTimer = new Timer(1000/60, this);
@@ -907,7 +907,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		
 	}
 
-	public test(){
+	public model(){
 
 		text = new Font("arial", Font.BOLD, 20);
 		
@@ -1208,6 +1208,6 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	}
 	
 	public static void main(String[] args){
-		new test();
+		new model();
 	}
 }
