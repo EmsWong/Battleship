@@ -37,6 +37,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	String[] strCol = {"A","B","C","D","E","F","G","H","I","J"}; 
 	JComboBox rowlist = new JComboBox(strRow);
 	JComboBox collist = new JComboBox(strCol);
+	JButton startbutton = new JButton("START");
 	JButton firebutton = new JButton("FIRE");
 	
 	//Home screen
@@ -156,14 +157,32 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			textareah.append("Player1: " + sendfieldh.getText() + "\n");
 			sendfieldh.setText("");
 		}
-		//clicking the fire button on gameplay screen
-		if(evt.getSource() == firebutton){
+		//clicking start button on gameplay screen
+		if(evt.getSource() == startbutton){
 			intClick++;
-			System.out.println(intClick);
 			gamepanel.removeMouseListener(this);
 			gamepanel.removeMouseMotionListener(this);
 			collist.setEnabled(true);
 			rowlist.setEnabled(true);
+			firebutton.setVisible(true);
+			firebutton.setEnabled(true);
+			startbutton.setVisible(false);
+			if(gamepanel.intPlayer == (intClick % 2)){
+				firebutton.setEnabled(false);
+			}
+		}
+		//clicking the fire button on gameplay screen
+		if(evt.getSource() == firebutton){
+			intClick++;
+			System.out.println(intClick);
+			String strRow = (String)rowlist.getSelectedItem();
+			String strCol = (String)collist.getSelectedItem();
+			System.out.println(strRow+strCol);
+			ssm.sendText("attack‰"+strRow+"‰"+strCol);
+			if(gamepanel.intPlayer == (intClick % 2)){
+				firebutton.setEnabled(false);
+			}
+			/*
 			if(firebutton.getText().equals("START")){
 				firebutton.setText("FIRE");
 				if(gamepanel.intPlayer == (intClick % 2)){
@@ -178,6 +197,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					firebutton.setEnabled(false);
 				}
 			}
+			*/
 		}
 		//clicking the host button on join screen
 		if(evt.getSource() == host){
@@ -795,14 +815,24 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		sendfield.setLocation(39,607);
 		sendfield.addActionListener(this);
 		chatpanel.add(sendfield);
+
+		//Start button
+		startbutton.setSize(163,47);
+		startbutton.setLocation(646,607);
+		startbutton.setFont(text);
+		startbutton.setText("START");
+		startbutton.addActionListener(this);
+		startbutton.setEnabled(true);
+		gamepanel.add(startbutton);
 		
 		//Fire button
 		firebutton.setSize(163,47);
 		firebutton.setLocation(646,607);
 		firebutton.setFont(text);
-		firebutton.setText("START");
+		firebutton.setText("FIRE");
 		firebutton.addActionListener(this);
-		firebutton.setEnabled(true);
+		firebutton.setVisible(false);
+		firebutton.setEnabled(false);
 		gamepanel.add(firebutton);
 		
 		//Row and Column Drop down lists
