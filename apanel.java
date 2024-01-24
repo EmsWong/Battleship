@@ -71,6 +71,10 @@ public class apanel extends JPanel{
 	boolean blnRot5 = false;
 
 	String strMap[][] = new String[10][10];
+
+	// Player variables
+	int intPlayerTurn = 0;
+	int intPlayer;
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);

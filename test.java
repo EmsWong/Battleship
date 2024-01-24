@@ -178,6 +178,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				userlabel.setText("Change name");
 				username.setText("");
 			}else{
+				gamepanel.intPlayer = 0;
 				ssm = new SuperSocketMaster(Integer.parseInt(port.getText()), this);
 				ssm.connect();
 				System.out.println(ssm.getMyAddress());
@@ -194,6 +195,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				userlabel.setText("Change Name");
 				username.setText("");
 			}else{
+				gamepanel.intPlayer = 1;
 				ssm = new SuperSocketMaster(ip.getText(), Integer.parseInt(port.getText()), this);
 				ssm.connect();
 				theframe.setContentPane(waitingpanel);
