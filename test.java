@@ -389,12 +389,17 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				blnWinCheck = controller.checkGameOver(gamepanel.strDotMap2);
 				if(blnWinCheck == true){
 					System.out.println("GAME OVER");
+					ssm.sendText("gameover");
 					// set to another panel
 				}
 				System.out.println("hit");
 			}else if(strChat[0].equals("attackResult") && strChat[1].equals("0")){
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap2, false, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));
 				System.out.println("missed");
+			}else if(strChat[0].equals("gameover")){
+				System.out.println("GAME OVER");
+				// set to another panel
+			
 			//chat messages
 			}else{
 				try{
