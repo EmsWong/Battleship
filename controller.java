@@ -184,4 +184,22 @@ public class controller {
             return 2;
         }
     }
+
+    public static boolean win(String[][] mapfile){
+        int intShip = 0;
+		int intRow;
+		int intCol;
+		for(intRow = 0; intRow < 20; intRow++){
+			for(intCol = 0; intCol < 20; intCol++){
+				if(mapfile[intRow][intCol].equals("s")){
+					intShip = intShip + 1;
+				}
+			}
+		}
+		if(intShip > 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
