@@ -164,6 +164,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			rowlist.setEnabled(true);
 			if(firebutton.getText().equals("START")){
 				firebutton.setText("FIRE");
+				if(gamepanel.intPlayer == 1){
+					firebutton.setEnabled(false);
+				}
 			}else if(firebutton.getText().equals("FIRE")){
 				String strRow = (String)rowlist.getSelectedItem();
 				String strCol = (String)collist.getSelectedItem();
