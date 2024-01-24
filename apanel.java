@@ -488,9 +488,9 @@ public class apanel extends JPanel{
 
 			}
 		}catch(NumberFormatException e){
-
+			System.out.println("Unable to parse number");
 		}catch(ArrayIndexOutOfBoundsException e){
-
+			System.out.println("array out of bounds");
 		}
 		
 		
