@@ -486,6 +486,21 @@ public class apanel extends JPanel{
 						}
 					}
 				}
+				for (int i = 0; i < 10; i++) {
+					for (int j = 0; j < 10; j++) {
+						if(strDotMap2[i][j].equals("n")){
+							//nothing is drawn there
+						}else if(strDotMap2[i][j].equals("h")){
+							intDotX = 502 + (j * 45);
+							intDotY = 135 + (i * 45);
+							g.drawImage(imghit, intDotX, intDotY, null);
+						}else if(strDotMap2[i][j].equals("m")){
+							intDotX = 502 + (j * 45);
+							intDotY = 135 + (i * 45);
+							g.drawImage(imgmiss, intDotX, intDotY, null);
+						}
+					}
+				}
 				if(intHit == 1){
 					/*/
 					strGuess[intCounter][0] = ""+intguessx;
