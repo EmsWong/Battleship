@@ -467,7 +467,7 @@ public class apanel extends JPanel{
 				g.drawImage(imghit, intguessx, intguessy, null);
 				strGuess[intCounter][0] = ""+intguessx;
 				strGuess[intCounter][1] = ""+intguessy;
-				for(intCounts = 0; intCounter >= intCounts; intCounts++){
+				for(intCounts = 0; intCounter-1 >= intCounts; intCounts++){
 					intguessx = Integer.parseInt(strGuess[intCounts][0]);
 					intguessy = Integer.parseInt(strGuess[intCounts][1]);
 					g.drawImage(imghit, intguessx, intguessy, null);
@@ -476,7 +476,7 @@ public class apanel extends JPanel{
 				g.drawImage(imgmiss, intguessx, intguessy, null);
 				strGuess[intCounter][0] = ""+intguessx;
 				strGuess[intCounter][1] = ""+intguessy;
-				for(intCounts = 0; intCounter >= intCounts; intCounts++){
+				for(intCounts = 0; intCounter-1 >= intCounts; intCounts++){
 					intguessx = Integer.parseInt(strGuess[intCounts][0]);
 					intguessy = Integer.parseInt(strGuess[intCounts][1]);
 					g.drawImage(imgmiss, intguessx, intguessy, null);
