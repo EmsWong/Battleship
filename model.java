@@ -475,7 +475,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		
 		//Help Screen
 		if(helppanel1.int2px1 < 437 && helppanel1.int2py1 < 540){
-			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+			if(helppanel1.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(helppanel1.blnRot2 == false){
 					helppanel1.blnRot2 = true;
 				}else{
