@@ -300,6 +300,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				user2label.setText(strChat[1]);
 			}else if(strChat[0].equals("attack")){
 				firebutton.setEnabled(true);
+				intClick++;
 				if(strChat[1].equals("1")){
 					gamepanel.intRow = 0;
 				}else if(strChat[1].equals("2")){
