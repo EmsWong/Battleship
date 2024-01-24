@@ -478,6 +478,7 @@ public class apanel extends JPanel{
 				strGuess[intCounter][0] = ""+intguessx;
 				strGuess[intCounter][1] = ""+intguessy;
 				for(intCounts = 0; intCounter >= intCounts; intCounts++){
+					System.out.println("hello:"+strGuess[intCounts][0]);
 					intguessx = Integer.parseInt(strGuess[intCounts][0]);
 					intguessy = Integer.parseInt(strGuess[intCounts][1]);
 					System.out.println(intguessx);
