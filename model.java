@@ -130,6 +130,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			theframe.setContentPane(homepanel);
 			theframe.pack();
 			theframe.repaint();
+			gamepanel.strMap = controller.reloadMap(gamepanel.strMap);
+
 		}
 		//clicking back button on second help screen
 		if(evt.getSource() == backbutton1){
