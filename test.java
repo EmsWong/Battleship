@@ -447,8 +447,16 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				//System.out.println("ya");
 				if(gamepanel.blnRot2 == false){
 					gamepanel.blnRot2 = true;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
+					if(blnOverlap == true){
+						gamepanel.blnRot2 = false;
+					}
 				}else{
 					gamepanel.blnRot2 = false;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
+					if(blnOverlap == true){
+						gamepanel.blnRot2 = true;
+					}
 				}
 			}
 		}
@@ -456,8 +464,16 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot3a == false){
 					gamepanel.blnRot3a = true;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
+					if(blnOverlap == true){
+						gamepanel.blnRot3a = false;
+					}
 				}else{
 					gamepanel.blnRot3a = false;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
+					if(blnOverlap == true){	
+						gamepanel.blnRot3a = true;
+					}
 				}
 			}
 		}
@@ -465,8 +481,16 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot3b == false){
 					gamepanel.blnRot3b = true;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
+					if(blnOverlap == true){
+						gamepanel.blnRot3b = false;
+					}
 				}else{
 					gamepanel.blnRot3b = false;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
+					if(blnOverlap == true){	
+						gamepanel.blnRot3b = true;
+					}
 				}
 			}
 		}
@@ -474,8 +498,16 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot4 == false){
 					gamepanel.blnRot4 = true;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
+					if(blnOverlap == true){
+						gamepanel.blnRot4 = false;
+					}
 				}else{
 					gamepanel.blnRot4 = false;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
+					if(blnOverlap == true){	
+						gamepanel.blnRot4 = true;
+					}
 				}
 			}
 		}
@@ -483,8 +515,16 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
+					if(blnOverlap == true){
+						gamepanel.blnRot5 = false;
+					}
 				}else{
 					gamepanel.blnRot5 = false;
+					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
+					if(blnOverlap == true){	
+						gamepanel.blnRot5 = true;
+					}
 				}
 			}
 		}
@@ -748,7 +788,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		firebutton.setFont(text);
 		firebutton.setText("START");
 		firebutton.addActionListener(this);
-		firebutton.setEnabled(false);
+		firebutton.setEnabled(true);
 		gamepanel.add(firebutton);
 		
 		//Row and Column Drop down lists
