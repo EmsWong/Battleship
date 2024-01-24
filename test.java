@@ -178,26 +178,12 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
 			System.out.println(strRow+strCol);
+			
 			ssm.sendText("attack‰"+strRow+"‰"+strCol);
 			if(gamepanel.intPlayer == (intClick % 2)){
 				firebutton.setEnabled(false);
 			}
-			/*
-			if(firebutton.getText().equals("START")){
-				firebutton.setText("FIRE");
-				if(gamepanel.intPlayer == (intClick % 2)){
-					firebutton.setEnabled(false);
-				}
-			}else if(firebutton.getText().equals("FIRE")){
-				String strRow = (String)rowlist.getSelectedItem();
-				String strCol = (String)collist.getSelectedItem();
-				System.out.println(strRow+strCol);
-				ssm.sendText("attack‰"+strRow+"‰"+strCol);
-				if(gamepanel.intPlayer == (intClick % 2)){
-					firebutton.setEnabled(false);
-				}
-			}
-			*/
+			
 		}
 		//clicking the host button on join screen
 		if(evt.getSource() == host){
@@ -303,46 +289,68 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				intClick++;
 				if(strChat[1].equals("1")){
 					gamepanel.intRow = 0;
+					gamepanel.intguessy = 135;
 				}else if(strChat[1].equals("2")){
 					gamepanel.intRow = 1;
+					gamepanel.intguessy = 180;
 				}else if(strChat[1].equals("3")){
 					gamepanel.intRow = 2;
+					gamepanel.intguessy = 225;
 				}else if(strChat[1].equals("4")){
 					gamepanel.intRow = 3;
+					gamepanel.intguessy = 270;
 				}else if(strChat[1].equals("5")){
 					gamepanel.intRow = 4;
+					gamepanel.intguessy = 315;
 				}else if(strChat[1].equals("6")){
 					gamepanel.intRow = 5;
+					gamepanel.intguessy = 360;
 				}else if(strChat[1].equals("7")){
 					gamepanel.intRow = 6;
+					gamepanel.intguessy = 405;
 				}else if(strChat[1].equals("8")){
 					gamepanel.intRow = 7;
+					gamepanel.intguessy = 450;
 				}else if(strChat[1].equals("9")){
 					gamepanel.intRow = 8;
+					gamepanel.intguessy = 495;
 				}else if(strChat[1].equals("10")){
 					gamepanel.intRow = 9;
+					gamepanel.intguessy = 540;
 				}
 				if(strChat[2].equals("A")){
 					gamepanel.intCol = 0;
+					gamepanel.intguessx = 32;
 				}else if(strChat[2].equals("B")){
 					gamepanel.intCol = 1;
+					gamepanel.intguessx = 77;
 				}else if(strChat[2].equals("C")){
 					gamepanel.intCol = 2;
+					gamepanel.intguessx = 122;
 				}else if(strChat[2].equals("D")){
 					gamepanel.intCol = 3;
+					gamepanel.intguessx = 167;
 				}else if(strChat[2].equals("E")){
 					gamepanel.intCol = 4;
+					gamepanel.intguessx = 212;
 				}else if(strChat[2].equals("F")){
 					gamepanel.intCol = 5;
+					gamepanel.intguessx = 257;
 				}else if(strChat[2].equals("G")){
 					gamepanel.intCol = 6;
+					gamepanel.intguessx = 302;
 				}else if(strChat[2].equals("H")){
 					gamepanel.intCol = 7;
+					gamepanel.intguessx = 347;
 				}else if(strChat[2].equals("I")){
 					gamepanel.intCol = 8;
+					gamepanel.intguessx = 392;
 				}else if(strChat[2].equals("J")){
 					gamepanel.intCol = 9;
+					gamepanel.intguessx = 437;
 				}
+				gamepanel.intHit = controller.hitmiss(gamepanel.strMap, gamepanel.intRow, gamepanel.intCol);
+				
 			//chat messages
 			}else{
 				try{

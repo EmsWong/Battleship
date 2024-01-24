@@ -20,6 +20,8 @@ public class apanel extends JPanel{
 	//Maps
 	BufferedImage imgtile = null;
 	BufferedImage imgstars = null;
+	BufferedImage imghit = null;
+	BufferedImage imgmiss = null;
 
 	//Row and Column
 	int intRow;
@@ -54,6 +56,10 @@ public class apanel extends JPanel{
 	int int5px2 = 257;
 	int int5py2 = 360;
 
+	//Opponent board
+	int intguessx;
+	int intguessy;
+
 	// mouse variables
 	int intMousex;
 	int intMousey;
@@ -75,6 +81,10 @@ public class apanel extends JPanel{
 	// Player variables
 	int intPlayerTurn = 0;
 	int intPlayer;
+
+	//hit or miss
+	int intHit = 0;
+
 	//override how the JComponent is painted
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -447,7 +457,14 @@ public class apanel extends JPanel{
 			g.drawImage(img5v, int5px1, int5py1, null);
 		}
 		
-		
+		if(intHit == 1){
+			g.drawImage(imghit, intguessx, intguessy, null);
+		}else if(intHit == 2){
+			g.drawImage(imgmiss, intguessx, intguessy, null);
+		}else if(intHit == 0){
+
+		}
+
 	}
 	//constructor
 	public apanel(){
@@ -464,6 +481,42 @@ public class apanel extends JPanel{
 		if(imgstars == null){
 			try{
 				imgstars = ImageIO.read(new File("Resources/stars.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream("Resources/hit.png");
+		if(imageclass != null){
+			try{
+				imghit = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imghit == null){
+			try{
+				imghit = ImageIO.read(new File("Resources/hit.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = null;
+		
+		imageclass = this.getClass().getResourceAsStream("Resources/missed.png");
+		if(imageclass != null){
+			try{
+				imgmiss = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imgmiss == null){
+			try{
+				imgmiss = ImageIO.read(new File("Resources/missed.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}

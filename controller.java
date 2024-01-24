@@ -176,4 +176,12 @@ public class controller {
             return true;
         }
     }
+
+    public static int hitmiss(String[][] mapfile, int intRow, int intCol){
+        if(mapfile[intRow][intCol].equals("s")){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
 }
