@@ -501,35 +501,6 @@ public class apanel extends JPanel{
 						}
 					}
 				}
-				if(intHit == 1){
-					/*/
-					strGuess[intCounter][0] = ""+intguessx;
-					strGuess[intCounter][1] = ""+intguessy;
-					System.out.println("hi:"+intCounter);
-					for(intCounts = 0; intCounts <= intCounter; intCounts++){
-						intguessx = Integer.parseInt(strGuess[intCounts][0]);
-						intguessy = Integer.parseInt(strGuess[intCounts][1]);
-						System.out.println(intguessx);
-						System.out.println(intguessy);
-						g.drawImage(imghit, intguessx, intguessy, null);
-					}
-					*/
-				}else if(intHit == 2){
-					/*
-					strGuess[intCounter][0] = ""+intguessx;
-					strGuess[intCounter][1] = ""+intguessy;
-					for(intCounts = 0; intCounter >= intCounts; intCounts++){
-						System.out.println("hello:"+strGuess[intCounts][0]);
-						intguessx = Integer.parseInt(strGuess[intCounts][0]);
-						intguessy = Integer.parseInt(strGuess[intCounts][1]);
-						System.out.println(intguessx);
-						System.out.println(intguessy);
-						g.drawImage(imgmiss, intguessx, intguessy, null);
-					}
-					*/
-				}else if(intHit == 0){
-
-				}
 			}catch(NumberFormatException e){
 				System.out.println("Unable to parse number");
 			}catch(ArrayIndexOutOfBoundsException e){

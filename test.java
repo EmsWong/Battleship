@@ -100,6 +100,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	
 	int intClick = 0;
 	boolean blnConfirmGuess;
+	boolean blnWinCheck = false;
 
 	public void actionPerformed(ActionEvent evt){
 		//clicking play button on home screen
@@ -382,12 +383,14 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
 					ssm.sendText("attackResult‰0‰"+gamepanel.intCol+"‰"+gamepanel.intRow);
 				}
-				//if(gamepanel.intHit == 1){
-					//gamepanel.strMap[gamepanel.intRow][gamepanel.intCol] = "w";
-				//}
 				
 			}else if(strChat[0].equals("attackResult")&& strChat[1].equals("1")){
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap2, true, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));
+				blnWinCheck = controller.checkGameOver(gamepanel.strDotMap2);
+				if(blnWinCheck == true){
+					System.out.println("GAME OVER");
+					// set to another panel
+				}
 				System.out.println("hit");
 			}else if(strChat[0].equals("attackResult") && strChat[1].equals("0")){
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap2, false, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));

@@ -313,4 +313,22 @@ public class controller {
         }
         return strDotMap;
     }
+
+    public static boolean checkGameOver(String[][] strDotMap){
+        int intBoatsHit = 0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if(strDotMap[i][j].equals("h")){
+                    intBoatsHit += 1;
+                }
+            }
+        }
+
+        if(intBoatsHit == 17){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 }
