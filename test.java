@@ -158,6 +158,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
+			gamepanel.removeMouseListener(this);
 			if(firebutton.getText().equals("START")){
 				firebutton.setText("FIRE");
 			}else if(firebutton.getText().equals("FIRE")){
