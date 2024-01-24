@@ -365,9 +365,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					gamepanel.intCol = 9;
 					gamepanel.intguessx = 437;
 				}
-				System.out.println("intRow:" + gamepanel.intRow);
-				System.out.println("intCol:" + gamepanel.intCol);
-				gamepanel.intHit = controller.hitmiss(gamepanel.strMap, gamepanel.intRow, gamepanel.intCol);
+				System.out.println("attacked introw:" + gamepanel.intRow);
+				System.out.println("attacked intcol:" + gamepanel.intCol);
+				gamepanel.intHit = controller.hitmiss(gamepanel.strMap, gamepanel.intCol, gamepanel.intRow);
 				System.out.println(gamepanel.intHit);
 				if(gamepanel.intHit == 1){
 					System.out.println("hit shot");
