@@ -129,8 +129,10 @@ public class controller {
     }
 
     public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength, boolean blnrotated){
-        intx1 = (((intx1 - (intx1 % 45)) / 45)) - 1;
-        inty1 = ((inty1 - (inty1 % 45) - 135) / 45) - 1;
+        //intx1 = ((intx1 - (intx1 % 45)) / 45);
+        //inty1 = ((inty1 - (inty1 % 45) - 135) / 45);
+        intx1 = (intx1 - 32) / 45;
+        inty1 = (inty1 - 135) / 45;
 
         System.out.println(intx1 + " " + inty1);
 
@@ -150,6 +152,7 @@ public class controller {
         System.out.println("inty:" +inty1);
         System.out.println("intx:"+intx1);
         System.out.println("length"+intlength);
+        System.out.println(mapfile[9][7]);
        
         try{
             while(intlength >= 0 && !mapfile[inty1][intx1].equals("s") && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
@@ -162,6 +165,9 @@ public class controller {
                 intlength -= 1;
             }
         }catch(ArrayIndexOutOfBoundsException e){
+            int intnew = inty1 + intlength;
+            System.out.println("inty1 + intlength :"+ intnew);
+            System.out.println("intx1:" + intx1);
             System.out.println("Array");
         }
 
