@@ -386,7 +386,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 					//gamepanel.strMap[gamepanel.intRow][gamepanel.intCol] = "w";
 				//}
 				
-			}else if(strChat[0].equals("attackResult") && strChat[1].equals("1")){
+			}else if(strChat[0].equals("attackResult")){
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap1, true, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));
 				System.out.println("hit");
 			}else if(strChat[0].equals("attackResult") && strChat[1].equals("0")){
