@@ -97,7 +97,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 	JButton rematchbutton = new JButton("REMATCH");
 	JButton quitbutton1 = new JButton("QUIT");
 	
-
+	int intClick = 0;
 
 	public void actionPerformed(ActionEvent evt){
 		//clicking play button on home screen
@@ -158,13 +158,15 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		}
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
+			intClick++;
+			System.out.println(intClick);
 			gamepanel.removeMouseListener(this);
 			gamepanel.removeMouseMotionListener(this);
 			collist.setEnabled(true);
 			rowlist.setEnabled(true);
 			if(firebutton.getText().equals("START")){
 				firebutton.setText("FIRE");
-				if(gamepanel.intPlayer == 1){
+				if(gamepanel.intPlayer == (intClick % 2)){
 					firebutton.setEnabled(false);
 				}
 			}else if(firebutton.getText().equals("FIRE")){
@@ -172,6 +174,9 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 				String strCol = (String)collist.getSelectedItem();
 				System.out.println(strRow+strCol);
 				ssm.sendText("attack‰"+strRow+"‰"+strCol);
+				if(gamepanel.intPlayer == (intClick % 2)){
+					firebutton.setEnabled(false);
+				}
 			}
 		}
 		//clicking the host button on join screen
