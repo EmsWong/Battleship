@@ -59,6 +59,7 @@ public class apanel extends JPanel{
 	//Opponent board
 	int intguessx;
 	int intguessy;
+	int intCounter;
 
 	// mouse variables
 	int intMousex;
@@ -457,13 +458,29 @@ public class apanel extends JPanel{
 			g.drawImage(img5v, int5px1, int5py1, null);
 		}
 		
+		String strGuess[][];
+		strGuess = new String[100][2];
+		int intCounts = 0;
+
 		if(intHit == 1){
 			g.drawImage(imghit, intguessx, intguessy, null);
+			strGuess[intCounter][0] = ""+intguessx;
+			strGuess[intCounter][1] = ""+intguessy;
+			for(intCounts = 0; intCounter > intCounts; intCounts++){
+				intguessx = Integer.parseInt(strGuess[intCounts][0]);
+				intguessy = Integer.parseInt(strGuess[intCounts][1]);
+				g.drawImage(imghit, intguessx, intguessy, null);
+			}
 		}else if(intHit == 2){
 			g.drawImage(imgmiss, intguessx, intguessy, null);
+			
 		}else if(intHit == 0){
 
 		}
+		
+		
+
+		
 
 	}
 	//constructor

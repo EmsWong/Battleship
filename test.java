@@ -174,6 +174,7 @@ public class test implements ActionListener, KeyListener, MouseListener, MouseMo
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
 			intClick++;
+			gamepanel.intCounter = gamepanel.intCounter + 1;
 			System.out.println(intClick);
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
