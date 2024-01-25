@@ -1195,19 +1195,19 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		standardbutton.setSize(331,106);
 		standardbutton.setLocation(622,154);
 		standardbutton.addActionListener(this);
-		standardbutton.setEnabled(true);
+		standardbutton.setEnabled(false);
 		themepanel.add(standardbutton);
 		
 		carsbutton.setSize(331,106);
 		carsbutton.setLocation(622,344);
 		carsbutton.addActionListener(this);
-		carsbutton.setEnabled(true);
+		carsbutton.setEnabled(false);
 		themepanel.add(carsbutton);
 		
 		spacebutton.setSize(331,106);
 		spacebutton.setLocation(622,533);
 		spacebutton.addActionListener(this);
-		spacebutton.setEnabled(true);
+		spacebutton.setEnabled(false);
 		themepanel.add(spacebutton);
 		
 		//Waiting Panel
