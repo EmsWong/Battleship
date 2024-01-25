@@ -23,6 +23,41 @@ public class apanel extends JPanel{
 	BufferedImage imghit = null;
 	BufferedImage imgmiss = null;
 
+	//Boats
+	BufferedImage img2boath = null;
+	BufferedImage img2boatv = null;
+	BufferedImage img3boath = null;
+	BufferedImage img3boatv = null;
+	BufferedImage img4boath = null;
+	BufferedImage img4boatv = null;
+	BufferedImage img5boath = null;
+	BufferedImage img5boatv = null;
+
+	//Cars
+	BufferedImage img2carh = null;
+	BufferedImage img2carv = null;
+	BufferedImage img3carh = null;
+	BufferedImage img3carv = null;
+	BufferedImage img4carh = null;
+	BufferedImage img4carv = null;
+	BufferedImage img5carh = null;
+	BufferedImage img5carv = null;
+
+	//Rockets
+	BufferedImage img2rocketh = null;
+	BufferedImage img2rocketv = null;
+	BufferedImage img3rocketh = null;
+	BufferedImage img3rocketv = null;
+	BufferedImage img4rocketh = null;
+	BufferedImage img4rocketv = null;
+	BufferedImage img5rocketh = null;
+	BufferedImage img5rocketv = null;
+
+	//Maps
+	BufferedImage imgwatertile = null;
+	BufferedImage imgspacetile = null;
+	BufferedImage imgstreettile = null;
+
 	//Row and Column
 	int intRow;
 	int intCol;
@@ -106,7 +141,7 @@ public class apanel extends JPanel{
 		//loads game map and game pieces based on what theme the host selected
 		if(intMapChoice == 1){
 			try{
-				BufferedReader themeFile = new BufferedReader(new FileReader("Resource/theme.csv"));
+				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
 				try{
 					strLine = themeFile.readLine();
 				}catch(IOException e){
@@ -132,7 +167,7 @@ public class apanel extends JPanel{
 			}
 		}else if(intMapChoice == 2){
 			try{
-				BufferedReader themeFile = new BufferedReader(new FileReader("Resource/theme.csv"));
+				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
 				try{
 					strLine = themeFile.readLine();
 					strLine = themeFile.readLine();
@@ -161,7 +196,7 @@ public class apanel extends JPanel{
 			
 		}else if(intMapChoice == 3){
 			try{
-				BufferedReader themeFile = new BufferedReader(new FileReader("Resource/theme.csv"));
+				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
 				try{
 					strLine = themeFile.readLine();
 					strLine = themeFile.readLine();
@@ -373,7 +408,7 @@ public class apanel extends JPanel{
 			
 		// Reads the csv file for the map
 		try{
-			BufferedReader mapFile = new BufferedReader(new FileReader("Resources/map.csv"));
+			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
 			
 			while(intMapRow <= 9 && strLines != null){
 				try{
@@ -519,6 +554,481 @@ public class apanel extends JPanel{
 	//constructor
 	public apanel(){
 		InputStream imageclass = null;
+
+		//Water
+		imageclass = this.getClass().getResourceAsStream("Resources/watertile.png");
+		if(imageclass != null){
+			try{
+				imgwatertile = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imgwatertile == null){
+			try{
+				//img2boath = ImageIO.read(new File("2boath.png"));
+				imgwatertile = ImageIO.read(new File("Resources/watertile.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Street
+		imageclass = this.getClass().getResourceAsStream("Resources/streettile.png");
+		if(imageclass != null){
+			try{
+				imgstreettile = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imgstreettile == null){
+			try{
+				imgstreettile = ImageIO.read(new File("Resources/streettile.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Space
+
+		imageclass = this.getClass().getResourceAsStream("Resources/spacetile.png");
+		if(imageclass != null){
+			try{
+				imgspacetile = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imgspacetile == null){
+			try{
+				imgspacetile = ImageIO.read(new File("Resources/spacetile.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/stars.png");
+		if(imageclass != null){
+			try{
+				imgstars = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(imgstars == null){
+			try{
+				imgstars = ImageIO.read(new File("Resources/stars.png"));
+			}catch(IOException e){
+				System.out.println("Could not open image");
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Boats
+
+		//Boat 2
+		imageclass = this.getClass().getResourceAsStream("Resources/2boath.png");
+		if(imageclass != null){
+			try{
+				img2boath = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2boath == null){
+			try{
+				img2boath = ImageIO.read(new File("Resources/2boath.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/2boatv.png");
+		if(imageclass != null){
+			try{
+				img2boatv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2boatv == null){
+			try{
+				img2boatv = ImageIO.read(new File("Resources/2boatv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Boat 3
+		imageclass = this.getClass().getResourceAsStream("Resources/3boath.png");
+		if(imageclass != null){
+			try{
+				img3boath = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3boath == null){
+			try{
+				img3boath = ImageIO.read(new File("Resources/3boath.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/3boatv.png");
+		if(imageclass != null){
+			try{
+				img3boatv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3boatv == null){
+			try{
+				img3boatv = ImageIO.read(new File("Resources/3boatv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Boat 4
+		imageclass = this.getClass().getResourceAsStream("Resources/4boath.png");
+		if(imageclass != null){
+			try{
+				img4boath = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4boath == null){
+			try{
+				img4boath = ImageIO.read(new File("Resources/4boath.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/4boatv.png");
+		if(imageclass != null){
+			try{
+				img4boatv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4boatv == null){
+			try{
+				img4boatv = ImageIO.read(new File("Resources/4boatv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Boat 5
+		imageclass = this.getClass().getResourceAsStream("Resources/5boath.png");
+		if(imageclass != null){
+			try{
+				img5boath = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5boath == null){
+			try{
+				img5boath = ImageIO.read(new File("Resources/5boath.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/5boatv.png");
+		if(imageclass != null){
+			try{
+				img5boatv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5boatv == null){
+			try{
+				img5boatv = ImageIO.read(new File("Resources/5boatv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+
+		//Cars
+
+		//Car 2
+		imageclass = this.getClass().getResourceAsStream("Resources/2carh.png");
+		if(imageclass != null){
+			try{
+				img2carh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2carh == null){
+			try{
+				img2carh = ImageIO.read(new File("Resources/2carh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/2carv.png");
+		if(imageclass != null){
+			try{
+				img2carv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2carv == null){
+			try{
+				img2carv = ImageIO.read(new File("Resources/2carv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Car 3
+		imageclass = this.getClass().getResourceAsStream("Resources/3carh.png");
+		if(imageclass != null){
+			try{
+				img3carh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3carh == null){
+			try{
+				img3carh = ImageIO.read(new File("Resources/3carh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/3carv.png");
+		if(imageclass != null){
+			try{
+				img3carv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3carv == null){
+			try{
+				img3carv = ImageIO.read(new File("Resources/3carv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Car 4
+		imageclass = this.getClass().getResourceAsStream("Resources/4carh.png");
+		if(imageclass != null){
+			try{
+				img4carh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4carh == null){
+			try{
+				img4carh = ImageIO.read(new File("Resources/4carh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/4carv.png");
+		if(imageclass != null){
+			try{
+				img4carv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4carv == null){
+			try{
+				img4carv = ImageIO.read(new File("Resources/4carv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Car 5
+		imageclass = this.getClass().getResourceAsStream("Resources/5carh.png");
+		if(imageclass != null){
+			try{
+				img5carh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5carh == null){
+			try{
+				img5carh = ImageIO.read(new File("Resources/5carh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/5carv.png");
+		if(imageclass != null){
+			try{
+				img5carv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5carv == null){
+			try{
+				img5carv = ImageIO.read(new File("Resources/5carv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Rockets
+
+		//Rocket 2
+		imageclass = this.getClass().getResourceAsStream("Resources/2rocketh.png");
+		if(imageclass != null){
+			try{
+				img2rocketh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2rocketh == null){
+			try{
+				img2rocketh = ImageIO.read(new File("Resources/2rocketh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/2rocketv.png");
+		if(imageclass != null){
+			try{
+				img2rocketv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img2rocketv == null){
+			try{
+				img2rocketv = ImageIO.read(new File("Resources/2rocketv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Rocket 3
+		imageclass = this.getClass().getResourceAsStream("Resources/3rocketh.png");
+		if(imageclass != null){
+			try{
+				img3rocketh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3rocketh == null){
+			try{
+				img3rocketh = ImageIO.read(new File("Resources/3rocketh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/3rocketv.png");
+		if(imageclass != null){
+			try{
+				img3rocketv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img3rocketv == null){
+			try{
+				img3rocketv = ImageIO.read(new File("Resources/3rocketv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+		//Rocket 4
+		imageclass = this.getClass().getResourceAsStream("Resources/4rocketh.png");
+		if(imageclass != null){
+			try{
+				img4rocketh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4rocketh == null){
+			try{
+				img4rocketh = ImageIO.read(new File("Resources/4rocketh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/4rocketv.png");
+		if(imageclass != null){
+			try{
+				img4rocketv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img4rocketv == null){
+			try{
+				img4rocketv = ImageIO.read(new File("Resources/4rocketv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		//Rocket 5
+		imageclass = this.getClass().getResourceAsStream("Resources/5rocketh.png");
+		if(imageclass != null){
+			try{
+				img5rocketh = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5rocketh == null){
+			try{
+				img5rocketh = ImageIO.read(new File("Resources/5rocketh.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
+
+		imageclass = this.getClass().getResourceAsStream("Resources/5rocketv.png");
+		if(imageclass != null){
+			try{
+				img5rocketv = ImageIO.read(imageclass);
+			}catch(IOException e){
+				System.out.println("Unable to load image from jar");
+			}
+		}
+		if(img5rocketv == null){
+			try{
+				img5rocketv = ImageIO.read(new File("Resources/5rocketv.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load images");
+			}
+		}
 		
 		imageclass = this.getClass().getResourceAsStream("Resources/stars.png");
 		if(imageclass != null){

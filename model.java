@@ -2,6 +2,7 @@
 //Chloe, Emily, Jayna
 //v1
 
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -9,6 +10,11 @@ import javax.swing.event.*;
 import java.io.*;
 
 public class model implements ActionListener, KeyListener, MouseListener, MouseMotionListener{
+	/**
+	 * 
+	 *  @author Chloe, Emily, Jayna
+ 	 *  @version 1.0.0
+	 * */
 	//Properties
 
 	// Timers for help screen and game panel
