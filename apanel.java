@@ -8,6 +8,7 @@ public class apanel extends JPanel{
 	// Properties
 	
 	//Game Pieces
+	/**Different variations of boat images*/
 	BufferedImage img2h = null;
 	BufferedImage img2v = null;
 	BufferedImage img3h = null;
@@ -18,15 +19,17 @@ public class apanel extends JPanel{
 	BufferedImage img5v = null;
 
 	//Maps
+	/**Imamges for the map*/
 	BufferedImage imgtile = null;
 	BufferedImage imgstars = null;
 	BufferedImage imghit = null;
 	BufferedImage imgmiss = null;
 
 	//Row and Column
+	/**Variables to determine which row and column they have attack*/
 	int intRow;
 	int intCol;
-
+	
 	int intX = 32;
 	int intY = 135;
 	int intX1 = 502;
@@ -35,6 +38,7 @@ public class apanel extends JPanel{
 	int intMapChoice = 0;
 
 	// game piece coordinates
+	/**Coordinates for game pieces*/
 	int int2px1 = 32;
 	int int2py1 = 135;
 	int int2px2 = 122;
@@ -57,11 +61,13 @@ public class apanel extends JPanel{
 	int int5py2 = 360;
 
 	//Opponent board
+	/**Variables for the opponents board*/
 	int intguessx;
 	int intguessy;
 	int intCounter;
 
 	// mouse variables
+	/**Variables for the mouse*/
 	int intMousex;
 	int intMousey;
 	boolean blnMove2 = false;
@@ -71,26 +77,36 @@ public class apanel extends JPanel{
 	boolean blnMove5 = false;
 
 	// key variables
+	/**Variables for the keys*/
 	boolean blnRot2 = false;
 	boolean blnRot3a = false;
 	boolean blnRot3b = false;
 	boolean blnRot4 = false;
 	boolean blnRot5 = false;
-
+	
+	//maps
+	/**Variables for maps*/
 	String strMap[][] = new String[10][10];
 	String strDotMap1[][] = new String[10][10];
 	String strDotMap2[][] = new String[10][10];
-
+	
+	/**Varible to know if the game started*/
 	boolean gameStarted = false;
 
 	// Player variables
+	/**Variables to indicate the players turn*/
 	int intPlayerTurn = 0;
 	int intPlayer;
 
 	//hit or miss
+	/**Variable to indicate if there a boat is hit or missed*/
 	int intHit = 0;
-
-	//override how the JComponent is painted
+	/**
+     * Override how the JComponent is painted
+     * Draws the map based on what theme is chosen
+     * While playing the game it will draw dots based on where players attack
+     * @param g graphics
+     */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.WHITE);
@@ -521,6 +537,9 @@ public class apanel extends JPanel{
 
 	}
 	//constructor
+	/**
+     * Constructor for apanel
+     */
 	public apanel(){
 		InputStream imageclass = null;
 		
