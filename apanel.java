@@ -103,7 +103,7 @@ public class apanel extends JPanel{
 		int intCount;
 		
 		
-
+		//loads game map and game pieces based on what theme the host selected
 		if(intMapChoice == 1){
 			try{
 				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
@@ -192,6 +192,7 @@ public class apanel extends JPanel{
 		String strImage = strTheme[0][1];
 		InputStream imageclass = null;
 
+		//loads game pieces and tiles
 		imageclass = this.getClass().getResourceAsStream("Resources/"+strImage);
 		if(imageclass != null){
 			try{
@@ -370,7 +371,7 @@ public class apanel extends JPanel{
 		int intCount3;
 		int intCount4;
 			
-		
+		// Reads the csv file for the map
 		try{
 			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
 			
@@ -402,6 +403,7 @@ public class apanel extends JPanel{
 
 		}
 		
+		//draws the tiles for the player map
 		for(intCount1 = 0; intCount1 < 10; intCount1++){
 			for(intCount2 = 0; intCount2 <10; intCount2++){
 				if(strMap[intCount1][intCount2].equals("w")){
@@ -413,6 +415,8 @@ public class apanel extends JPanel{
 			}
 
 		}
+
+		//draws the tiles for the opponent map
 		for(intCount3 = 0; intCount3 < 10; intCount3++){
 			for(intCount4 = 0; intCount4 <10; intCount4++){
 				if(strMap[intCount3][intCount4].equals("w")){
@@ -423,6 +427,8 @@ public class apanel extends JPanel{
 				}
 			}
 		}
+		
+		//draws stars for the 3rd theme
 		if(intMapChoice == 3){
 			g.drawImage(imgstars, 32,135,null);
 			g.drawImage(imgstars, 502,135,null);
@@ -430,8 +436,7 @@ public class apanel extends JPanel{
 
 		int intcheck = 0;
 
-		//System.out.println("check x coord" + int2px1);
-		//System.out.println("check x coord "+ int2py1);
+		// if statements to check if the horizontal or vertical version of the game pieces should be drawn
 		if(blnRot2 == false){
 			g.drawImage(img2h, int2px1, int2py1, null);
 		}else{
@@ -461,12 +466,10 @@ public class apanel extends JPanel{
 		}else{
 			g.drawImage(img5v, int5px1, int5py1, null);
 		}
-		
-		//String strGuess[][];
-		//strGuess = new String[100][2];
-		//int intCounts = 0;
 
-
+		//loads an array that holds 2 dot maps.
+		//   - dotmap1 is responsible for what is being drawn on the left map. the array holds where the opponent has hit/missed
+		//   - dotmap2 is responsible for what is being drawn on the right map. the array holds where the player has hit/missed
 		if(gameStarted == true){
 			try{
 				int intDotX;

@@ -3,61 +3,57 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class controller {
+
+    // Snaps the x-coordinate of the Mouse to the grid
     public static int snapToX(int intMousex){
-        //int intMouse = 0;
         int intMouse;
-        /*if(intMousex % 45 < 23){
-            intMousex = intMousex - (intMousex % 45) + 32;
-        }
-        else{
-            intMousex = intMousex - (intMousex % 45) + 32;
-        }
-        */
         intMouse = (intMousex - 32) % 45;
         intMousex = intMousex - intMouse;
-        //intMouse = intMousex;
         return intMousex;
     }
+
+    // Snaps the y-coordinate of the Mouse to the grid
     public static int snapToY(int intMousey){
-        //int intMouse = 0;
         int intMouse;
-        /*
-        if(intMousey % 45 < 23){
-            intMousey = intMousey - (intMousey % 45) ;
-        }
-        else{
-            intMousey = intMousey - (intMousey % 45) + 45;
-        }
-        */
         intMouse = (intMousey - 135) % 45;
         intMousey = intMousey - intMouse;
-        //intMouse = intMousey;
         return intMousey;
     }
+
+    // Ensures the left side of the boat does not exceed the left side of the map
     public static int boundxleft(int intMousex){
         if(intMousex < 32){
             intMousex = 32;
         }
         return intMousex;
     }
+
+    // Ensures the top of the boat does not exceed the top of the map
     public static int boundytop(int intMousey){
         if(intMousey < 135){
             intMousey = 135;
         }
         return intMousey;
     }
+
+    // Ensures the right side of the boat does not exceed the right side of the map
     public static int boundxright(int intPieceX2){
         if(intPieceX2 > 482){
             intPieceX2 = 482;
         }
         return intPieceX2;
     }
+
+    // Ensures the bottom of the boat does not exceed the bottom of the map
     public static int boundybottom(int intPieceY2){
         if(intPieceY2 > 585){
             intPieceY2 = 585;
         }
         return intPieceY2;
     }
+
+    //Takes the coordinates of the boats, either erases its current position from the array or adds its current position in the array
+    //and then rewrites the map.csv file with the updated map
     public static String[][] updateMap(String[][] mapfile, int intx1, int inty1, boolean blnrotated, int intlength, boolean blnErase){
         intx1 = (intx1 - 32) / 45;
         inty1 = (inty1 - 135) / 45;
@@ -106,7 +102,7 @@ public class controller {
         return mapfile;
     }
 
-    //for play again if needed
+    //Resets the location of the boats on the map
     public static String[][] reloadMap(String[][] strMap){
         int intCount1;
         int intCount2;
@@ -139,20 +135,17 @@ public class controller {
                 System.out.println(strMap[i][j] + " ");
             }
             System.out.println();
-            //System.out.println();
         }
         try{
             PrintWriter mapcsv = new PrintWriter(new FileWriter("map.csv", false));
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     if(j>8){
-                    //System.out.print(mapfile[i][j]);
                         mapcsv.print(strMap[i][j]);
                     }else{
                         mapcsv.print(strMap[i][j] + ",");
                     }
                 }
-                //System.out.println();
                 mapcsv.println();
             }
             mapcsv.close();
@@ -165,18 +158,8 @@ public class controller {
         return strMap;
     }
 
-    public static String[][] reloadDotMaps(String[][] strDotMap){
-        int intCount1;
-        int intCount2;
-
-        for(intCount1 = 0; intCount1 < 10; intCount1++){
-			for(intCount2 = 0; intCount2 <10; intCount2++){
-				strDotMap[intCount1][intCount2] = "n";		
-			}
-		}
-        return strDotMap;
-    }
-
+    // Checks if boats will overlap when moved or rotated
+    // Whole thing is hypothetical in the sense that IF the boat was to be moved to these new coordinates, would there be any issues
     public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength, boolean blnrotated){
         intx1 = ((intx1 - (intx1 % 45)) / 45);
         inty1 = ((inty1 - (inty1 % 45) - 135) / 45);
@@ -185,27 +168,18 @@ public class controller {
 
         intlength -= 1;
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if(j>8){
-                    //System.out.print(mapfile[i][j]);
-                }else{
-                  //System.out.print(mapfile[i][j] + ",");
-                }
-            }
-            //System.out.println();
-        }
-
         System.out.println("inty:" +inty1);
         System.out.println("intx:"+intx1);
         System.out.println("length"+intlength);
        
         try{
+            // checks if there is anything the boat will overlap with when horizontal throughout its entire length
             while(intlength >= 0 && !mapfile[inty1][intx1].equals("s") && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
                 System.out.println("change");
                 intlength -= 1;
             }
 
+            // checks if there is anything the boat will overlap with when its vertical throughout its entire length
             while(intlength >= 0 && !mapfile[inty1 + intlength][intx1].equals("s") && !mapfile[inty1][intx1].equals("s") && blnrotated == true){
                 System.out.println("HI");
                 intlength -= 1;
@@ -223,11 +197,11 @@ public class controller {
         if(intlength <= 0){
             return false;
         }else{
-            System.out.println("will overlap");
             return true;
         }
     }
 
+    // checks if the opponent's attack will hit any of the player's boats
     public static int hitmiss(String[][] mapfile, int intRow, int intCol){
         if(mapfile[intRow][intCol].equals("s")){
             //boat was hit
@@ -238,24 +212,7 @@ public class controller {
         }
     }
 
-    public static boolean win(String[][] mapfile){
-        int intShip = 0;
-		int intRow;
-		int intCol;
-		for(intRow = 0; intRow < 20; intRow++){
-			for(intCol = 0; intCol < 20; intCol++){
-				if(mapfile[intRow][intCol].equals("s")){
-					intShip = intShip + 1;
-				}
-			}
-		}
-		if(intShip > 0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
+    //resets the dotmap to normal
     public static String[][] startDotMaps(String[][] strDotMap){
         int intCount1;
         int intCount2;
@@ -278,6 +235,7 @@ public class controller {
         return strDotMap;
     }
 
+    //updates any dot map with the location of the dot and whether or not it was a hit or miss
     public static String[][] updateDotMaps(String[][] strDotMap, boolean blnHitMiss, int intRow, int intCol){
         if(blnHitMiss == true){
             strDotMap[intRow][intCol] = "h";
@@ -287,6 +245,7 @@ public class controller {
         return strDotMap;
     }
 
+    //checks if all the boats have been hit on the dot map
     public static boolean checkGameOver(String[][] strDotMap){
         int intBoatsHit = 0;
         for (int i = 0; i < 10; i++) {
