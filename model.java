@@ -797,11 +797,10 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	}
 
 	public void mouseReleased(MouseEvent evt){
-		// Records the position of the boat when the mouse releases it
+		// Records the position of the boats when the mouse releases it
 		if(gamepanel.blnMove2 == true){
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, false);
 		}
-		
 		if(gamepanel.blnMove3a == true){
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int3apx1, gamepanel.int3apy1, gamepanel.blnRot3a, 3, false);
 		}
