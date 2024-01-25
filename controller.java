@@ -4,26 +4,35 @@ import java.io.PrintWriter;
 
 public class controller {
     public static int snapToX(int intMousex){
-        int intMouse = 0;
-        if(intMousex % 45 < 23){
+        //int intMouse = 0;
+        int intMouse;
+        /*if(intMousex % 45 < 23){
             intMousex = intMousex - (intMousex % 45) + 32;
         }
         else{
             intMousex = intMousex - (intMousex % 45) + 32;
         }
-        intMouse = intMousex;
-        return intMouse;
+        */
+        intMouse = (intMousex - 32) % 45;
+        intMousex = intMousex - intMouse;
+        //intMouse = intMousex;
+        return intMousex;
     }
     public static int snapToY(int intMousey){
-        int intMouse = 0;
+        //int intMouse = 0;
+        int intMouse;
+        /*
         if(intMousey % 45 < 23){
             intMousey = intMousey - (intMousey % 45) ;
         }
         else{
             intMousey = intMousey - (intMousey % 45) + 45;
         }
-        intMouse = intMousey;
-        return intMouse;
+        */
+        intMouse = (intMousey - 135) % 45;
+        intMousey = intMousey - intMouse;
+        //intMouse = intMousey;
+        return intMousey;
     }
     public static int boundxleft(int intMousex){
         if(intMousex < 32){
@@ -190,7 +199,6 @@ public class controller {
         System.out.println("inty:" +inty1);
         System.out.println("intx:"+intx1);
         System.out.println("length"+intlength);
-        System.out.println(mapfile[9][7]);
        
         try{
             while(intlength >= 0 && !mapfile[inty1][intx1].equals("s") && !mapfile[inty1][intx1 + intlength].equals("s") && blnrotated == false){
@@ -215,6 +223,7 @@ public class controller {
         if(intlength <= 0){
             return false;
         }else{
+            System.out.println("will overlap");
             return true;
         }
     }

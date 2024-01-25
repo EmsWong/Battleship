@@ -11,6 +11,7 @@ import java.io.*;
 public class model implements ActionListener, KeyListener, MouseListener, MouseMotionListener{
 	//Properties
 
+	// Timers for help screen and game panel
 	Timer theTimer = new Timer(1000/60, this);
 	Timer helpTimer = new Timer(1000/60, this);
 
@@ -38,7 +39,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	JScrollPane thescroll = new JScrollPane(textarea);
 	JTextField sendfield = new JTextField();
 	
-	//Row, Col and Fire
+	//Row dropdown, Col dropdown and Fire
 	String[] strRow = {"1","2","3","4","5","6","7","8","9","10"}; 
 	String[] strCol = {"A","B","C","D","E","F","G","H","I","J"}; 
 	JComboBox rowlist = new JComboBox(strRow);
@@ -104,6 +105,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	JLabel gameoverlabel = new JLabel("Gameover");
 	JButton quitbutton1 = new JButton("QUIT");
 	
+	//Variables for overall game
 	int intClick = 0;
 	boolean blnConfirmGuess;
 	boolean blnWinCheck = false;
@@ -170,6 +172,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		//clicking start button on gameplay screen
 		if(evt.getSource() == startbutton){
 			intClick++;
+
+			//Takes off start button and enables drowndowns and fire button
 			gamepanel.removeMouseListener(this);
 			gamepanel.removeMouseMotionListener(this);
 			collist.setEnabled(true);
@@ -177,9 +181,13 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			firebutton.setVisible(true);
 			firebutton.setEnabled(true);
 			startbutton.setVisible(false);
+
+			// Enables fire button for host. (allows host to go first)
 			if(gamepanel.intPlayer == (intClick % 2)){
 				firebutton.setEnabled(false);
 			}
+
+			//Starts the dot/hit/miss maps
 			gamepanel.strDotMap1 = controller.startDotMaps(gamepanel.strDotMap1);
 			gamepanel.strDotMap2 = controller.startDotMaps(gamepanel.strDotMap2);
 			gamepanel.gameStarted = true;
@@ -187,11 +195,11 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		//clicking the fire button on gameplay screen
 		if(evt.getSource() == firebutton){
 			intClick++;
-			System.out.println(intClick);
 			String strRow = (String)rowlist.getSelectedItem();
 			String strCol = (String)collist.getSelectedItem();
 			System.out.println(strRow+strCol);
 			
+			//Tells the other player that they are attacking them at a certain row and column
 			ssm.sendText("OppAttack‰"+strRow+"‰"+strCol);
 			if(gamepanel.intPlayer == (intClick % 2)){
 				firebutton.setEnabled(false);
@@ -201,6 +209,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		//clicking the host button on join screen
 		if(evt.getSource() == host){
 			strUsername = username.getText();
+
+			// Prevents players from entering certain usernames
 			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("OppAttack") || strUsername.equals("label")){
 				userlabel.setText("Change name");
 				username.setText("");
@@ -218,6 +228,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		//clicking the join button on the join screen
 		if(evt.getSource() == join){
 			strUsername = username.getText();
+
+			// Prevents players from entering certain usernames
 			if(strUsername.equals("joined") || strUsername.equals("play") || strUsername.equals("OppAttack") || strUsername.equals("label")){
 				userlabel.setText("Change Name");
 				username.setText("");
@@ -270,23 +282,26 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			ssm.sendText("label‰"+strUsername);
 		}
 
+		//Writes messages to the chat area
 		if(evt.getSource() == sendfield){
 			ssm.sendText(strUsername + "‰" + sendfield.getText());
 			textarea.append(strUsername + ": " + sendfield.getText() + "\n");
 			sendfield.setText("");
 		}
 
+		//clicking on the quit button while in game
 		if(evt.getSource() == quitbutton1){
 			gamepanel.strMap = controller.reloadMap(gamepanel.strMap);
 			System.out.println("quit");
-			//gamepanel.strGuessing = controller.reloadGuessing(gamepanel.strGuessing, 1);
-			//gamepanel.strHits = controller.reloadGuessing(gamepanel.strHits, 2);
 			System.exit(0);
 		}
 		
+		//ssm is sending data
 		if(evt.getSource() == ssm){
 			//ssm message for client to switch to gameplay screen
 			String[] strChat = ssm.readText().split("‰");
+
+			//communicates the map choice that the host picked to the client
 			if(strChat[0].equals("play")){
 				if(strChat[1].equals("standard")){
 					gamepanel.intMapChoice = 1;
@@ -298,112 +313,109 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				theframe.setContentPane(mainpanel);
 				theframe.pack();
 				theframe.repaint();
+
+			//only lets the host pick a theme after the client has joined
 			}else if(strChat[0].equals("joined")){
 				if(strChat[1].equals("client")){
 					standardbutton.setEnabled(true);
 					carsbutton.setEnabled(true);
 					spacebutton.setEnabled(true);
 				}
+			
+			//username of the other player
 			}else if(strChat[0].equals("label")){
 				user2label.setText(strChat[1]);
+
+			//if the first part of the ssm is "OppAttack". Opponent is sending the player where they guessed/attacked
 			}else if(strChat[0].equals("OppAttack")){
 				firebutton.setEnabled(true);
 				intClick++;
+
+				//Converts the data sent through the ssm to array row/column
 				if(strChat[1].equals("1")){
 					gamepanel.intRow = 0;
-					gamepanel.intguessy = 135;
 				}else if(strChat[1].equals("2")){
 					gamepanel.intRow = 1;
-					gamepanel.intguessy = 180;
 				}else if(strChat[1].equals("3")){
 					gamepanel.intRow = 2;
-					gamepanel.intguessy = 225;
 				}else if(strChat[1].equals("4")){
 					gamepanel.intRow = 3;
-					gamepanel.intguessy = 270;
 				}else if(strChat[1].equals("5")){
 					gamepanel.intRow = 4;
-					gamepanel.intguessy = 315;
 				}else if(strChat[1].equals("6")){
 					gamepanel.intRow = 5;
-					gamepanel.intguessy = 360;
 				}else if(strChat[1].equals("7")){
 					gamepanel.intRow = 6;
-					gamepanel.intguessy = 405;
 				}else if(strChat[1].equals("8")){
 					gamepanel.intRow = 7;
-					gamepanel.intguessy = 450;
 				}else if(strChat[1].equals("9")){
 					gamepanel.intRow = 8;
-					gamepanel.intguessy = 495;
 				}else if(strChat[1].equals("10")){
 					gamepanel.intRow = 9;
-					gamepanel.intguessy = 540;
 				}
 				if(strChat[2].equals("A")){
 					gamepanel.intCol = 0;
-					gamepanel.intguessx = 32;
 				}else if(strChat[2].equals("B")){
 					gamepanel.intCol = 1;
-					gamepanel.intguessx = 77;
 				}else if(strChat[2].equals("C")){
 					gamepanel.intCol = 2;
-					gamepanel.intguessx = 122;
 				}else if(strChat[2].equals("D")){
 					gamepanel.intCol = 3;
-					gamepanel.intguessx = 167;
 				}else if(strChat[2].equals("E")){
 					gamepanel.intCol = 4;
-					gamepanel.intguessx = 212;
 				}else if(strChat[2].equals("F")){
 					gamepanel.intCol = 5;
-					gamepanel.intguessx = 257;
 				}else if(strChat[2].equals("G")){
 					gamepanel.intCol = 6;
-					gamepanel.intguessx = 302;
 				}else if(strChat[2].equals("H")){
 					gamepanel.intCol = 7;
-					gamepanel.intguessx = 347;
 				}else if(strChat[2].equals("I")){
 					gamepanel.intCol = 8;
-					gamepanel.intguessx = 392;
 				}else if(strChat[2].equals("J")){
 					gamepanel.intCol = 9;
-					gamepanel.intguessx = 437;
 				}
 				System.out.println("attacked introw:" + gamepanel.intRow);
 				System.out.println("attacked intcol:" + gamepanel.intCol);
 				gamepanel.intHit = controller.hitmiss(gamepanel.strMap, gamepanel.intCol, gamepanel.intRow);
-				System.out.println(gamepanel.intHit);
+
 				if(gamepanel.intHit == 1){
-					System.out.println("hit shot");
+					//opponent hit a player boat
 					blnConfirmGuess = true;
 					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
-					//need to tell opponent their attack was hit
+					
+					//sends a message back to opponent to tell them their guess hit one of the player's boats
 					ssm.sendText("attackResult‰1‰"+gamepanel.intCol+"‰"+gamepanel.intRow);
 				}
 				if(gamepanel.intHit == 2){
-					System.out.println("missed shot");
+					// opponent did not hit a player boat
 					blnConfirmGuess = false;
 					gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
+					//sends a message back to opponent to tell them their guess did not hit one of the player's boats
 					ssm.sendText("attackResult‰0‰"+gamepanel.intCol+"‰"+gamepanel.intRow);
 				}
-				
+			
 			}else if(strChat[0].equals("attackResult")&& strChat[1].equals("1")){
+				//opponent tells player where the player attacked and that the player has hit a boat
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap2, true, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));
 				blnWinCheck = controller.checkGameOver(gamepanel.strDotMap2);
 				if(blnWinCheck == true){
+					//game is over
 					System.out.println("GAME OVER");
+
+					//tells the opponent the game is over
 					ssm.sendText("gameover");
 					theframe.setContentPane(gameoverpanel);
 					theframe.pack();
 					theframe.repaint();
 				}
 				System.out.println("hit");
+			
 			}else if(strChat[0].equals("attackResult") && strChat[1].equals("0")){
+				//opponent tells player where the player attacked and that the player missed
 				gamepanel.strDotMap2 = controller.updateDotMaps(gamepanel.strDotMap2, false, Integer.parseInt(strChat[2]), Integer.parseInt(strChat[3]));
-				System.out.println("missed");
+
 			}else if(strChat[0].equals("gameover")){
+				//opponent says game is over
 				System.out.println("GAME OVER");
 				theframe.setContentPane(gameoverpanel);
 				theframe.pack();
@@ -433,8 +445,10 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 
 	public void keyPressed(KeyEvent evt){
 		if(gamepanel.int2px1 < 437 && gamepanel.int2py1 < 540){
+			//boat 2 is pressed
 			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-				//System.out.println("ya");
+				//R was pressed
+				//Rotates the 2 boat
 				if(gamepanel.blnRot2 == false){
 					gamepanel.blnRot2 = true;
 				}else{
@@ -443,7 +457,10 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.int3apx1 < 392 && gamepanel.int3apy1 < 495){
+			//the first 3 boat is pressed
 			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//R was pressed
+				//Rotates one of the first 3 boat
 				if(gamepanel.blnRot3a == false){
 					gamepanel.blnRot3a = true;
 				}else{
@@ -452,7 +469,10 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.int3bpx1 < 392 && gamepanel.int3bpy1 < 495){
+			//the second 3 boat is pressed
 			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//R was pressed
+				//Rotates one of the second 3 boat
 				if(gamepanel.blnRot3b == false){
 					gamepanel.blnRot3b = true;
 				}else{
@@ -461,7 +481,10 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.int4px1 < 392 && gamepanel.int4py1 < 450){
+			//the 4 boat is pressed
 			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//R was pressed
+				//Rotates one of the 4 boat
 				if(gamepanel.blnRot4 == false){
 					gamepanel.blnRot4 = true;
 				}else{
@@ -470,7 +493,10 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.int5px1 < 347 && gamepanel.int5py1 < 405){
+			//the 5 boat is pressed
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				//R was pressed
+				//Rotates one of the 4 boat
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
 				}else{
@@ -482,6 +508,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		//Help Screen
 		if(helppanel1.int2px1 < 437 && helppanel1.int2py1 < 540){
 			if(helppanel1.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
+				
 				if(helppanel1.blnRot2 == false){
 					helppanel1.blnRot2 = true;
 				}else{
@@ -492,6 +519,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	}
 
 	public void keyTyped(KeyEvent evt){
+
+		//limits the username that the player entered
 		if(username.getText().length() > 10 && !(evt.getKeyChar() == KeyEvent.VK_DELETE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
 			String strusername = username.getText().substring(0, 9);
 			username.setText(strusername);
@@ -500,9 +529,9 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			userlabel.setText("Username");
 		}
 
+		//Rotates boat 2
 		if(gamepanel.int2px1 < 437 && gamepanel.int2py1 < 540){
 			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-				//System.out.println("ya");
 				if(gamepanel.blnRot2 == false){
 					gamepanel.blnRot2 = true;
 				}else{
@@ -510,6 +539,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				}
 			}
 		}
+
+		//Rotates the first 3 boat
 		if(gamepanel.int3apx1 < 392 && gamepanel.int3apy1 < 495){
 			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot3a == false){
@@ -519,6 +550,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				}
 			}
 		}
+
+		//Rotates the second 3 boat
 		if(gamepanel.int3bpx1 < 392 && gamepanel.int3bpy1 < 495){
 			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot3b == false){
@@ -528,6 +561,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				}
 			}
 		}
+
+		//Rotates the 4 boat
 		if(gamepanel.int4px1 < 392 && gamepanel.int4py1 < 450){
 			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot4 == false){
@@ -537,6 +572,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				}
 			}
 		}
+
+		//Rotates the 5 boat
 		if(gamepanel.int5px1 < 347 && gamepanel.int5py1 < 405){
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
@@ -556,6 +593,8 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 				}
 			}
 		}
+
+		
 		
 	}
 
@@ -567,87 +606,115 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		}else{
 			userlabel.setText("Username");
 		}
-
+		
+		//Rotates boat 2
 		if(gamepanel.int2px1 < 437 && gamepanel.int2py1 < 540){
 			if(gamepanel.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
-				//System.out.println("ya");
 				if(gamepanel.blnRot2 == false){
 					gamepanel.blnRot2 = true;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){
 						gamepanel.blnRot2 = false;
 					}
 				}else{
 					gamepanel.blnRot2 = false;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){
 						gamepanel.blnRot2 = true;
 					}
 				}
 			}
 		}
+
+		//Rotates the first 3 boat
 		if(gamepanel.int3apx1 < 392 && gamepanel.int3apy1 < 495){
 			if(gamepanel.blnMove3a == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot3a == false){
 					gamepanel.blnRot3a = true;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){
 						gamepanel.blnRot3a = false;
 					}
 				}else{
 					gamepanel.blnRot3a = false;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){	
 						gamepanel.blnRot3a = true;
 					}
 				}
 			}
 		}
+
+		//Rotates the second 3 boat
 		if(gamepanel.int3bpx1 < 392 && gamepanel.int3bpy1 < 495){
 			if(gamepanel.blnMove3b == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot3b == false){
 					gamepanel.blnRot3b = true;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){
 						gamepanel.blnRot3b = false;
 					}
 				}else{
 					gamepanel.blnRot3b = false;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){	
 						gamepanel.blnRot3b = true;
 					}
 				}
 			}
 		}
+
+		//Rotates the 4 boat
 		if(gamepanel.int4px1 < 347 && gamepanel.int4py1 < 450){
 			if(gamepanel.blnMove4 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot4 == false){
 					gamepanel.blnRot4 = true;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){
 						gamepanel.blnRot4 = false;
 					}
 				}else{
 					gamepanel.blnRot4 = false;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){	
 						gamepanel.blnRot4 = true;
 					}
 				}
 			}
 		}
+
+		//Rotates the 5 boat
 		if(gamepanel.int5px1 < 302 && gamepanel.int5py1 < 405){
 			if(gamepanel.blnMove5 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				if(gamepanel.blnRot5 == false){
 					gamepanel.blnRot5 = true;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){
 						gamepanel.blnRot5 = false;
 					}
 				}else{
 					gamepanel.blnRot5 = false;
 					boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
+
+					//unrotates the boat because it overlaps something when rotated
 					if(blnOverlap == true){	
 						gamepanel.blnRot5 = true;
 					}
@@ -655,6 +722,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		//Help Screen
+		//Rotates the help screen boat
 		if(helppanel1.int2px1 < 437 && helppanel1.int2py1 < 540){
 			if(helppanel1.blnMove2 == true && evt.getKeyChar() == KeyEvent.VK_R){
 				//System.out.println("ya");
@@ -676,13 +744,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		gamepanel.intMousey = evt.getY();
 		
 		if(gamepanel.intMousex > gamepanel.int2px1 && gamepanel.intMousex < gamepanel.int2px2 && gamepanel.intMousey > gamepanel.int2py1 && gamepanel.intMousey < gamepanel.int2py2){
-			//gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, true);
+			//2 boat was pressed
 			gamepanel.blnMove2 = true;
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, true);
 			theframe.requestFocus();
 		}
 
 		if (gamepanel.intMousex >= gamepanel.int3apx1 && gamepanel.intMousex <= gamepanel.int3apx2 && gamepanel.intMousey >= gamepanel.int3apy1 && gamepanel.intMousey <= gamepanel.int3apy2){
+			//3a boat was pressed
 			gamepanel.blnMove3a = true;
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int3apx1, gamepanel.int3apy1, gamepanel.blnRot3a, 3, true);
 			theframe.requestFocus();
@@ -690,18 +759,21 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		
 
 		if (gamepanel.intMousex >= gamepanel.int3bpx1 && gamepanel.intMousex <= gamepanel.int3bpx2 && gamepanel.intMousey >= gamepanel.int3bpy1 && gamepanel.intMousey <= gamepanel.int3bpy2){
+			//3b boat was pressed
 			gamepanel.blnMove3b = true;
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int3bpx1, gamepanel.int3bpy1, gamepanel.blnRot3b, 3, true);
 			theframe.requestFocus();
 		}
 
 		if (gamepanel.intMousex >= gamepanel.int4px1 && gamepanel.intMousex <= gamepanel.int4px2 && gamepanel.intMousey >= gamepanel.int4py1 && gamepanel.intMousey <= gamepanel.int4py2){
+			//4 boat was pressed
 			gamepanel.blnMove4 = true;
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int4px1, gamepanel.int4py1, gamepanel.blnRot4, 4, true);
 			theframe.requestFocus();
 		}
 
 		if (gamepanel.intMousex >= gamepanel.int5px1 && gamepanel.intMousex <= gamepanel.int5px2 && gamepanel.intMousey >= gamepanel.int5py1 && gamepanel.intMousey <= gamepanel.int5py2){
+			//5 boat was pressed
 			gamepanel.blnMove5 = true;
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int5px1, gamepanel.int5py1, gamepanel.blnRot5, 5, true);
 			theframe.requestFocus();
@@ -710,6 +782,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		helppanel1.intMousex = evt.getX();
 		helppanel1.intMousey = evt.getY();
 		if(helppanel1.intMousex > helppanel1.int2px1 && helppanel1.intMousex < helppanel1.int2px2 && helppanel1.intMousey > helppanel1.int2py1 && helppanel1.intMousey < helppanel1.int2py2){
+			//help screen 2 boat was pressed
 			helppanel1.blnMove2 = true;
 			theframe.requestFocus();
 		}
@@ -724,6 +797,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 	}
 
 	public void mouseReleased(MouseEvent evt){
+		// Records the position of the boat when the mouse releases it
 		if(gamepanel.blnMove2 == true){
 			gamepanel.strMap = controller.updateMap(gamepanel.strMap, gamepanel.int2px1, gamepanel.int2py1, gamepanel.blnRot2, 2, false);
 		}
@@ -762,12 +836,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 		gamepanel.intMousey = controller.boundytop(gamepanel.intMousey);
 
 		if(gamepanel.blnMove2 == true){
+			//boat 2 is being moved
 			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
 			if(blnOverlap == true){
-				System.out.println("stay");
+				//boat will overlap something else. no redrawing
 			}else{
-				System.out.println(blnOverlap);
+				//boat will not overlap something else. redrawing
 				if(gamepanel.blnRot2 == false){
+					//redrawing the boat horizontally
 					gamepanel.int2px1 = gamepanel.intMousex;
 					gamepanel.int2py1 = gamepanel.intMousey;
 					gamepanel.int2px2 = gamepanel.intMousex + 90;
@@ -777,6 +853,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 					gamepanel.int2px1 = gamepanel.int2px2 - 90;
 					gamepanel.int2py1 = gamepanel.int2py2 - 45;
 				}else{
+					//redrawing the boat vertically
 					gamepanel.int2px1 = gamepanel.intMousex;
 					gamepanel.int2py1 = gamepanel.intMousey;
 					gamepanel.int2px2 = gamepanel.intMousex + 45;
@@ -789,11 +866,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.blnMove3a == true){
+			//boat 3a is being moved
 			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
 			if(blnOverlap == true){
-				System.out.println("stay");
+				//boat will overlap something else. no redrawing
 			}else{
+				//boat will not overlap something else. redrawing
 				if(gamepanel.blnRot3a == false){
+					//redrawing the boat horizontally
 					gamepanel.int3apx1 = gamepanel.intMousex;
 					gamepanel.int3apy1 = gamepanel.intMousey;
 					gamepanel.int3apx2 = gamepanel.intMousex + 135;
@@ -803,6 +883,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 					gamepanel.int3apx1 = gamepanel.int3apx2 - 135;
 					gamepanel.int3apy1 = gamepanel.int3apy2 - 45;
 				}else{
+					//redrawing the boat vertically
 					gamepanel.int3apx1 = gamepanel.intMousex;
 					gamepanel.int3apy1 = gamepanel.intMousey;
 					gamepanel.int3apx2 = gamepanel.intMousex + 45;
@@ -815,11 +896,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.blnMove3b == true){
+			//boat 3b is being moved
 			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
 			if(blnOverlap == true){
-				System.out.println("stay");
+				//boat will overlap something else. no redrawing
 			}else{
+				//boat will not overlap something else. redrawing
 				if(gamepanel.blnRot3b == false){
+					//redrawing the boat horizontally
 					gamepanel.int3bpx1 = gamepanel.intMousex;
 					gamepanel.int3bpy1 = gamepanel.intMousey;
 					gamepanel.int3bpx2 = gamepanel.intMousex + 135;
@@ -829,6 +913,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 					gamepanel.int3bpx1 = gamepanel.int3bpx2 - 135;
 					gamepanel.int3bpy1 = gamepanel.int3bpy2 - 45;
 				}else{
+					//redrawing the boat vertically
 					gamepanel.int3bpx1 = gamepanel.intMousex;
 					gamepanel.int3bpy1 = gamepanel.intMousey;
 					gamepanel.int3bpx2 = gamepanel.intMousex + 45;
@@ -841,11 +926,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}	
 		if(gamepanel.blnMove4 == true){
+			//boat 4 is being moved
 			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
 			if(blnOverlap == true){
-				System.out.println("stay");
+				//boat will overlap something else. no redrawing
 			}else{
+				//boat will not overlap something else. redrawing
 				if(gamepanel.blnRot4 == false){
+					//redrawing the boat horizontally
 					gamepanel.int4px1 = gamepanel.intMousex;
 					gamepanel.int4py1 = gamepanel.intMousey;
 					gamepanel.int4px2 = gamepanel.intMousex + 180;
@@ -855,6 +943,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 					gamepanel.int4px1 = gamepanel.int4px2 - 180;
 					gamepanel.int4py1 = gamepanel.int4py2 - 45;
 				}else{
+					//redrawing the boat vertically
 					gamepanel.int4px1 = gamepanel.intMousex;
 					gamepanel.int4py1 = gamepanel.intMousey;
 					gamepanel.int4px2 = gamepanel.intMousex + 45;
@@ -867,12 +956,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 			}
 		}
 		if(gamepanel.blnMove5 == true){
+			//boat 5 is being moved
 			boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
-			System.out.println(gamepanel.blnRot5);
 			if(blnOverlap == true){
-				System.out.println("stay");
+				//boat will overlap something else. no redrawing
 			}else{
+				//boat will not overlap something else. redrawing
 				if(gamepanel.blnRot5 == false){
+					//redrawing the boat horizontally
 					gamepanel.int5px1 = gamepanel.intMousex;
 					gamepanel.int5py1 = gamepanel.intMousey;
 					gamepanel.int5px2 = gamepanel.intMousex + 225;
@@ -882,6 +973,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
 					gamepanel.int5px1 = gamepanel.int5px2 - 225;
 					gamepanel.int5py1 = gamepanel.int5py2 - 45;
 				}else{
+					//redrawing the boat vertically
 					gamepanel.int5px1 = gamepanel.intMousex;
 					gamepanel.int5py1 = gamepanel.intMousey;
 					gamepanel.int5px2 = gamepanel.intMousex + 45;
