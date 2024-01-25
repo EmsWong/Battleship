@@ -106,7 +106,7 @@ public class apanel extends JPanel{
 		//loads game map and game pieces based on what theme the host selected
 		if(intMapChoice == 1){
 			try{
-				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
+				BufferedReader themeFile = new BufferedReader(new FileReader("Resource/theme.csv"));
 				try{
 					strLine = themeFile.readLine();
 				}catch(IOException e){
@@ -132,7 +132,7 @@ public class apanel extends JPanel{
 			}
 		}else if(intMapChoice == 2){
 			try{
-				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
+				BufferedReader themeFile = new BufferedReader(new FileReader("Resource/theme.csv"));
 				try{
 					strLine = themeFile.readLine();
 					strLine = themeFile.readLine();
@@ -161,7 +161,7 @@ public class apanel extends JPanel{
 			
 		}else if(intMapChoice == 3){
 			try{
-				BufferedReader themeFile = new BufferedReader(new FileReader("theme.csv"));
+				BufferedReader themeFile = new BufferedReader(new FileReader("Resource/theme.csv"));
 				try{
 					strLine = themeFile.readLine();
 					strLine = themeFile.readLine();
@@ -373,7 +373,7 @@ public class apanel extends JPanel{
 			
 		// Reads the csv file for the map
 		try{
-			BufferedReader mapFile = new BufferedReader(new FileReader("map.csv"));
+			BufferedReader mapFile = new BufferedReader(new FileReader("Resources/map.csv"));
 			
 			while(intMapRow <= 9 && strLines != null){
 				try{
