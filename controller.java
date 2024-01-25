@@ -3,8 +3,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class controller {
-
-    // Snaps the x-coordinate of the Mouse to the grid
+    //Methods
+    /**
+     * Snaps the x-coordinate of the Mouse to the grid
+     * @param intMousex x-coordinate of the mouse
+     * @return returns the snapped x-coordinate
+     */
     public static int snapToX(int intMousex){
         int intMouse;
         intMouse = (intMousex - 32) % 45;
@@ -12,7 +16,11 @@ public class controller {
         return intMousex;
     }
 
-    // Snaps the y-coordinate of the Mouse to the grid
+    /**
+     * Snaps the y-coordinate of the Mouse to the grid
+     * @param intMousey y-coordinate of the mouse
+     * @return returns the snapped y-coordinate
+     */
     public static int snapToY(int intMousey){
         int intMouse;
         intMouse = (intMousey - 135) % 45;
@@ -20,40 +28,62 @@ public class controller {
         return intMousey;
     }
 
-    // Ensures the left side of the boat does not exceed the left side of the map
+    /**  
+     * Ensures the left side of the boat does not exceed the left side of the map
+     * @param intMousex x-cooridnate of the mouse
+     * @return returns bounded x-coordinate
+     */
     public static int boundxleft(int intMousex){
         if(intMousex < 32){
             intMousex = 32;
         }
         return intMousex;
     }
-
-    // Ensures the top of the boat does not exceed the top of the map
+    /**  
+     * Ensures the top of the boat does not exceed the top of the map
+     * @param intMousey y-cooridnate of the mouse
+     * @return returns bounded y-coordinate
+     */
+    
     public static int boundytop(int intMousey){
         if(intMousey < 135){
             intMousey = 135;
         }
         return intMousey;
     }
-
-    // Ensures the right side of the boat does not exceed the right side of the map
+    /**  
+     * Ensures the right side of the boat does not exceed the right side of the map
+     * @param intMousex x-cooridnate of the mouse
+     * @return returns bounded x-coordinate
+     */
     public static int boundxright(int intPieceX2){
         if(intPieceX2 > 482){
             intPieceX2 = 482;
         }
         return intPieceX2;
     }
-
-    // Ensures the bottom of the boat does not exceed the bottom of the map
+    /**  
+     * Ensures the bottom of the boat does not exceed the bottom of the map
+     * @param intMousey y-cooridnate of the mouse
+     * @return returns bounded y-coordinate
+     */
     public static int boundybottom(int intPieceY2){
         if(intPieceY2 > 585){
             intPieceY2 = 585;
         }
         return intPieceY2;
     }
-
-    //Takes the coordinates of the boats, either erases its current position from the array or adds its current position in the array
-    //and then rewrites the map.csv file with the updated map
+    /** 
+     * Takes the coordinates of the boats, either erases its current position from the array or adds its current position in the array
+     * and then rewrites the map.csv file with the updated map
+     * @param mapfile current map file
+     * @param intx1 x-cooridante of boat
+     * @param inty1 y-coordinate of boat
+     * @param blnrotated if boat is rotated
+     * @param intlength length of the boat
+     * @param blnErase if map location needs to change
+     * @return updated map file
+    */
     public static String[][] updateMap(String[][] mapfile, int intx1, int inty1, boolean blnrotated, int intlength, boolean blnErase){
         intx1 = (intx1 - 32) / 45;
         inty1 = (inty1 - 135) / 45;
@@ -102,7 +132,11 @@ public class controller {
         return mapfile;
     }
 
-    //Resets the location of the boats on the map
+    /**
+     * Resets the location of the boats on the map 
+     * @param strMap battleship map
+     * @return returns the updated start map
+     */
     public static String[][] reloadMap(String[][] strMap){
         int intCount1;
         int intCount2;
@@ -157,9 +191,16 @@ public class controller {
         System.out.println();
         return strMap;
     }
-
-    // Checks if boats will overlap when moved or rotated
-    // Whole thing is hypothetical in the sense that IF the boat was to be moved to these new coordinates, would there be any issues
+    /** 
+     * Checks if boats will overlap when moved or rotated
+     * Whole thing is hypothetical in the sense that IF the boat was to be moved to these new coordinates, would there be any issues
+     * @param mapfile current map file
+     * @param intx1 x-cooridante of boat
+     * @param inty1 y-coordinate of boat
+     * @param intlength length of the boat
+     * @param blnrotated if boat is rotated
+     * @return a true or false if boats overlapped
+     */
     public static boolean checkOverlap(String[][] mapfile, int intx1, int inty1, int intlength, boolean blnrotated){
         intx1 = ((intx1 - (intx1 % 45)) / 45);
         inty1 = ((inty1 - (inty1 % 45) - 135) / 45);
@@ -200,8 +241,13 @@ public class controller {
             return true;
         }
     }
-
-    // checks if the opponent's attack will hit any of the player's boats
+    /** 
+     * checks if the opponent's attack will hit any of the player's boats
+     * @param strMap battleship map
+     * @param intRow row number
+     * @param intCol column number
+     * @return returns if the boat was hit
+    */
     public static int hitmiss(String[][] mapfile, int intRow, int intCol){
         if(mapfile[intRow][intCol].equals("s")){
             //boat was hit
@@ -211,8 +257,11 @@ public class controller {
             return 2;
         }
     }
-
-    //resets the dotmap to normal
+    /** 
+     * resets the dotmap to normal
+     * @param strDotMap the map that draws dot images
+     * @return the updated dot map
+     */
     public static String[][] startDotMaps(String[][] strDotMap){
         int intCount1;
         int intCount2;
@@ -234,8 +283,14 @@ public class controller {
         }
         return strDotMap;
     }
-
-    //updates any dot map with the location of the dot and whether or not it was a hit or miss
+    /** 
+     * updates any dot map with the location of the dot and whether or not it was a hit or miss
+     * @param strDotMap the map that draws dot images
+     * @param blnHitMiss if the boat was hit or missed
+     * @param intRow row number
+     * @param intCol column number
+     * @return the updated dot map
+    */
     public static String[][] updateDotMaps(String[][] strDotMap, boolean blnHitMiss, int intRow, int intCol){
         if(blnHitMiss == true){
             strDotMap[intRow][intCol] = "h";
@@ -244,8 +299,11 @@ public class controller {
         }
         return strDotMap;
     }
-
-    //checks if all the boats have been hit on the dot map
+    /** 
+     * checks if all the boats have been hit on the dot map
+     * @param strDotMap the map that draws dot images
+     * @return returns if all boats have been hit
+    */
     public static boolean checkGameOver(String[][] strDotMap){
         int intBoatsHit = 0;
         for (int i = 0; i < 10; i++) {
