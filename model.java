@@ -14,7 +14,7 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
     *
     *  @author Chloe, Emily, Jayna
     *  @version 1.0.0
-    * */
+    */
     //Properties
 
     // Timers for help screen and game panel
@@ -430,9 +430,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
             * The 'strRow' property of type String.
             */
             String strRow = (String)rowlist.getSelectedItem();
-            /**
-            * The 'strCol' property of type String.
-            */
             String strCol = (String)collist.getSelectedItem();
             System.out.println(strRow+strCol);
 
@@ -624,9 +621,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     /**
                     * The 'blnConfirmGuess' property of type boat.
                     */
-                    /**
-                    * The 'blnConfirmGuess' property of type boat.
-                    */
                     blnConfirmGuess = true;
                     gamepanel.strDotMap1 = controller.updateDotMaps(gamepanel.strDotMap1, blnConfirmGuess, gamepanel.intCol, gamepanel.intRow);
 
@@ -635,9 +629,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                 }
                 if(gamepanel.intHit == 2){
                     // opponent did not hit a player boat
-                    /**
-                    * The 'blnConfirmGuess' property of type boat.
-                    */
                     /**
                     * The 'blnConfirmGuess' property of type boat.
                     */
@@ -778,9 +769,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
             /**
             * The 'strusername' property of type String.
             */
-            /**
-            * The 'strusername' property of type String.
-            */
             String strusername = username.getText().substring(0, 9);
             username.setText(strusername);
             userlabel.setText("Too Long");
@@ -862,9 +850,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
             /**
             * The 'strusername' property of type String.
             */
-            /**
-            * The 'strusername' property of type String.
-            */
             String strusername = username.getText().substring(0, 10);
             username.setText(strusername);
             userlabel.setText("Too Long");
@@ -880,48 +865,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
 
                     //unrotates the boat because it overlaps something when rotated
@@ -930,48 +873,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     }
                 }else{
                     gamepanel.blnRot2 = false;
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
@@ -993,48 +894,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3a);
 
                     //unrotates the boat because it overlaps something when rotated
@@ -1043,48 +902,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     }
                 }else{
                     gamepanel.blnRot3a = false;
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
@@ -1106,48 +923,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
 
                     //unrotates the boat because it overlaps something when rotated
@@ -1156,48 +931,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     }
                 }else{
                     gamepanel.blnRot3b = false;
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
@@ -1219,48 +952,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
 
                     //unrotates the boat because it overlaps something when rotated
@@ -1269,48 +960,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     }
                 }else{
                     gamepanel.blnRot4 = false;
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
@@ -1332,48 +981,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 5, gamepanel.blnRot5);
 
                     //unrotates the boat because it overlaps something when rotated
@@ -1382,48 +989,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
                     }
                 }else{
                     gamepanel.blnRot5 = false;
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
-                    /**
-                    * The 'blnOverlap' property of type boolean.
-                    */
                     /**
                     * The 'blnOverlap' property of type boolean.
                     */
@@ -1554,48 +1119,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
             /**
             * The 'blnOverlap' property of type boolean.
             */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
             boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 2, gamepanel.blnRot2);
             if(blnOverlap == true){
                 //boat will overlap something else. no redrawing
@@ -1626,48 +1149,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
         }
         if(gamepanel.blnMove3a == true){
             //boat 3a is being moved
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
             /**
             * The 'blnOverlap' property of type boolean.
             */
@@ -1704,48 +1185,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
             /**
             * The 'blnOverlap' property of type boolean.
             */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
             boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 3, gamepanel.blnRot3b);
             if(blnOverlap == true){
                 //boat will overlap something else. no redrawing
@@ -1779,48 +1218,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
             /**
             * The 'blnOverlap' property of type boolean.
             */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
             boolean blnOverlap = controller.checkOverlap(gamepanel.strMap, gamepanel.intMousex, gamepanel.intMousey, 4, gamepanel.blnRot4);
             if(blnOverlap == true){
                 //boat will overlap something else. no redrawing
@@ -1851,48 +1248,6 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
         }
         if(gamepanel.blnMove5 == true){
             //boat 5 is being moved
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
-            /**
-            * The 'blnOverlap' property of type boolean.
-            */
             /**
             * The 'blnOverlap' property of type boolean.
             */
