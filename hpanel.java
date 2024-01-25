@@ -9,25 +9,31 @@ public class hpanel extends JPanel{
 	//Properties
 	
 	//Theme panel images
+	/**Images for the tiles and the dot indicators*/
 	BufferedImage imgtile = null;
 	BufferedImage imghit = null;
 	BufferedImage imgmiss = null;
 	
+	/**Images for the boats*/
 	BufferedImage img2boata = null;
 	BufferedImage img2boatb = null;
 	BufferedImage img3boat = null;
 	BufferedImage img4boat = null;
 	BufferedImage img5boat = null;
 	
+	/**Images for the help screen*/
 	BufferedImage imghelp3 = null;
 	BufferedImage imghelp2 = null;
 	BufferedImage imghelp1 = null;
 	
 	//Variables	
+	/**Varible to determine which screen*/
 	int intPanel;
+	/**Mouse variables*/
 	int intMousex;
 	int intMousey;
 	
+	/**Variables for movement of boat*/
 	int int2px1 = 32;
 	int int2py1 = 135;
 	int int2px2 = 122;
@@ -37,6 +43,11 @@ public class hpanel extends JPanel{
 	boolean blnRot2 = false;
 	
 	//Methods
+	/**
+	 * Override how the JComponent is painted
+	 * Help screens to let players demo specific parts of the game with instructions
+	 * @param g
+	*/
 	public void paintComponent(Graphics g){
 		//Properties
 		//Array
@@ -122,6 +133,7 @@ public class hpanel extends JPanel{
 	}
 	
 	//constructor
+	/** Contructor for hpanel*/
 	public hpanel(){
 		
 		InputStream imageclass = null;

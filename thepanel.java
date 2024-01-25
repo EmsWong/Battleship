@@ -9,11 +9,17 @@ public class thepanel extends JPanel{
 	//Properties
 	
 	//Theme panel images
+	/**Images for the themes screen*/
 	BufferedImage imgboat = null;
 	BufferedImage imgcar = null;
 	BufferedImage imgrocket = null;
 	
 	//Methods
+	/**
+	 * Override how the JComponent is painted
+	 * Draws the three images on the themes screen
+	 * @param g
+	*/
 	public void paintComponent(Graphics g){
 		g.drawImage(imgboat, 281, 154, null);
 		g.drawImage(imgcar, 271, 344, null);
@@ -22,6 +28,7 @@ public class thepanel extends JPanel{
 	}
 	
 	//constructor
+	/**Constructor for thepanel*/
 	public thepanel(){
 		InputStream imageclass = null;
 		
