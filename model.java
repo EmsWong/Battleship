@@ -341,6 +341,16 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
     */
     boolean blnWinCheck = false;
 
+	/**
+    * The 'collabel' property of type JLabel.
+    */
+    JLabel collabel = new JLabel("A");
+
+	/**
+    * The 'rowlabel' property of type JLabel.
+    */
+    JLabel rowlabel = new JLabel("1");
+
     public void actionPerformed(ActionEvent evt){
         //clicking play button on home screen
         if(evt.getSource() == playbutton){
@@ -1376,6 +1386,14 @@ public class model implements ActionListener, KeyListener, MouseListener, MouseM
         collist.addActionListener(this);
         collist.setEnabled(false);
         gamepanel.add(collist);
+
+		collabel.setSize(20,20);
+		collabel.setLocation(12, 135);
+		gamepanel.add(collabel);
+
+		rowlabel.setSize(20, 20);
+		rowlabel.setLocation(42, 115);
+		gamepanel.add(rowlabel);
 
         //Username labels
         user1label.setFont(text);
