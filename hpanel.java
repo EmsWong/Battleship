@@ -21,6 +21,7 @@ public class hpanel extends JPanel{
 	
 	BufferedImage imghelp3 = null;
 	BufferedImage imghelp2 = null;
+	BufferedImage imghelp1 = null;
 	
 	//Variables	
 	int intPanel;
@@ -87,7 +88,7 @@ public class hpanel extends JPanel{
 				g.drawImage(img2boatb, int2px1, int2py1, null);
 			}
 			System.out.println(intMousex+" "+intMousey);
-			
+			g.drawImage(imghelp1,0,0,null);
 		}else if(intPanel ==2){
 			g.drawImage(imghelp2,0,0,null);
 			
@@ -254,24 +255,24 @@ public class hpanel extends JPanel{
 				System.out.println("Unable to load images");
 			}
 		}
-		/*
+		
 		//Help Image 1
-		imageclass = this.getClass().getResourceAsStream("help2.png");
+		imageclass = this.getClass().getResourceAsStream("Resources/help1.png");
 		if(imageclass != null){
 			try{
-				imghelp2 = ImageIO.read(imageclass);
+				imghelp1 = ImageIO.read(imageclass);
 			}catch(IOException e){
 				System.out.println("Unable to load image from jar");
 			}
 		}
-		if(imghelp2 == null){
+		if(imghelp1 == null){
 			try{
-				imghelp2 = ImageIO.read(new File("help2.png"));
+				imghelp1 = ImageIO.read(new File("Resources/help1.png"));
 			}catch(IOException e){
 				System.out.println("Unable to load images");
 			}
 		}
-		*/
+		
 		//Help Image 2
 		imageclass = this.getClass().getResourceAsStream("Resources/help2.png");
 		if(imageclass != null){
